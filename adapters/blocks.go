@@ -2,38 +2,17 @@ package adapters
 
 import (
 	"context"
-	"errors"
-	"math/big"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-// ProcessBlockType is a function type that processes blocks for a given chain ID.
-type ProcessBlockType func(ctx context.Context, chainID *big.Int, block *types.Block) error
+var (
+	ZeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
+)
 
-// ProcessFunc is an implementation of ProcessFuncType that processes blocks.
-func ProcessBlockFunc(ctx context.Context, chainID *big.Int, block *types.Block) error {
-	if ctx == nil {
-		return errors.New("context is nil")
-	}
-	if chainID == nil {
-		return errors.New("chainID is nil")
-	}
-	if block == nil {
-		return errors.New("block is nil")
-	}
-
-	// Process the block. This is a placeholder for actual processing logic.
-	processBlock(ctx, chainID, block)
-
-	return nil
-}
-
-func processBlock(ctx context.Context, chainID *big.Int, block *types.Block) {
-	// Add your block processing logic here.
-	// This is just a placeholder for demonstration purposes.
-	// txs := block.Transactions()
-	// for _, _ := range txs {
-
-	// }
+// BlockProcessor is an interface that defines the methods for processing blocks.
+type BlockProcessor interface {
+	ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) (*[]common.Address, error)
 }
