@@ -14,16 +14,21 @@ import (
 var _ adapters.TransferLogsIndexer = (*DotTaikoIndexer)(nil)
 
 var (
-	logMintDomainSigHash     = crypto.Keccak256Hash([]byte("MintedDomain(string,uint256,address,uint256)"))
+	logMintedDomainSigHash   = crypto.Keccak256Hash([]byte("MintedDomain(string,uint256,address,uint256)"))
 	logNameRegisteredSigHash = crypto.Keccak256Hash([]byte("NameRegistered(uint256,string,bytes32,address,uint256,uint256)"))
+	logProfileCreatedSigHash = crypto.Keccak256Hash([]byte("ProfileCreated(uint256,address,address,string,string,address,bytes,string,uint256)"))
 )
 
 type DotTaikoIndexer struct {
 	Addresses []common.Address
 }
 
-func NewDotTaikoIndexer(addresses []common.Address) *DotTaikoIndexer {
-	return &DotTaikoIndexer{Addresses: addresses}
+func NewDotTaikoIndexer() *DotTaikoIndexer {
+	return &DotTaikoIndexer{Addresses: []common.Address{
+		common.HexToAddress("0xD7b837A0E388B4c25200983bdAa3EF3A83ca86b7"),
+		common.HexToAddress("0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"),
+		common.HexToAddress("0x01412AAba531Cc6ef630CE5059120999f824CDAF"),
+	}}
 }
 
 func (indexer *DotTaikoIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
@@ -42,7 +47,7 @@ func (indexer *DotTaikoIndexer) IndexLogs(ctx context.Context, chainID *big.Int,
 }
 
 func (indexer *DotTaikoIndexer) isRelevantLog(topic common.Hash) bool {
-	return topic.Hex() == logNameRegisteredSigHash.Hex() || topic.Hex() == logMintDomainSigHash.Hex()
+	return topic.Hex() == logNameRegisteredSigHash.Hex() || topic.Hex() == logMintedDomainSigHash.Hex() || topic.Hex() == logProfileCreatedSigHash.Hex()
 }
 
 func (indexer *DotTaikoIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {

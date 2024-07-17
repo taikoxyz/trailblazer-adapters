@@ -26,8 +26,8 @@ type TransferIndexer struct {
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
-func NewTransferIndexer(addresses []common.Address) *TransferIndexer {
-	return &TransferIndexer{Addresses: addresses}
+func NewTransferIndexer() *TransferIndexer {
+	return &TransferIndexer{Addresses: nil}
 }
 
 // IndexLogs processes logs for ERC20 transfers.
