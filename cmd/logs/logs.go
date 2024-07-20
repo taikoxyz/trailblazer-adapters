@@ -17,7 +17,7 @@ func main() {
 		log.Fatalf("Failed to connect to the Ethereum client: %v", err)
 	}
 
-	processor := logs.NewTransferIndexer(nil)
+	processor := logs.NewDotTaikoIndexer()
 
 	chainID, err := client.ChainID(context.Background())
 	if err != nil {
@@ -25,8 +25,8 @@ func main() {
 	}
 	query := ethereum.FilterQuery{
 		Addresses: processor.Addresses,
-		FromBlock: big.NewInt(int64(1000)),
-		ToBlock:   big.NewInt(int64(1001)),
+		FromBlock: big.NewInt(int64(178747)),
+		ToBlock:   big.NewInt(int64(179017)),
 	}
 	logs, err := client.FilterLogs(context.Background(), query)
 	if err != nil {
