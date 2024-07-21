@@ -59,7 +59,8 @@ func (indexer *DotTaikoIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	}
 
 	return &adapters.TransferData{
-		To:   ownerHex,
-		Time: block.Time(),
+		To:          ownerHex,
+		Time:        block.Time(),
+		BlockNumber: block.Number().Uint64(),
 	}, nil
 }

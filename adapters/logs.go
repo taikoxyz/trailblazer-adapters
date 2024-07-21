@@ -17,8 +17,9 @@ type TransferLogsIndexer interface {
 
 // TransferData represents an event with specific fields.
 type TransferData struct {
-	From  common.Address
-	To    common.Address
-	Value *big.Int
-	Time  uint64
+	From        common.Address
+	To          common.Address
+	Value       *big.Int
+	Time        uint64
+	BlockNumber uint64
 }
