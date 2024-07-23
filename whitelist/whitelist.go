@@ -227,7 +227,8 @@ var (
     "name": "0xAstra",
     "slug": "0xastra",
     "contracts": [
-      "0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d"
+      "0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d",
+      "0x34723B92aE9708BA33843120A86035D049dA7dfA"
     ]
   },
   {
@@ -330,6 +331,24 @@ var (
     "slug": "minibridge",
     "contracts": [
       "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
+    ]
+  },
+  {
+    "name": "Izumi Finance",
+    "slug": "izumi-iziswap",
+    "contracts": [
+      "0x8c7d3063579BdB0b90997e18A770eaE32E1eBb08",
+      "0x4d4673745AAC664eFB9758fdd571F40d78a87bfe",
+      "0x32D02Fc7722E81F6Ac60B87ea8B4b63a52Ad2b55",
+      "0xF4efDB5A1E852f78e807fAE7100B1d38351e38c7",
+      "0xe96526e92ee57bBD468DA1721987aa988b008768",
+      "0xbD6abA1Ef82A4cD6e15CB05e95f433ef48dfb5df",
+      "0x2C6Df0fDbCE9D2Ded2B52A117126F2Dc991f770f",
+      "0x14323AfbC2b82fE58F0D9c203830EE969B4d1bE2",
+      "0x04830cfCED9772b8ACbAF76Cfc7A630Ad82c9148",
+      "0x33531bDBFE34fa6Fd5963D0423f7699775AacaaF",
+      "0x34bc1b87f60e0a30c0e24FD7Abada70436c71406",
+      "0x7a524c7e82874226F0b51aade60A1BE4D430Cf0F"
     ]
   }
 ]`
