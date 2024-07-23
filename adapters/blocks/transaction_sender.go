@@ -11,12 +11,11 @@ import (
 
 var _ adapters.BlockProcessor = (*TransactionSender)(nil)
 
-// TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
 type TransactionSender struct {
 	ValidRecipient map[string]struct{}
 }
 
-// NewTransferIndexer creates a new TransferIndexer.
+// NewTransactionSender creates a new NewTransactionSender.
 func NewTransactionSender() *TransactionSender {
 	return &TransactionSender{ValidRecipient: map[string]struct{}{
 		common.HexToAddress("0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5").Hex(): {},
