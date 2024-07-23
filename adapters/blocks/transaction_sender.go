@@ -17,8 +17,10 @@ type TransactionSender struct {
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
-func NewTransactionSender(addresses map[string]struct{}) *TransactionSender {
-	return &TransactionSender{ValidRecipient: addresses}
+func NewTransactionSender() *TransactionSender {
+	return &TransactionSender{ValidRecipient: map[string]struct{}{
+		common.HexToAddress("0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5").Hex(): {},
+	}}
 }
 
 func (indexer *TransactionSender) ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) (*[]common.Address, error) {
