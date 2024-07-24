@@ -76,11 +76,11 @@ func (indexer *OrderFulfilledIndexer) isRelevantLog(topic common.Hash) bool {
 func (indexer *OrderFulfilledIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
 	var orderFulfilledEvent OrderFulfilledEvent
 
-	erc20ABI, err := abi.JSON(strings.NewReader(order.ABI))
+	orderFulfilledABI, err := abi.JSON(strings.NewReader(order.ABI))
 	if err != nil {
 		return nil, err
 	}
-	err = erc20ABI.UnpackIntoInterface(&orderFulfilledEvent, "OrderFulfilled", vLog.Data)
+	err = orderFulfilledABI.UnpackIntoInterface(&orderFulfilledEvent, "OrderFulfilled", vLog.Data)
 	if err != nil {
 		return nil, err
 	}

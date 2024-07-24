@@ -32,7 +32,7 @@ func init() {
 }
 
 func promptUser() {
-	var adapterOptions = []string{"NewTransactionSender", "DotTaikoIndexer", "OrderFulfilledIndexer"}
+	var adapterOptions = []string{"NewTransactionSender", "DotTaikoIndexer", "OrderFulfilledIndexer", "NewSaleIndexer"}
 	var qs = []*survey.Question{
 		{
 			Name: "adapter",
@@ -76,6 +76,8 @@ func executeCommand() {
 		processOrderFulfilledIndexer(client)
 	case "DotTaikoIndexer":
 		processDotTaikoIndexer(client)
+	case "NewSaleIndexer":
+		processNewSaleIndexer(client)
 	default:
 		log.Fatalf("Adapter %s is not supported", adapter)
 	}
