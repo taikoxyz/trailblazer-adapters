@@ -1,8 +1,8 @@
 package order
 
-var (
-	ABI = `
-	[
+// ABI holds the ABI for the OrderFulfilled event.
+var ABI = `
+[
   {
     "anonymous": false,
     "inputs": [
@@ -95,5 +95,5 @@ var (
     "name": "OrderFulfilled",
     "type": "event"
   }
-]`
-)
+]
+`
