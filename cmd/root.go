@@ -1,17 +1,12 @@
 package cmd
 
 import (
-	"context"
 	"fmt"
 	"log"
-	"math/big"
 
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/spf13/cobra"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/blocks"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/logs"
 )
 
 var adapter string
@@ -37,7 +32,7 @@ func init() {
 }
 
 func promptUser() {
-	var adapterOptions = []string{"NewTransactionSender", "DotTaikoIndexer"}
+	var adapterOptions = []string{"NewTransactionSender", "DotTaikoIndexer", "OrderFulfilledIndexer", "NewSaleIndexer"}
 	var qs = []*survey.Question{
 		{
 			Name: "adapter",
@@ -76,43 +71,13 @@ func executeCommand() {
 
 	switch adapter {
 	case "NewTransactionSender":
-		processor := blocks.NewTransactionSender()
-		blockNumberBig := big.NewInt(blockNumber)
-		block, err := client.BlockByNumber(context.Background(), blockNumberBig)
-		if err != nil {
-			log.Fatalf("Failed to fetch the block: %v", err)
-		}
-
-		senders, err := processor.ProcessBlock(context.Background(), block, client)
-		if err != nil {
-			log.Fatalf("Failed to process the block: %v", err)
-		}
-
-		fmt.Printf("Senders: %v\n", senders)
-
+		processNewTransactionSender(client, blockNumber)
+	case "OrderFulfilledIndexer":
+		processOrderFulfilledIndexer(client, blockNumber)
 	case "DotTaikoIndexer":
-		processor := logs.NewDotTaikoIndexer()
-
-		chainID, err := client.ChainID(context.Background())
-		if err != nil {
-			log.Fatalf("Failed to fetch the chain ID: %v", err)
-		}
-		query := ethereum.FilterQuery{
-			Addresses: processor.Addresses,
-			FromBlock: big.NewInt(blockNumber),
-			ToBlock:   big.NewInt(blockNumber),
-		}
-		logs, err := client.FilterLogs(context.Background(), query)
-		if err != nil {
-			log.Fatalf("Failed to fetch the logs: %v", err)
-		}
-		senders, err := processor.IndexLogs(context.Background(), chainID, client, logs)
-		if err != nil {
-			log.Fatalf("Failed to process the logs: %v", err)
-		}
-
-		fmt.Printf("Senders: %v\n", senders)
-
+		processDotTaikoIndexer(client, blockNumber)
+	case "NewSaleIndexer":
+		processNewSaleIndexer(client, blockNumber)
 	default:
 		log.Fatalf("Adapter %s is not supported", adapter)
 	}

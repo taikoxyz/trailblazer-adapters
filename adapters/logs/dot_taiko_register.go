@@ -11,8 +11,6 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 )
 
-var _ adapters.TransferLogsIndexer = (*DotTaikoIndexer)(nil)
-
 var (
 	logMintedDomainSigHash   = crypto.Keccak256Hash([]byte("MintedDomain(string,uint256,address,uint256)"))
 	logNameRegisteredSigHash = crypto.Keccak256Hash([]byte("NameRegistered(uint256,string,bytes32,address,uint256,uint256)"))
@@ -20,15 +18,19 @@ var (
 )
 
 type DotTaikoIndexer struct {
-	Addresses []common.Address
+	TargetAddresses []common.Address
 }
 
 func NewDotTaikoIndexer() *DotTaikoIndexer {
-	return &DotTaikoIndexer{Addresses: []common.Address{
+	return &DotTaikoIndexer{TargetAddresses: []common.Address{
 		common.HexToAddress("0xD7b837A0E388B4c25200983bdAa3EF3A83ca86b7"),
 		common.HexToAddress("0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"),
 		common.HexToAddress("0x01412AAba531Cc6ef630CE5059120999f824CDAF"),
 	}}
+}
+
+func (indexer *DotTaikoIndexer) Addresses() []common.Address {
+	return indexer.TargetAddresses
 }
 
 func (indexer *DotTaikoIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
