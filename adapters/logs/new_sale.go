@@ -14,14 +14,12 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/sale"
 )
 
-var _ adapters.TransferLogsIndexer = (*NewSaleIndexer)(nil)
-
 var (
 	logNewSaleSigHash = crypto.Keccak256Hash([]byte("NewSale(address,uint256,address,uint256,address,uint256,uint256)"))
 )
 
 type NewSaleIndexer struct {
-	Addresses []common.Address
+	TargetAddresses []common.Address
 }
 
 // NewSaleEvent represents the NewSale event structure
@@ -36,9 +34,13 @@ type NewSaleEvent struct {
 }
 
 func NewNewSaleIndexer() *NewSaleIndexer {
-	return &NewSaleIndexer{Addresses: []common.Address{
+	return &NewSaleIndexer{TargetAddresses: []common.Address{
 		common.HexToAddress("0x8733764434c3a3C2b2Fa3A5033CA49FDdDF976C0"),
 	}}
+}
+
+func (indexer *NewSaleIndexer) Addresses() []common.Address {
+	return indexer.TargetAddresses
 }
 
 func (indexer *NewSaleIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {

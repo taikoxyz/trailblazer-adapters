@@ -10,7 +10,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/blocks"
 )
 
-func processNewTransactionSender(client *ethclient.Client) {
+func processNewTransactionSender(client *ethclient.Client, blockNumber int64) {
 	processor := blocks.NewTransactionSender()
 	blockNumberBig := big.NewInt(blockNumber)
 	block, err := client.BlockByNumber(context.Background(), blockNumberBig)

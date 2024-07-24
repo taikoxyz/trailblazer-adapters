@@ -14,20 +14,22 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/erc20"
 )
 
-var _ adapters.TransferLogsIndexer = (*TransferIndexer)(nil)
-
 var (
 	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
 )
 
 // TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
 type TransferIndexer struct {
-	Addresses []common.Address
+	TargetAddresses []common.Address
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
 func NewTransferIndexer() *TransferIndexer {
-	return &TransferIndexer{Addresses: nil}
+	return &TransferIndexer{TargetAddresses: nil}
+}
+
+func (indexer *TransferIndexer) Addresses() []common.Address {
+	return indexer.TargetAddresses
 }
 
 // IndexLogs processes logs for ERC20 transfers.

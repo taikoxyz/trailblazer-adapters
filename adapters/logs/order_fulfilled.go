@@ -14,14 +14,12 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/order"
 )
 
-var _ adapters.TransferLogsIndexer = (*OrderFulfilledIndexer)(nil)
-
 var (
 	logOrderFulfilledSigHash = crypto.Keccak256Hash([]byte("OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])"))
 )
 
 type OrderFulfilledIndexer struct {
-	Addresses []common.Address
+	TargetAddresses []common.Address
 }
 
 type SpentItem struct {
@@ -49,9 +47,13 @@ type OrderFulfilledEvent struct {
 }
 
 func NewOrderFulfilledIndexer() *OrderFulfilledIndexer {
-	return &OrderFulfilledIndexer{Addresses: []common.Address{
+	return &OrderFulfilledIndexer{TargetAddresses: []common.Address{
 		common.HexToAddress("0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"),
 	}}
+}
+
+func (indexer *OrderFulfilledIndexer) Addresses() []common.Address {
+	return indexer.TargetAddresses
 }
 
 func (indexer *OrderFulfilledIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {

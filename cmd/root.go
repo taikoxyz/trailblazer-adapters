@@ -71,13 +71,13 @@ func executeCommand() {
 
 	switch adapter {
 	case "NewTransactionSender":
-		processNewTransactionSender(client)
+		processNewTransactionSender(client, blockNumber)
 	case "OrderFulfilledIndexer":
-		processOrderFulfilledIndexer(client)
+		processOrderFulfilledIndexer(client, blockNumber)
 	case "DotTaikoIndexer":
-		processDotTaikoIndexer(client)
+		processDotTaikoIndexer(client, blockNumber)
 	case "NewSaleIndexer":
-		processNewSaleIndexer(client)
+		processNewSaleIndexer(client, blockNumber)
 	default:
 		log.Fatalf("Adapter %s is not supported", adapter)
 	}

@@ -11,6 +11,7 @@ import (
 
 // TransferLogsIndexer is an interface that defines the methods for indexing and processing transfer logs.
 type TransferLogsIndexer interface {
+	Addresses() []common.Address
 	IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]TransferData, error)
 	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*TransferData, error)
 }
