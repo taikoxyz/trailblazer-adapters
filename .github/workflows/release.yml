@@ -21,4 +21,4 @@ jobs:
       - name: Run go-semantic-release
         uses: go-semantic-release/action@v1.23.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
