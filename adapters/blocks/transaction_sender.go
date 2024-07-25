@@ -6,6 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/taikoxyz/trailblazer-adapters/adapters"
 )
 
 type TransactionSender struct {
@@ -19,9 +20,9 @@ func NewTransactionSender() *TransactionSender {
 	}}
 }
 
-func (indexer *TransactionSender) ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) (*[]common.Address, error) {
+func (indexer *TransactionSender) ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) ([]adapters.Whitelist, error) {
 	txs := block.Transactions()
-	var result []common.Address
+	var result []adapters.Whitelist
 
 	for _, tx := range txs {
 		receipt, err := client.TransactionReceipt(ctx, tx.Hash())
@@ -37,8 +38,12 @@ func (indexer *TransactionSender) ProcessBlock(ctx context.Context, block *types
 			continue
 		}
 		if _, exists := indexer.ValidRecipient[to.Hex()]; exists {
-			result = append(result, sender)
+			result = append(result, adapters.Whitelist{
+				User:        sender,
+				BlockNumber: block.Number().Uint64(),
+				Time:        block.Time(),
+			})
 		}
 	}
-	return &result, nil
+	return result, nil
 }

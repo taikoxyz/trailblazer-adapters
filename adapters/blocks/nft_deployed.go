@@ -10,6 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/erc165"
 )
 
@@ -60,9 +61,9 @@ func supportsInterface(contractAddress common.Address, client *ethclient.Client,
 	return supports, nil
 }
 
-func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) ([]common.Address, error) {
+func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) ([]adapters.Whitelist, error) {
 	txs := block.Transactions()
-	var result []common.Address
+	var result []adapters.Whitelist
 
 	for _, tx := range txs {
 		receipt, err := client.TransactionReceipt(ctx, tx.Hash())
@@ -86,7 +87,11 @@ func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *type
 		}
 
 		if isErc721 {
-			result = append(result, sender)
+			result = append(result, adapters.Whitelist{
+				User:        sender,
+				BlockNumber: block.Number().Uint64(),
+				Time:        block.Time(),
+			})
 		}
 
 		isErc1155, err := supportsInterface(receipt.ContractAddress, client, ERC1155InterfaceID)
@@ -95,7 +100,11 @@ func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *type
 		}
 
 		if isErc1155 {
-			result = append(result, sender)
+			result = append(result, adapters.Whitelist{
+				User:        sender,
+				BlockNumber: block.Number().Uint64(),
+				Time:        block.Time(),
+			})
 		}
 	}
 

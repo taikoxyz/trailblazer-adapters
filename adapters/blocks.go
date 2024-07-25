@@ -14,5 +14,11 @@ var (
 
 // BlockProcessor is an interface that defines the methods for processing blocks.
 type BlockProcessor interface {
-	ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) (*[]common.Address, error)
+	ProcessBlock(ctx context.Context, block *types.Block, client *ethclient.Client) ([]Whitelist, error)
+}
+
+type Whitelist struct {
+	User        common.Address
+	Time        uint64
+	BlockNumber uint64
 }
