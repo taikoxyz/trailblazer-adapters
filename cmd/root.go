@@ -32,7 +32,7 @@ func init() {
 }
 
 func promptUser() {
-	var adapterOptions = []string{"NewTransactionSender", "DotTaikoIndexer", "OrderFulfilledIndexer", "NewSaleIndexer"}
+	var adapterOptions = []string{"NewTransactionSender", "NftDeployed", "DotTaikoIndexer", "OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed", "CollectionCreated"}
 	var qs = []*survey.Question{
 		{
 			Name: "adapter",
@@ -72,12 +72,18 @@ func executeCommand() {
 	switch adapter {
 	case "NewTransactionSender":
 		processNewTransactionSender(client, blockNumber)
+	case "NftDeployed":
+		processNewNftDeployed(client, blockNumber)
 	case "OrderFulfilledIndexer":
 		processOrderFulfilledIndexer(client, blockNumber)
 	case "DotTaikoIndexer":
 		processDotTaikoIndexer(client, blockNumber)
 	case "NewSaleIndexer":
 		processNewSaleIndexer(client, blockNumber)
+	case "ContractDeployed":
+		processContractDeployedIndexer(client, blockNumber)
+	case "CollectionCreated":
+		processCollectionCreatedIndexer(client, blockNumber)
 	default:
 		log.Fatalf("Adapter %s is not supported", adapter)
 	}
