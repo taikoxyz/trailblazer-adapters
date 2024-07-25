@@ -52,7 +52,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.bump_version.outputs.new_tag }}
-          files: |
-            dist/**
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
