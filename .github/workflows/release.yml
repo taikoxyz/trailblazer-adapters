@@ -13,29 +13,45 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
-          node-version: '14'
+          go-version: '1.16' # Adjust to your Go version
 
       - name: Install dependencies
-        run: npm install
+        run: go mod tidy
 
-      - name: Run tests
-        run: npm test
+      - name: Get the current tag
+        id: get_tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          echo "Current tag: $TAG"
+          echo "::set-output name=tag::$TAG"
 
       - name: Bump version and create tag
-        id: tag_version
+        id: bump_version
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git fetch --tags
-          NEW_TAG=$(npm version patch -m "Release %s [skip ci]")
+          # Get the current tag
+          TAG=$(git describe --tags --abbrev=0)
+          # Extract the version number components
+          IFS='.' read -r -a VERSION_PARTS <<< "${TAG#v}"
+          MAJOR=${VERSION_PARTS[0]}
+          MINOR=${VERSION_PARTS[1]}
+          PATCH=${VERSION_PARTS[2]}
+          # Increment the patch version number
+          NEW_TAG="v$MAJOR.$MINOR.$((PATCH + 1))"
+          # Create a new tag
+          git tag $NEW_TAG
           git push origin $NEW_TAG
+          echo "New tag: $NEW_TAG"
+          echo "::set-output name=new_tag::$NEW_TAG"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ steps.bump_version.outputs.new_tag }}
           files: |
             dist/**
         env:
