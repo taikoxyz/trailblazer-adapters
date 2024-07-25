@@ -1,4 +1,4 @@
-name: Release
+name: Release on Push to Main
 
 on:
   push:
@@ -10,15 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Go
-        uses: actions/setup-go@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          go-version: '1.16'
+          node-version: '14'
 
-      - name: Run go-semantic-release
-        uses: go-semantic-release/action@v1.23.0
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump version and create tag
+        id: tag_version
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git fetch --tags
+          NEW_TAG=$(npm version patch -m "Release %s [skip ci]")
+          git push origin $NEW_TAG
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          files: |
+            dist/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
