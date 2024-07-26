@@ -1,4 +1,4 @@
-package logs
+package nfts2me
 
 import (
 	"context"
@@ -6,8 +6,13 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
+)
+
+var (
+	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
 )
 
 type CollectionCreatedIndexer struct {
