@@ -2,34 +2,22 @@
 
 ## Adding a New Protocol Adapter
 
-### 1. Modify `whitelist.go`
+### 1. Add your project under adapters/projects folder
 
-Open `whitelist.go` add the new protocol entry to the whitelist.
+### 2. Write an indexer in the new folder
 
-### 2. Example Protocol Entry
+An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./adapters/projects/okx/order_fulfilled.go)
 
-An example entry format for adding a new protocol is:
+### 3. Test out the adapter by adding it to the cli
 
-- Name: Name of Protocol
-- Slug: name-of-protocol
-- Contracts: 0x0
+An example on how to add a new adapter to the cli is [here](./cmd/README.md)
 
-```json
-{
-    "name": "Name of Protocol",
-    "slug": "name-of-protocol",
-    "contracts": [
-        "0x0"
-    ]
-}
-```
-
-### 3. Create a Pull Request
+### 4. Create a Pull Request
 
 Create a pull request (PR) on GitHub to merge your changes into the main branch. Provide a clear description of the changes and the protocol added.
 
-### 6. Review and Merge
+### 5. Review and Merge
 
-Wait for the PR to be reviewed by the maintainers. Once approved, your changes will be merged, and the new protocol will be added to the whitelist.
+Wait for the PR to be reviewed by the maintainers. Once approved, your changes will be merged, and the protocol info will be added to trailblazers. 
 
 For further details, refer to the official documentation or contact the maintainers for support.
