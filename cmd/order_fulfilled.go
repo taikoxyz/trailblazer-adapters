@@ -5,7 +5,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/logs"
 )
 
-func processOrderFulfilledIndexer(client *ethclient.Client, blockNumber int64) {
+func processOrderFulfilledIndexer(client *ethclient.Client, blockNumber int64) error {
 	processor := logs.NewOrderFulfilledIndexer()
-	processLogIndexer(client, processor, blockNumber)
+	return processLogIndexer(client, processor, blockNumber)
 }

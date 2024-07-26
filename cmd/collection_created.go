@@ -5,7 +5,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/logs"
 )
 
-func processCollectionCreatedIndexer(client *ethclient.Client, blockNumber int64) {
+func processCollectionCreatedIndexer(client *ethclient.Client, blockNumber int64) error {
 	processor := logs.NewCollectionCreatedIndexer()
-	processLogIndexer(client, processor, blockNumber)
+	return processLogIndexer(client, processor, blockNumber)
 }

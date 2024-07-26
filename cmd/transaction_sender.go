@@ -5,12 +5,12 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/blocks"
 )
 
-func processNewTransactionSender(client *ethclient.Client, blockNumber int64) {
+func processNewTransactionSender(client *ethclient.Client, blockNumber int64) error {
 	processor := blocks.NewTransactionSender()
-	processTransactionIndexer(client, processor, blockNumber)
+	return processTransactionIndexer(client, processor, blockNumber)
 }
 
-func processNewNftDeployed(client *ethclient.Client, blockNumber int64) {
+func processNewNftDeployed(client *ethclient.Client, blockNumber int64) error {
 	processor := blocks.NewNftDeployedIndexer()
-	processTransactionIndexer(client, processor, blockNumber)
+	return processTransactionIndexer(client, processor, blockNumber)
 }

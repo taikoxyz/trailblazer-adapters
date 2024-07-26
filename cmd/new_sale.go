@@ -5,7 +5,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/logs"
 )
 
-func processNewSaleIndexer(client *ethclient.Client, blockNumber int64) {
+func processNewSaleIndexer(client *ethclient.Client, blockNumber int64) error {
 	processor := logs.NewNewSaleIndexer()
-	processLogIndexer(client, processor, blockNumber)
+	return processLogIndexer(client, processor, blockNumber)
 }
