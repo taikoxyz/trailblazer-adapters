@@ -1,6 +1,6 @@
 # Trailblazer Adapters
 
-## Adding a New Protocol to the Whitelist
+## Adding a New Protocol Adapter
 
 ### 1. Modify `whitelist.go`
 

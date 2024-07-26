@@ -12,14 +12,6 @@ import (
 var adapter string
 var blockNumber int64
 
-var rootCmd = &cobra.Command{
-	Use:   "trailblazer-adapters",
-	Short: "Trailblazer Adapters CLI",
-	Run: func(cmd *cobra.Command, args []string) {
-		promptUser()
-	},
-}
-
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
@@ -27,12 +19,30 @@ func Execute() {
 	}
 }
 
+var rootCmd = &cobra.Command{
+	Use:   "trailblazer-adapters",
+	Short: "Trailblazer Adapters CLI",
+	Run: func(cmd *cobra.Command, args []string) {
+		if err := promptUser(); err != nil {
+			log.Fatalf("Prompt failed: %v", err)
+		}
+		if err := executeCommand(); err != nil {
+			log.Fatalf("Execution failed: %v", err)
+		}
+	},
+}
+
 func init() {
 	cobra.OnInitialize()
 }
 
-func promptUser() {
-	var adapterOptions = []string{"NewTransactionSender", "NftDeployed", "DotTaikoIndexer", "OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed", "CollectionCreated", "TokenSold"}
+func promptUser() error {
+	var adapterOptions = []string{
+		"NewTransactionSender", "NftDeployed", "DotTaikoIndexer",
+		"OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed",
+		"CollectionCreated", "TokenSold",
+	}
+
 	var qs = []*survey.Question{
 		{
 			Name: "adapter",
@@ -52,41 +62,39 @@ func promptUser() {
 		BlockNumber int64  `survey:"blockNumber"`
 	}{}
 
-	err := survey.Ask(qs, &answers)
-	if err != nil {
-		log.Fatalf("Prompt failed %v", err)
+	if err := survey.Ask(qs, &answers); err != nil {
+		return err
 	}
 
 	adapter = answers.Adapter
 	blockNumber = answers.BlockNumber
-
-	executeCommand()
+	return nil
 }
 
-func executeCommand() {
+func executeCommand() error {
 	client, err := ethclient.Dial("https://rpc.taiko.xyz")
 	if err != nil {
-		log.Fatalf("Failed to connect to the Ethereum client: %v", err)
+		return fmt.Errorf("failed to connect to the Ethereum client: %v", err)
 	}
 
 	switch adapter {
 	case "NewTransactionSender":
-		processNewTransactionSender(client, blockNumber)
+		return processNewTransactionSender(client, blockNumber)
 	case "NftDeployed":
-		processNewNftDeployed(client, blockNumber)
+		return processNewNftDeployed(client, blockNumber)
 	case "OrderFulfilledIndexer":
-		processOrderFulfilledIndexer(client, blockNumber)
+		return processOrderFulfilledIndexer(client, blockNumber)
 	case "DotTaikoIndexer":
-		processDotTaikoIndexer(client, blockNumber)
+		return processDotTaikoIndexer(client, blockNumber)
 	case "NewSaleIndexer":
-		processNewSaleIndexer(client, blockNumber)
+		return processNewSaleIndexer(client, blockNumber)
 	case "ContractDeployed":
-		processContractDeployedIndexer(client, blockNumber)
+		return processContractDeployedIndexer(client, blockNumber)
 	case "CollectionCreated":
-		processCollectionCreatedIndexer(client, blockNumber)
+		return processCollectionCreatedIndexer(client, blockNumber)
 	case "TokenSold":
-		processTokenSoldIndexer(client, blockNumber)
+		return processTokenSoldIndexer(client, blockNumber)
 	default:
-		log.Fatalf("Adapter %s is not supported", adapter)
+		return fmt.Errorf("adapter %s is not supported", adapter)
 	}
 }
