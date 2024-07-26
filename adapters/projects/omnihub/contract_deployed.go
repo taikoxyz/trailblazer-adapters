@@ -29,8 +29,8 @@ func (indexer *ContractDeployedIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *ContractDeployedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *ContractDeployedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !indexer.isRelevantLog(vLog.Topics[0]) {
 			continue
@@ -48,7 +48,7 @@ func (indexer *ContractDeployedIndexer) isRelevantLog(topic common.Hash) bool {
 	return topic.Hex() == logContractDeployedSigHash.Hex()
 }
 
-func (indexer *ContractDeployedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *ContractDeployedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	txn, err := client.TransactionInBlock(ctx, vLog.BlockHash, vLog.TxIndex)
 	if err != nil {
 		return nil, err
@@ -64,8 +64,8 @@ func (indexer *ContractDeployedIndexer) ProcessLog(ctx context.Context, chainID 
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          sender,
+	return &adapters.Whitelist{
+		User:        sender,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil

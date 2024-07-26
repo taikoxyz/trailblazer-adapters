@@ -40,8 +40,8 @@ func (indexer *TokenSoldIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *TokenSoldIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *TokenSoldIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !indexer.isRelevantLog(vLog.Topics[0]) {
 			continue
@@ -59,7 +59,7 @@ func (indexer *TokenSoldIndexer) isRelevantLog(topic common.Hash) bool {
 	return topic.Hex() == logTokenSoldSigHash.Hex()
 }
 
-func (indexer *TokenSoldIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *TokenSoldIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	var tokenSoldEvent TokenSoldEvent
 
 	tokenSoldABI, err := abi.JSON(strings.NewReader(conft.ABI))
@@ -77,8 +77,8 @@ func (indexer *TokenSoldIndexer) ProcessLog(ctx context.Context, chainID *big.In
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          tokenSoldEvent.Buyer,
+	return &adapters.Whitelist{
+		User:        tokenSoldEvent.Buyer,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil

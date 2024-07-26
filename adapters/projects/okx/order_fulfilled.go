@@ -56,8 +56,8 @@ func (indexer *OrderFulfilledIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *OrderFulfilledIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *OrderFulfilledIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !indexer.isRelevantLog(vLog.Topics[0]) {
 			continue
@@ -75,7 +75,7 @@ func (indexer *OrderFulfilledIndexer) isRelevantLog(topic common.Hash) bool {
 	return topic.Hex() == logOrderFulfilledSigHash.Hex()
 }
 
-func (indexer *OrderFulfilledIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *OrderFulfilledIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	var orderFulfilledEvent OrderFulfilledEvent
 
 	orderFulfilledABI, err := abi.JSON(strings.NewReader(order.ABI))
@@ -92,8 +92,8 @@ func (indexer *OrderFulfilledIndexer) ProcessLog(ctx context.Context, chainID *b
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          orderFulfilledEvent.Recipient,
+	return &adapters.Whitelist{
+		User:        orderFulfilledEvent.Recipient,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil

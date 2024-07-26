@@ -28,8 +28,8 @@ func (indexer *CollectionCreatedIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *CollectionCreatedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *CollectionCreatedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !isERC721Transfer(vLog) && !isFromZeroAddress(vLog) {
 			continue
@@ -53,7 +53,7 @@ func isFromZeroAddress(vLog types.Log) bool {
 }
 
 // processLog processes a single ERC20 transfer log.
-func (indexer *CollectionCreatedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *CollectionCreatedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
 
 	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
@@ -61,8 +61,8 @@ func (indexer *CollectionCreatedIndexer) ProcessLog(ctx context.Context, chainID
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          to,
+	return &adapters.Whitelist{
+		User:        to,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil
