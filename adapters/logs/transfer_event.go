@@ -33,8 +33,8 @@ func (indexer *TransferIndexer) Addresses() []common.Address {
 }
 
 // IndexLogs processes logs for ERC20 transfers.
-func (indexer *TransferIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *TransferIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !isERC20Transfer(vLog) {
 			continue
@@ -53,7 +53,7 @@ func isERC20Transfer(vLog types.Log) bool {
 }
 
 // processLog processes a single ERC20 transfer log.
-func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
 	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
 
@@ -75,9 +75,9 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 		return nil, err
 	}
 
-	return &adapters.TransferData{
+	return &adapters.Whitelist{
 		From:  from,
-		To:    to,
+		User:  to,
 		Time:  block.Time(),
 		Value: transferEvent.Value,
 	}, nil

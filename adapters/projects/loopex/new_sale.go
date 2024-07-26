@@ -1,4 +1,4 @@
-package logs
+package loopex
 
 import (
 	"context"
@@ -43,8 +43,8 @@ func (indexer *NewSaleIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *NewSaleIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *NewSaleIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !indexer.isRelevantLog(vLog.Topics[0]) {
 			continue
@@ -62,7 +62,7 @@ func (indexer *NewSaleIndexer) isRelevantLog(topic common.Hash) bool {
 	return topic.Hex() == logNewSaleSigHash.Hex()
 }
 
-func (indexer *NewSaleIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *NewSaleIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	var newSaleEvent NewSaleEvent
 
 	newSaleABI, err := abi.JSON(strings.NewReader(sale.ABI))
@@ -80,8 +80,8 @@ func (indexer *NewSaleIndexer) ProcessLog(ctx context.Context, chainID *big.Int,
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          newSaleEvent.Buyer,
+	return &adapters.Whitelist{
+		User:        newSaleEvent.Buyer,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil

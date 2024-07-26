@@ -1,4 +1,4 @@
-package logs
+package domains
 
 import (
 	"context"
@@ -33,8 +33,8 @@ func (indexer *DotTaikoIndexer) Addresses() []common.Address {
 	return indexer.TargetAddresses
 }
 
-func (indexer *DotTaikoIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.TransferData, error) {
-	var result []adapters.TransferData
+func (indexer *DotTaikoIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
+	var result []adapters.Whitelist
 	for _, vLog := range logs {
 		if !indexer.isRelevantLog(vLog.Topics[0]) {
 			continue
@@ -52,7 +52,7 @@ func (indexer *DotTaikoIndexer) isRelevantLog(topic common.Hash) bool {
 	return topic.Hex() == logNameRegisteredSigHash.Hex() || topic.Hex() == logMintedDomainSigHash.Hex() || topic.Hex() == logProfileCreatedSigHash.Hex()
 }
 
-func (indexer *DotTaikoIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.TransferData, error) {
+func (indexer *DotTaikoIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	ownerHex := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
 
 	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
@@ -60,8 +60,8 @@ func (indexer *DotTaikoIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 		return nil, err
 	}
 
-	return &adapters.TransferData{
-		To:          ownerHex,
+	return &adapters.Whitelist{
+		User:        ownerHex,
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil

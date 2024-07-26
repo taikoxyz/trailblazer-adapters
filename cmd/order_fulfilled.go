@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/logs"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okx"
 )
 
-func processOrderFulfilledIndexer(client *ethclient.Client, blockNumber int64) {
-	processor := logs.NewOrderFulfilledIndexer()
-	processLogIndexer(client, processor, blockNumber)
+func processOrderFulfilledIndexer(client *ethclient.Client, blockNumber int64) error {
+	processor := okx.NewOrderFulfilledIndexer()
+	return processLogIndexer(client, processor, blockNumber)
 }
