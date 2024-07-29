@@ -55,7 +55,6 @@ func isERC20Transfer(vLog types.Log) bool {
 // processLog processes a single ERC20 transfer log.
 func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
 	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
-	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
 
 	var transferEvent struct {
 		Value *big.Int
@@ -76,9 +75,7 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	}
 
 	return &adapters.Whitelist{
-		From:  from,
-		User:  to,
-		Time:  block.Time(),
-		Value: transferEvent.Value,
+		User: to,
+		Time: block.Time(),
 	}, nil
 }
