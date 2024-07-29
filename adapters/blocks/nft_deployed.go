@@ -83,7 +83,7 @@ func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *type
 
 		isErc721, err := supportsInterface(receipt.ContractAddress, client, ERC721InterfaceID)
 		if err != nil {
-			return nil, err
+			continue
 		}
 
 		if isErc721 {
@@ -96,7 +96,7 @@ func (indexer *NftDeployedIndexer) ProcessBlock(ctx context.Context, block *type
 
 		isErc1155, err := supportsInterface(receipt.ContractAddress, client, ERC1155InterfaceID)
 		if err != nil {
-			return nil, err
+			continue
 		}
 
 		if isErc1155 {
