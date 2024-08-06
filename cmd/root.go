@@ -38,7 +38,7 @@ func init() {
 
 func promptUser() error {
 	var adapterOptions = []string{
-		"NewTransactionSender", "NftDeployed", "DotTaikoIndexer",
+		"NewTransactionSender", "NftDeployed", "GamingWhitelist", "DotTaikoIndexer",
 		"OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed",
 		"CollectionCreated", "TokenSold",
 	}
@@ -82,6 +82,8 @@ func executeCommand() error {
 		return processNewTransactionSender(client, blockNumber)
 	case "NftDeployed":
 		return processNewNftDeployed(client, blockNumber)
+	case "GamingWhitelist":
+		return processNewGamingWhitelist(client, blockNumber)
 	case "OrderFulfilledIndexer":
 		return processOrderFulfilledIndexer(client, blockNumber)
 	case "DotTaikoIndexer":
