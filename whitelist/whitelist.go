@@ -357,6 +357,16 @@ var (
       "0x34bc1b87f60e0a30c0e24FD7Abada70436c71406",
       "0x7a524c7e82874226F0b51aade60A1BE4D430Cf0F"
     ]
-  }
+  },
+    {
+    "name": "OpenALCHI",
+    "slug": "open-alchi",
+    "contracts": [
+      "0x1438CA0F200Bb5677fDBC97F5d7aB13A66e741b9",
+      "0x4089931Ef68374c52601f16090E87E1162Bc4cb0",
+      "0x955F065f3ed0CddbbEC8e07A3F588B79D29FAC63",
+      "0xC79f9b5F8FC2E81E44673e28d91D07e015C7b893"
+    ]
+  },
 ]`
 )
