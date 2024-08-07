@@ -50,6 +50,11 @@ var (
 		"EVMWarfare": {
 			common.HexToAddress("0xA9E8e13BA0309486b2F710B8201B534D26633a89"),
 		},
+		"WorldOfDypians": {
+			common.HexToAddress("0x1a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4"),
+			common.HexToAddress("0x2a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f"),
+			common.HexToAddress("0x3a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f"),
+		},
 	}
 )
 

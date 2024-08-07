@@ -357,6 +357,15 @@ var (
       "0x34bc1b87f60e0a30c0e24FD7Abada70436c71406",
       "0x7a524c7e82874226F0b51aade60A1BE4D430Cf0F"
     ]
+  },
+   {
+    "name": "World Of Dypians",
+    "slug": "world-of-dypians",
+    "contracts": [
+      "0xaf33f679be47733bD3aBb5b0b977B6ba3eD8d01E",
+      "0x620655Ee8320bA51cf4cc06bf6a7C14022271764",
+      "0xCb2Eb4ba62346751F36bA652010b553759141AEE",
+    ]
   }
 ]`
 )
