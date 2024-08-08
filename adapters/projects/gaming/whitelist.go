@@ -28,7 +28,7 @@ var (
 			common.HexToAddress("0x1aca21a2a2a070d3536a69733c7044fedeb88f5a"),
 			common.HexToAddress("0xb64C1461453DAdD104A583dCCeef30ce296fde20"),
 			common.HexToAddress("0xD8F7cd7d919c5266777FB83542F956dD30E80187"),
-			common.HexToAddress("0x009C32F03d6eEa4F6DA9DD3f8EC7Dc85824Ae0e6")
+			common.HexToAddress("0x009C32F03d6eEa4F6DA9DD3f8EC7Dc85824Ae0e6"),
 		},
 		"LooperLands": {
 			common.HexToAddress("0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"),
