@@ -358,6 +358,13 @@ var (
       "0x34bc1b87f60e0a30c0e24FD7Abada70436c71406",
       "0x7a524c7e82874226F0b51aade60A1BE4D430Cf0F"
     ]
+  },
+  {
+    "name": "Brigade",
+    "slug": "brigade",
+    "contracts": [
+      "0x8a93AAE6D94680658012B887BfDd981A17661Ef4"
+    ]
   }
 ]`
 )
