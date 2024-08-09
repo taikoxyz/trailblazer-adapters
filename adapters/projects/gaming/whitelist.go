@@ -51,9 +51,9 @@ var (
 			common.HexToAddress("0xA9E8e13BA0309486b2F710B8201B534D26633a89"),
 		},
 		"WorldOfDypians": {
-			common.HexToAddress("0x1a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4"),
-			common.HexToAddress("0x2a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f"),
-			common.HexToAddress("0x3a3b4f3f4f1f4f4f4f4f4f4f4f4f4f4f4f4f4f4f"),
+			common.HexToAddress("0x8E4917c1Ba9598fBbF66934CB17AC28c3b5849Ab"),
+			common.HexToAddress("0x2dEeCF2a05F735890Eb3eA085d55CEc8F1a93895"),
+			common.HexToAddress("0xaf33f679be47733bd3abb5b0b977b6ba3ed8d01e"),
 		},
 	}
 )
