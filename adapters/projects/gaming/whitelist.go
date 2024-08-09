@@ -52,6 +52,9 @@ var (
 		"EVMWarfare": {
 			common.HexToAddress("0xA9E8e13BA0309486b2F710B8201B534D26633a89"),
 		},
+		"Brigade": {
+			common.HexToAddress("0x8a93AAE6D94680658012B887BfDd981A17661Ef4"),
+		},
 	}
 )
 
