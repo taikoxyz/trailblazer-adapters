@@ -11,6 +11,9 @@ import (
 
 var (
 	Addresses = map[string][]common.Address{
+		"bullishs": {
+			common.HexToAddress("0xAd2803cDBfFc8bae61eeC0A1CF849877f0E742Bd"),
+		},
 		"0xAstra": {
 			common.HexToAddress("0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d"),
 			common.HexToAddress("0x34723B92aE9708BA33843120A86035D049dA7dfA"),
