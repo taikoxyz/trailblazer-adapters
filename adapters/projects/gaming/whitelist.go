@@ -55,6 +55,9 @@ var (
 		"Brigade": {
 			common.HexToAddress("0x8a93AAE6D94680658012B887BfDd981A17661Ef4"),
 		},
+		"Robots.Farm": {
+			common.HexToAddress("0xED2cC316E81d574330E60aE9593a8dd34b9a4C41"),
+		},
 	}
 )
 
