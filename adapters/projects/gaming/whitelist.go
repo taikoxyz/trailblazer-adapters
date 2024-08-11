@@ -58,6 +58,11 @@ var (
 		"Robots.Farm": {
 			common.HexToAddress("0xED2cC316E81d574330E60aE9593a8dd34b9a4C41"),
 		},
+		"WorldOfDypians": {
+			common.HexToAddress("0xCb2Eb4ba62346751F36bA652010b553759141AEE"),
+			common.HexToAddress("0xaf33f679be47733bd3abb5b0b977b6ba3ed8d01e"),
+			common.HexToAddress("0x620655Ee8320bA51cf4cc06bf6a7C14022271764"),
+		},
 	}
 )
 
