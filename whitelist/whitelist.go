@@ -365,6 +365,15 @@ var (
     "contracts": [
       "0x8a93AAE6D94680658012B887BfDd981A17661Ef4"
     ]
+  },
+  {
+    "name": "World Of Dypians",
+    "slug": "world-of-dypians",
+    "contracts": [
+      "0xaf33f679be47733bD3aBb5b0b977B6ba3eD8d01E",
+      "0x620655Ee8320bA51cf4cc06bf6a7C14022271764",
+      "0xCb2Eb4ba62346751F36bA652010b553759141AEE"
+    ]
   }
 ]`
 )
