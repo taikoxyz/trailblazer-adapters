@@ -18,10 +18,6 @@ var (
 			common.HexToAddress("0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d"),
 			common.HexToAddress("0x34723B92aE9708BA33843120A86035D049dA7dfA"),
 		},
-		"21Blackjack": {
-			common.HexToAddress("0x8C5720982b54874F53F2514BbD2382ADce98a0ca"),
-			common.HexToAddress("0x78adDA11Bfc437DeC4a39318FF7e52Cf00DC062c"),
-		},
 		"Crack&Stack": {
 			common.HexToAddress("0x7ddB8A975778a434dE03dd666F11Ce962DCdD290"),
 			common.HexToAddress("0x2c301eBfB0bb42Af519377578099b63E921515B7"),
@@ -34,20 +30,12 @@ var (
 			common.HexToAddress("0x009C32F03d6eEa4F6DA9DD3f8EC7Dc85824Ae0e6"),
 		},
 		"LooperLands": {
-            common.HexToAddress("0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"),
-            common.HexToAddress("0x563Be8E43692bDC27525afF630fDaE22D5A83530"),
-            common.HexToAddress("0x6f2D2EFC2773923f0d7De4eac1F845C34A094690"),
-            common.HexToAddress("0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"),
-            common.HexToAddress("0xE8e9B020B72352d55410a147aB49f53ff479A40c"),
-            common.HexToAddress("0x56b0D8d04de22f2539945258ddB288C123026775"),
-		},
-		"StupidMonkeys": {
+			common.HexToAddress("0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"),
+			common.HexToAddress("0x563Be8E43692bDC27525afF630fDaE22D5A83530"),
+			common.HexToAddress("0x6f2D2EFC2773923f0d7De4eac1F845C34A094690"),
 			common.HexToAddress("0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"),
-		},
-		"SwordsAndDungeons": {
-			common.HexToAddress("0xac67aB5D44d5A7DbB55b8D9d1893889B7DaE3a36"),
-			common.HexToAddress("0xc8b15Aa9BD24961E2ee4f3C67aEA4EafcB071108"),
-			common.HexToAddress("0xEF9bF561ccbCBeDA1A71341A2162e5e6fF28c929"),
+			common.HexToAddress("0xE8e9B020B72352d55410a147aB49f53ff479A40c"),
+			common.HexToAddress("0x56b0D8d04de22f2539945258ddB288C123026775"),
 		},
 		"Ultiverse": {
 			common.HexToAddress("0xa30c146A816931f6134dD8676B9dE8E77496954d"),
