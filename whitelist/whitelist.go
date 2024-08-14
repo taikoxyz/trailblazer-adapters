@@ -23,6 +23,23 @@ var (
     ]
   },
   {
+    "name": "Rubic",
+    "slug": "Rubic",
+    "contracts": [
+         "0xAa4472EC72cF4771dfD38467f161F6DF6cA3FB1a",
+	 "0xAf14797CcF963B1e3d028a9d51853acE16aedBA1",
+         "0x3335733c454805df6a77f825f266e136FB4a3333",
+	 "0xf747DA269c7a65d123d4851515927b082e23aBd2",
+         "0xce0f6610fc406f689C854Ac517eA15D0205c11E3",
+	 "0x40785ea9e20B7F93ab0d9DCe73B0775d52901e66",
+         "0xc4A04649E0e2bCC5859F8aAa7c7A79a1a0cC388d",
+         "0xC9fa6Ca19d49ff5a677181369eB8a58688E74924",
+         "0x6535B3E3802941B91405306CDF6c89A45875Fc98",
+         "0xb656E75248Ee97e14Dccb5EC559Da32a5b70c8eF",
+         "0x1C7cc271Ad9DBe625a07C653aE61b757fdFCbe91"
+    ]
+  },
+  {
     "name": "Bunnyfi",
     "slug": "bunnyfi",
     "contracts": [
