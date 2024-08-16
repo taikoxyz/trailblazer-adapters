@@ -15,3 +15,9 @@ type TransferLogsIndexer interface {
 	IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]Whitelist, error)
 	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*Whitelist, error)
 }
+
+type LPLogsIndexer interface {
+	Address() common.Address
+	IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]LPTransfer, error)
+	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*LPTransfer, error)
+}

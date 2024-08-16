@@ -2,6 +2,7 @@ package adapters
 
 import (
 	"context"
+	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
@@ -21,4 +22,17 @@ type Whitelist struct {
 	User        common.Address
 	Time        uint64
 	BlockNumber uint64
+}
+
+type LPTransfer struct {
+	From           common.Address
+	To             common.Address
+	Token0Amount   *big.Int
+	Token0Decimals uint8
+	Token0         common.Address
+	Token1Amount   *big.Int
+	Token1Decimals uint8
+	Token1         common.Address
+	Time           uint64
+	BlockNumber    uint64
 }
