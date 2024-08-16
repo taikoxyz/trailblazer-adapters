@@ -57,88 +57,58 @@ func isERC20Transfer(vLog types.Log) bool {
 }
 
 func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.LPTransfer, error) {
+	// Extract "from" and "to" addresses from the log
 	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
 	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
 
+	// Unpack the transfer event
 	var transferEvent struct {
 		Value *big.Int
 	}
-
-	ritsuABI, err := abi.JSON(strings.NewReader(erc20.Erc20ABI))
-	if err != nil {
+	if err := unpackTransferEvent(vLog, &transferEvent); err != nil {
 		return nil, err
 	}
 
-	err = ritsuABI.UnpackIntoInterface(&transferEvent, "Transfer", vLog.Data)
-	if err != nil {
-		return nil, err
-	}
-
+	// Fetch the block details
 	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
 	if err != nil {
 		return nil, err
 	}
 
+	// Initialize the LP token caller
 	token, err := ritsu.NewRitsuCaller(indexer.token, client)
 	if err != nil {
 		return nil, err
 	}
 
-	reserves, err := token.GetReserves(nil)
+	// Fetch reserve balances and token addresses
+	reserves, token0Address, token1Address, err := fetchReservesAndTokens(token, block.Number())
 	if err != nil {
 		return nil, err
 	}
 
-	token0Address, err := token.Token0(&bind.CallOpts{
-		BlockNumber: block.Number(),
-	})
+	// Calculate user's share of the pool
+	shareOfPool, err := calculateShareOfPool(transferEvent.Value, token, block.Number())
 	if err != nil {
 		return nil, err
 	}
 
-	token1Address, err := token.Token1(&bind.CallOpts{
-		BlockNumber: block.Number(),
-	})
+	// Fetch token details (decimals)
+	_, token0Decimals, err := fetchTokenDetails(token0Address, client)
 	if err != nil {
 		return nil, err
 	}
 
-	token0, err := erc20.NewErc20Caller(token0Address, client)
-	if err != nil {
-		return nil, err
-	}
-
-	token1, err := erc20.NewErc20Caller(token1Address, client)
-	if err != nil {
-		return nil, err
-	}
-
-	totalSupply, err := token.TotalSupply(&bind.CallOpts{
-		BlockNumber: block.Number(),
-	})
-	if err != nil {
-		return nil, err
-	}
-	// Calculate user's share of the pool as a fraction
-	shareOfPool := new(big.Rat).SetFrac(transferEvent.Value, totalSupply)
-
-	token0Decimals, err := token0.Decimals(nil)
-	if err != nil {
-		return nil, err
-	}
-
-	token1Decimals, err := token1.Decimals(nil)
+	_, token1Decimals, err := fetchTokenDetails(token1Address, client)
 	if err != nil {
 		return nil, err
 	}
 
 	// Calculate the user's share of each token in the pool
-	token0Share := new(big.Int).Mul(shareOfPool.Num(), reserves.Reserve0)
-	token0Share.Div(token0Share, shareOfPool.Denom())
+	token0Share := calculateTokenShare(shareOfPool, reserves.Reserve0)
+	token1Share := calculateTokenShare(shareOfPool, reserves.Reserve1)
 
-	token1Share := new(big.Int).Mul(shareOfPool.Num(), reserves.Reserve1)
-	token1Share.Div(token1Share, shareOfPool.Denom())
-
+	// Return the LPTransfer struct with calculated values
 	return &adapters.LPTransfer{
 		From:           from,
 		To:             to,
@@ -151,4 +121,58 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 		Time:           block.Time(),
 		BlockNumber:    block.Number().Uint64(),
 	}, nil
+}
+
+// Helper function to unpack the transfer event from the log
+func unpackTransferEvent(vLog types.Log, transferEvent *struct{ Value *big.Int }) error {
+	ritsuABI, err := abi.JSON(strings.NewReader(erc20.Erc20ABI))
+	if err != nil {
+		return err
+	}
+	return ritsuABI.UnpackIntoInterface(transferEvent, "Transfer", vLog.Data)
+}
+
+// Helper function to fetch reserves and token addresses from the LP contract
+func fetchReservesAndTokens(token *ritsu.RitsuCaller, blockNumber *big.Int) (reserves struct {
+	Reserve0 *big.Int
+	Reserve1 *big.Int
+}, token0Address, token1Address common.Address, err error) {
+	reserves, err = token.GetReserves(nil)
+	if err != nil {
+		return
+	}
+
+	token0Address, err = token.Token0(&bind.CallOpts{BlockNumber: blockNumber})
+	if err != nil {
+		return
+	}
+
+	token1Address, err = token.Token1(&bind.CallOpts{BlockNumber: blockNumber})
+	return
+}
+
+// Helper function to calculate the user's share of the pool
+func calculateShareOfPool(transferValue *big.Int, token *ritsu.RitsuCaller, blockNumber *big.Int) (*big.Rat, error) {
+	totalSupply, err := token.TotalSupply(&bind.CallOpts{BlockNumber: blockNumber})
+	if err != nil {
+		return nil, err
+	}
+	return new(big.Rat).SetFrac(transferValue, totalSupply), nil
+}
+
+// Helper function to fetch token details (caller and decimals)
+func fetchTokenDetails(tokenAddress common.Address, client *ethclient.Client) (token *erc20.Erc20Caller, decimals uint8, err error) {
+	token, err = erc20.NewErc20Caller(tokenAddress, client)
+	if err != nil {
+		return
+	}
+
+	decimals, err = token.Decimals(nil)
+	return
+}
+
+// Helper function to calculate the share of a specific token in the pool
+func calculateTokenShare(shareOfPool *big.Rat, reserve *big.Int) *big.Int {
+	tokenShare := new(big.Int).Mul(shareOfPool.Num(), reserve)
+	return tokenShare.Div(tokenShare, shareOfPool.Denom())
 }
