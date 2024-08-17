@@ -23,13 +23,15 @@ var (
 
 // TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
 type TransferIndexer struct {
-	token common.Address
+	token     common.Address
+	whitelist map[string]struct{}
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
-func NewTransferIndexer(token common.Address) *TransferIndexer {
+func NewTransferIndexer(token common.Address, whitelist map[string]struct{}) *TransferIndexer {
 	return &TransferIndexer{
-		token: token,
+		token:     token,
+		whitelist: whitelist,
 	}
 }
 
@@ -60,6 +62,10 @@ func isERC721Transfer(vLog types.Log) bool {
 func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.LPTransfer, error) {
 	// Extract "from" and "to" addresses from the log
 	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
+	_, exists := indexer.whitelist[to.Hex()]
+	if !exists {
+		return nil, nil
+	}
 	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
 	tokenID := vLog.Topics[3].Big()
 
