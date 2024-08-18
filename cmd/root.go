@@ -38,7 +38,7 @@ func init() {
 
 func promptUser() error {
 	var adapterOptions = []string{
-		"RitsuLP", "NewTransactionSender", "NftDeployed", "GamingWhitelist", "DotTaikoIndexer",
+		"Izumi", "RitsuLP", "NewTransactionSender", "NftDeployed", "GamingWhitelist", "DotTaikoIndexer",
 		"OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed",
 		"CollectionCreated", "TokenSold",
 	}
@@ -80,6 +80,8 @@ func executeCommand() error {
 	switch adapter {
 	case "RitsuLP":
 		return processRitsuLPIndexer(client, blockNumber)
+	case "Izumi":
+		return processIziLPIndexer(client, blockNumber)
 	case "NewTransactionSender":
 		return processNewTransactionSender(client, blockNumber)
 	case "NftDeployed":

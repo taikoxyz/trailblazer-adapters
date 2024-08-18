@@ -1,6 +1,6 @@
 #/bin/sh
 
-names=("erc20", "ritsu")
+names=("erc20", "ritsu", "izumi", "iziPool")
 
 
 for (( i = 0; i < ${#names[@]}; ++i ));
