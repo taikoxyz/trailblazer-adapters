@@ -7,7 +7,6 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 )
@@ -45,7 +44,7 @@ func processLPLogIndexer(client *ethclient.Client, processor adapters.LPLogsInde
 		return err
 	}
 	query := ethereum.FilterQuery{
-		Addresses: []common.Address{processor.Address()},
+		Addresses: processor.Address(),
 		FromBlock: big.NewInt(blockNumber),
 		ToBlock:   big.NewInt(blockNumber),
 	}
