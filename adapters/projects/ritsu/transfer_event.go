@@ -49,7 +49,9 @@ func (indexer *TransferIndexer) IndexLogs(ctx context.Context, chainID *big.Int,
 		if err != nil {
 			return nil, err
 		}
-		result = append(result, *transferData)
+		if transferData != nil {
+			result = append(result, *transferData)
+		}
 	}
 	return result, nil
 }
