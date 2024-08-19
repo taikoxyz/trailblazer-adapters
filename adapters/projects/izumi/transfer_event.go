@@ -19,6 +19,7 @@ import (
 
 var (
 	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
+	logDepositSigHash  = crypto.Keccak256Hash([]byte("Deposit(address,uint256,uint256)"))
 )
 
 // TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
@@ -68,7 +69,16 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	if !exists {
 		return nil, nil
 	}
-	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
+	txReceipt, err := client.TransactionReceipt(ctx, vLog.TxHash)
+	if err != nil {
+		return nil, err
+	}
+	from := adapters.ZeroAddress
+	for _, log := range txReceipt.Logs {
+		if log.Topics[0].Hex() == logDepositSigHash.Hex() {
+			from = common.BytesToAddress(log.Topics[1].Bytes()[12:])
+		}
+	}
 	tokenID := vLog.Topics[3].Big()
 
 	// Fetch the block details
