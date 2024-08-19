@@ -23,20 +23,20 @@ var (
 
 // TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
 type TransferIndexer struct {
-	token     common.Address
+	tokens    []common.Address
 	whitelist map[string]struct{}
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
-func NewTransferIndexer(token common.Address, whitelist map[string]struct{}) *TransferIndexer {
+func NewTransferIndexer(tokens []common.Address, whitelist map[string]struct{}) *TransferIndexer {
 	return &TransferIndexer{
-		token:     token,
+		tokens:    tokens,
 		whitelist: whitelist,
 	}
 }
 
-func (indexer *TransferIndexer) Address() common.Address {
-	return indexer.token
+func (indexer *TransferIndexer) Address() []common.Address {
+	return indexer.tokens
 }
 
 // IndexLogs processes logs for ERC20 transfers.
@@ -78,7 +78,7 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	}
 
 	// Initialize the LiquidityManager contract caller
-	liquidityManager, err := izumi.NewIzumiCaller(indexer.token, client)
+	liquidityManager, err := izumi.NewIzumiCaller(vLog.Address, client)
 	if err != nil {
 		return nil, err
 	}

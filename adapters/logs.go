@@ -17,7 +17,7 @@ type TransferLogsIndexer interface {
 }
 
 type LPLogsIndexer interface {
-	Address() common.Address
+	Address() []common.Address
 	IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]LPTransfer, error)
 	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*LPTransfer, error)
 }

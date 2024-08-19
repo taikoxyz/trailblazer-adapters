@@ -18,24 +18,25 @@ import (
 
 var (
 	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
+	logStakeSigHash    = crypto.Keccak256Hash([]byte("Stake(address,uint256,address)"))
 )
 
 // TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
 type TransferIndexer struct {
-	token     common.Address
+	tokens    []common.Address
 	whitelist map[string]struct{}
 }
 
 // NewTransferIndexer creates a new TransferIndexer.
-func NewTransferIndexer(token common.Address, whitelist map[string]struct{}) *TransferIndexer {
+func NewTransferIndexer(tokens []common.Address, whitelist map[string]struct{}) *TransferIndexer {
 	return &TransferIndexer{
-		token:     token,
+		tokens:    tokens,
 		whitelist: whitelist,
 	}
 }
 
-func (indexer *TransferIndexer) Address() common.Address {
-	return indexer.token
+func (indexer *TransferIndexer) Address() []common.Address {
+	return indexer.tokens
 }
 
 // IndexLogs processes logs for ERC20 transfers.
@@ -67,7 +68,16 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	if !exists {
 		return nil, nil
 	}
-	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
+	txReceipt, err := client.TransactionReceipt(ctx, vLog.TxHash)
+	if err != nil {
+		return nil, err
+	}
+	from := adapters.ZeroAddress
+	for _, log := range txReceipt.Logs {
+		if log.Topics[0].Hex() == logStakeSigHash.Hex() {
+			from = common.BytesToAddress(log.Topics[2].Bytes()[12:])
+		}
+	}
 
 	// Unpack the transfer event
 	var transferEvent struct {
@@ -84,7 +94,7 @@ func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int
 	}
 
 	// Initialize the LP token caller
-	token, err := ritsu.NewRitsuCaller(indexer.token, client)
+	token, err := ritsu.NewRitsuCaller(vLog.Address, client)
 	if err != nil {
 		return nil, err
 	}
