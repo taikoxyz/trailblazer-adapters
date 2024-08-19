@@ -22,7 +22,8 @@ func processRitsuLPIndexer(client *ethclient.Client, blockNumber int64) error {
 
 func processIziLPIndexer(client *ethclient.Client, blockNumber int64) error {
 	whitelist := map[string]struct{}{
-		common.HexToAddress("0x88867BF3bB3321d8c7Da71a8eAb70680037068E4").Hex(): {},
+		common.HexToAddress("0xE2380f4Cc37027B4bF23bBb3b6c092470dB4975f").Hex(): {},
+		common.HexToAddress("0x5264F77F8af8550cDa8e81Fee0360c0De6b52432").Hex(): {},
 	}
 	tokens := []common.Address{
 		common.HexToAddress("0x33531bDBFE34fa6Fd5963D0423f7699775AacaaF"),
