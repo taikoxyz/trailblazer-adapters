@@ -64,6 +64,10 @@ var (
 		},
 		"Brigade": {
 			common.HexToAddress("0x8a93AAE6D94680658012B887BfDd981A17661Ef4"),
+			common.HexToAddress("0x409395BC4b50A9BbD45a943A8B0D6236E0F83540"),
+			common.HexToAddress("0x20F50518188FB3c9F5adff472E056291C4B98ecE"),
+			common.HexToAddress("0x0158A4055428b67e286b2627e91120b49ca1146c"),
+			common.HexToAddress("0x73716C57f87fFd4135453aBCe6cf61Bb0E99C410"),
 		},
 		"Robots.Farm": {
 			common.HexToAddress("0xED2cC316E81d574330E60aE9593a8dd34b9a4C41"),
