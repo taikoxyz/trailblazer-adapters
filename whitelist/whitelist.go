@@ -410,6 +410,14 @@ var (
     ]
   },
   {
+    "name": "OKX NFT Market",
+    "slug": "okx-nft-market",
+    "contracts": [
+      "0xa7FD99748cE527eAdC0bDAc60cba8a4eF4090f7c",
+      "0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"
+    ]
+  },
+  {
     "name": "World Of Dypians",
     "slug": "world-of-dypians",
     "contracts": [
