@@ -442,6 +442,13 @@ var (
       "0x565571650491C471F31eEfF60e382D3022ccB717",
       "0xeE80b4711c316D66bE0A0865838a8A45e71618E7"
     ]
+  },
+  {
+    "name": "REVOX Lense",
+    "slug": "revox-lense",
+    "contracts": [
+      "0x2c80179883217370F777e76c067Eea91D8283C5C"
+    ]
   }
 ]`
 )
