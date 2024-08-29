@@ -255,7 +255,10 @@ var (
     "slug": "0xastra",
     "contracts": [
       "0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d",
-      "0x34723B92aE9708BA33843120A86035D049dA7dfA"
+      "0x34723B92aE9708BA33843120A86035D049dA7dfA",
+      "0x445ab115F67b1EA7Fa4B5956DeB03796D6CB8e13",
+      "0xd0989635D363Bd85ecCE495fe78dF43A9067867D",
+      "0xF3f9c67CDd87De0597d607B5fC206299eB64fffa"
     ]
   },
   {
@@ -411,6 +414,14 @@ var (
     ]
   },
   {
+    "name": "OKX NFT Market",
+    "slug": "okx-nft-market",
+    "contracts": [
+      "0xa7FD99748cE527eAdC0bDAc60cba8a4eF4090f7c",
+      "0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"
+    ]
+  },
+  {
     "name": "World Of Dypians",
     "slug": "world-of-dypians",
     "contracts": [
@@ -431,6 +442,13 @@ var (
       "0x5baDC9630a34aC5Af3BBa448A23C681dAEDA679B",
       "0x565571650491C471F31eEfF60e382D3022ccB717",
       "0xeE80b4711c316D66bE0A0865838a8A45e71618E7"
+    ]
+  },
+  {
+    "name": "REVOX Lense",
+    "slug": "revox-lense",
+    "contracts": [
+      "0x2c80179883217370F777e76c067Eea91D8283C5C"
     ]
   }
 ]`
