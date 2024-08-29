@@ -68,6 +68,7 @@ var (
 			common.HexToAddress("0x20F50518188FB3c9F5adff472E056291C4B98ecE"),
 			common.HexToAddress("0x0158A4055428b67e286b2627e91120b49ca1146c"),
 			common.HexToAddress("0x73716C57f87fFd4135453aBCe6cf61Bb0E99C410"),
+			common.HexToAddress("0x03376f22eF7d08CEE420D07207f85E52638A9fCd"),
 		},
 		"Robots.Farm": {
 			common.HexToAddress("0xED2cC316E81d574330E60aE9593a8dd34b9a4C41"),
