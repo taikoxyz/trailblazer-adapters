@@ -444,6 +444,13 @@ var (
     ]
   },
   {
+    "name": "Bullishs",
+    "slug": "bullishs",
+    "contracts": [
+        "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6"
+    ]
+}
+  {
     "name": "REVOX Lense",
     "slug": "revox-lense",
     "contracts": [
