@@ -165,7 +165,8 @@ var (
     "slug": "ruby-score",
     "contracts": [
       "0xDC3D8318Fbaec2de49281843f5bba22e78338146",
-      "0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB"
+      "0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB",
+      "0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98"
     ]
   },
   {
