@@ -465,6 +465,13 @@ var (
     "contracts": [
       "0x2c80179883217370F777e76c067Eea91D8283C5C"
     ]
+  },
+  {
+    "name": "Swing",
+    "slug": "swing",
+    "contracts": [
+      "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB"
+    ]
   }
 ]`
 )
