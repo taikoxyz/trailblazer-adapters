@@ -98,6 +98,11 @@ var (
 			common.HexToAddress("0x565571650491C471F31eEfF60e382D3022ccB717"),
 			common.HexToAddress("0xeE80b4711c316D66bE0A0865838a8A45e71618E7"),
 		},
+		"XenoBunny": {
+			common.HexToAddress("0x1996E10c64213Fe5E86AC7A7ac03Ec169176E4a7"),
+			common.HexToAddress("0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2"),
+			common.HexToAddress("0x553B1A22fB7c148690BC14014a9FDFc12e8Fdfa4"),
+		},
 	}
 )
 
