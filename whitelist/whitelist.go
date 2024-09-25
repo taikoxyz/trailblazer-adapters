@@ -496,6 +496,24 @@ var (
     "0x8519d96C2d07753B26Ac399B477A396E34c443b2"
   ]
   },
+  {
+    "name": "XenoBunny",
+    "slug": "xeno-bunny",
+    "contracts": [
+      "0x1996E10c64213Fe5E86AC7A7ac03Ec169176E4a7",
+      "0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2",
+      "0x553B1A22fB7c148690BC14014a9FDFc12e8Fdfa4"
+    ]
+  },
+  {
+    "name": "Swing",
+    "slug": "swing",
+    "contracts": [
+      "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB",
+      "0x90f1Ef9D2cDe204C8494Cf73130771B350070B53",
+      "0x97fffFfa57144BBfacF41251bd1763657e646667"
+    ]
+  }
 	{
 		"name": "Symmetric",
 		"slug": "symmetric",
