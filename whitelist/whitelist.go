@@ -495,6 +495,15 @@ var (
     "0x7Dd8a1037Faf2CE342c42ce43DBA9FB14Dd64a18",
     "0x8519d96C2d07753B26Ac399B477A396E34c443b2"
   ]
+  },
+  {
+    "name": "Swing",
+    "slug": "swing",
+    "contracts": [
+      "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB",
+      "0x90f1Ef9D2cDe204C8494Cf73130771B350070B53",
+      "0x97fffFfa57144BBfacF41251bd1763657e646667"
+    ]
   }
 ]`
 )
