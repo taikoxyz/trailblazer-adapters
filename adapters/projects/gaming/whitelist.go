@@ -42,7 +42,6 @@ var (
 			common.HexToAddress("0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"),
 			common.HexToAddress("0x563Be8E43692bDC27525afF630fDaE22D5A83530"),
 			common.HexToAddress("0x6f2D2EFC2773923f0d7De4eac1F845C34A094690"),
-			common.HexToAddress("0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"),
 			common.HexToAddress("0xE8e9B020B72352d55410a147aB49f53ff479A40c"),
 			common.HexToAddress("0x56b0D8d04de22f2539945258ddB288C123026775"),
 		},
