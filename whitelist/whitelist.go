@@ -495,6 +495,13 @@ var (
     "0x7Dd8a1037Faf2CE342c42ce43DBA9FB14Dd64a18",
     "0x8519d96C2d07753B26Ac399B477A396E34c443b2"
   ]
+  },
+  {
+    "name": "Magpie Protocol",
+    "slug": "magpie-protocol",
+    "contracts": [
+      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
+    ]
   }
 ]`
 )
