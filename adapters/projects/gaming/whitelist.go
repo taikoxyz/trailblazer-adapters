@@ -42,7 +42,6 @@ var (
 			common.HexToAddress("0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"),
 			common.HexToAddress("0x563Be8E43692bDC27525afF630fDaE22D5A83530"),
 			common.HexToAddress("0x6f2D2EFC2773923f0d7De4eac1F845C34A094690"),
-			common.HexToAddress("0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"),
 			common.HexToAddress("0xE8e9B020B72352d55410a147aB49f53ff479A40c"),
 			common.HexToAddress("0x56b0D8d04de22f2539945258ddB288C123026775"),
 		},
@@ -97,6 +96,11 @@ var (
 			common.HexToAddress("0x5baDC9630a34aC5Af3BBa448A23C681dAEDA679B"),
 			common.HexToAddress("0x565571650491C471F31eEfF60e382D3022ccB717"),
 			common.HexToAddress("0xeE80b4711c316D66bE0A0865838a8A45e71618E7"),
+		},
+		"XenoBunny": {
+			common.HexToAddress("0x1996E10c64213Fe5E86AC7A7ac03Ec169176E4a7"),
+			common.HexToAddress("0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2"),
+			common.HexToAddress("0x553B1A22fB7c148690BC14014a9FDFc12e8Fdfa4"),
 		},
 	}
 )
