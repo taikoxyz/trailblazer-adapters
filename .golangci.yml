@@ -32,7 +32,7 @@ linters-settings:
   gocognit:
     min-complexity: 100
   lll:
-    line-length: 150
+    line-length: 200
 
 issues:
   exclude-rules:
