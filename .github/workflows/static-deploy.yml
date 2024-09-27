@@ -31,4 +31,4 @@ jobs:
       # Step 4: Sync Folder to GCS Bucket
       - name: Sync Folder to GCS Bucket
         run: |
-          gsutil rsync -r ./static gs://trailblazer-cdn/adapters
+          gsutil rsync -r ./img gs://trailblazer-cdn/adapters
