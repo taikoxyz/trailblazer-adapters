@@ -606,6 +606,22 @@ var (
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
       "0x5cF295a3c53E090Cf230E1D40f413b8e3c225C26"
     ]
-  }
+  },
+  {
+    "name": "TakoTako",
+    "slug": "takotako",
+    "twitter": "@TAKOTAKOxyz",
+    "logo": "takotako.png",
+    "contracts": [
+      "0x79a741EBFE9c323CF63180c405c050cdD98c21d8",
+      "0x72C6bDf69952b6bc8aCc18c178d9E03EAc5eaD50",
+      "0x86a76CB11B5B17e048360a9D6d04135FC9138e12",
+      "0x3b8c0590B95021509CC7bc8c905166f9D0C471a2",
+      "0x6Afa285ab05657f7102F66F1B384347aEF3Ef6Aa",
+      "0x19871b9911ddbd422e06F66427768f9B65d36F81",
+      "0xbbFa45a92d9d071554B59D2d29174584D9b06bc3",
+      "0x0f0244337f1215E6D8e13Af1b5ae639244d8a6f6",
+    ]
+  },
 ]`
 )
