@@ -1,0 +1,33 @@
+name: Sync Folder to GCS Bucket
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow the action to be triggered manually
+
+jobs:
+  sync:
+    name: Sync Files to GCS
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Authenticate to Google Cloud
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}'
+
+      # Step 3: Set up Google Cloud SDK
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      # Step 4: Sync Folder to GCS Bucket
+      - name: Sync Folder to GCS Bucket
+        run: |
+          gsutil rsync -r ./static gs://trailblazer-cdn/adapters

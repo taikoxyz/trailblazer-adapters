@@ -3,6 +3,8 @@ package whitelist
 type Protocol struct {
 	Name      string   `json:"name"`
 	Slug      string   `json:"slug"`
+	Twitter   string   `json:"twitter,omitempty"`
+	Logo      string   `json:"logo,omitempty"`
 	Contracts []string `json:"contracts"`
 }
 
@@ -11,6 +13,8 @@ var (
   {
     "name": "NFTs2Me",
     "slug": "nfts-2-me",
+    "twitter": "@NFTs2Me",
+    "logo": "nfts2me.png",
     "contracts": [
       "0x00000000001594C61dD8a6804da9AB58eD2483ce"
     ]
@@ -25,6 +29,7 @@ var (
   {
     "name": "Rubic",
     "slug": "Rubic",
+    "logo": "rubic.png",
     "contracts": [
          "0xAa4472EC72cF4771dfD38467f161F6DF6cA3FB1a",
 	 "0xAf14797CcF963B1e3d028a9d51853acE16aedBA1",
@@ -42,6 +47,8 @@ var (
   {
     "name": "Bunnyfi",
     "slug": "bunnyfi",
+    "twitter": "@bunnyfilabs",
+    "logo": "bunnyfi.svg",
     "contracts": [
       "0x0000000000D310F8802cC91F198d14bC2303230B"
     ]
@@ -49,6 +56,8 @@ var (
   {
     "name": "Kodo Exchange",
     "slug": "kodo-exchange",
+    "twitter": "@kodohq",
+    "logo": "kodo.png",
     "contracts": [
       "0x7E034Ef620D2fb403e8bB6a1130670110287A7a1",
       "0x7e91F29F8a213c8311712A8FC8c61219fb9477CB",
@@ -67,6 +76,8 @@ var (
   {
     "name": "Micro3",
     "slug": "micro-3",
+    "twitter": "@micro3io",
+    "logo": "micro3.jpg",
     "contracts": [
       "0xdCe78c98A0a5aBE3f0A342b32BfE43D203794DeE",
       "0x7b0A5F84181425C58a61659BE9952a04a9a9A833",
@@ -94,6 +105,8 @@ var (
   {
     "name": "Comet Protocol",
     "slug": "comet-protocol",
+    "twitter": "@Comet_Protocol",
+    "logo": "comet.svg",
     "contracts": [
       "0xB50Ac92D6d8748AC42721c25A3e2C84637385A6b",
       "0x0fbCf4a62036E96C4F6770B38a9B536Aa14d1846"
@@ -102,6 +115,8 @@ var (
   {
     "name": "Stargate Finance",
     "slug": "stargate",
+    "twitter": "@stargatefinance",
+    "logo": "stargate.jpg",
     "contracts": [
       "0x0dB9afb4C33be43a0a0e396Fd1383B4ea97aB10a",
       "0xCd4302D950e7e6606b6910Cd232758b5ad423311",
@@ -116,6 +131,8 @@ var (
   {
     "name": "Crack & Stack",
     "slug": "crack-stack",
+    "twitter": "@crackandstack",
+    "logo": "crackandstack.svg",
     "contracts": [
       "0x7ddB8A975778a434dE03dd666F11Ce962DCdD290",
       "0x2c301eBfB0bb42Af519377578099b63E921515B7",
@@ -133,6 +150,8 @@ var (
   {
     "name": "HenjinDEX",
     "slug": "henjin",
+    "twitter": "@HenjinDex",
+    "logo": "henjin_dex.png",
     "contracts": [
       "0x07Bc9a408B385C7Aa8De2783795759512fE24356",
       "0xcFf128C67bCDc5a7c7D3F24c638e59AA0d4e112b",
@@ -142,6 +161,8 @@ var (
   {
     "name": "Oku Trade",
     "slug": "oku",
+    "twitter": "@okutrade",
+    "logo": "oku.jpg",
     "contracts": [
       "0x75FC67473A91335B5b8F8821277262a13B38c9b3",
       "0x346239972d1fa486FC4a521031BC81bFB7D6e8a4",
@@ -163,6 +184,8 @@ var (
   {
     "name": "ZNS Connect",
     "slug": "zns",
+    "twitter": "@ZNSConnect",
+    "logo": "zns.svg",
     "contracts": [
       "0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"
     ]
@@ -170,6 +193,8 @@ var (
   {
     "name": "RubyScore",
     "slug": "ruby-score",
+    "twitter": "@rubyscore_io",
+    "logo": "rubyscore.svg",
     "contracts": [
       "0xDC3D8318Fbaec2de49281843f5bba22e78338146",
       "0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB",
@@ -179,6 +204,8 @@ var (
   {
     "name": "Orbiter Finance",
     "slug": "orbiter",
+    "twitter": "@Orbiter_Finance",
+    "logo": "orbiter.png",
     "contracts": [
       "0x80c67432656d59144ceff962e8faf8926599bcf8",
       "0xe4edb277e41dc89ab076a1f049f4a3efa700bce8",
@@ -190,6 +217,8 @@ var (
   {
     "name": "Hana Finance",
     "slug": "hana-finance",
+    "twitter": "@Hana_Finance",
+    "logo": "hana_finance.png",
     "contracts": [
       "0xB9eD09af341a59c05c8AaE584172e8dCc1E828b6",
       "0x4aB85Bf9EA548410023b25a13031E91B4c4f3b91",
@@ -202,6 +231,8 @@ var (
   {
     "name": "rhino.fi",
     "slug": "rhino-fi",
+    "twitter": "@RhinoFi",
+    "logo": "rhinofi.png",
     "contracts": [
       "0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"
     ]
@@ -209,6 +240,8 @@ var (
   {
     "name": "DTX.TRADE",
     "slug": "dtx",
+    "twitter": "@0xdtx",
+    "logo": "dtx-trade.png",
     "contracts": [
       "0xa814273254C1F73fF79f4D5b5d41279dCbb83f9E",
       "0xCFC8D41f93FCF867f5C2D8435DF84c71672728f6",
@@ -254,6 +287,8 @@ var (
   {
     "name": "RetroBridge",
     "slug": "retrobridge",
+    "twitter": "@Retro_Bridge",
+    "logo": "retrobridge.jpg",
     "contracts": [
       "0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"
     ]
@@ -261,6 +296,8 @@ var (
   {
     "name": "0xAstra",
     "slug": "0xastra",
+    "twitter": "@0xAstra_xyz",
+    "logo": "0xastra.svg",
     "contracts": [
       "0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d",
       "0x34723B92aE9708BA33843120A86035D049dA7dfA",
@@ -272,6 +309,8 @@ var (
   {
     "name": "Ritsu Protocol",
     "slug": "ritsu",
+    "twitter": "@ritsuprotocol",
+    "logo": "ritsu-protocol.png",
     "contracts": [
       "0x7160570BB153Edd0Ea1775EC2b2Ac9b65F1aB61B",
       "0x12AF3Ec993EC5d5bD789b3e989c9E95A2F6c586D",
@@ -302,6 +341,8 @@ var (
   {
     "name": "TaikoTown: A LooperLands Experience",
     "slug": "taiko-town",
+    "twitter": "@LooperLands",
+    "logo": "looperlands.svg",
     "contracts": [
       "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"
     ]
@@ -309,6 +350,8 @@ var (
   {
     "name": "XY Finance",
     "slug": "xy-finance",
+    "twitter": "@xyfinance",
+    "logo": "xy_finance.svg",
     "contracts": [
       "0x73Ce60416035B8D7019f6399778c14ccf5C9c7A1",
       "0xedC061306A79257f15108200C5B82ACc874C239d"
@@ -317,6 +360,8 @@ var (
   {
     "name": "KiloEx",
     "slug": "kiloex",
+    "twitter": "@KiloEex_perp",
+    "logo": "kiloex.png",
     "contracts": [
       "0xd6e87aCd56F3dcb028A906D957be5f65Fe0CFB93",
       "0x735D00A9368164B9dcB2e008d5Cd15b367649aD5",
@@ -338,6 +383,8 @@ var (
   {
     "name": "Stupid Monkeys",
     "slug": "stupid-monkeys",
+    "twitter": "@StupidMonkeysRH",
+    "logo": "stupidmonkeys.png",
     "contracts": [
       "0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"
     ]
@@ -345,6 +392,8 @@ var (
   {
     "name": "Owlto Finance",
     "slug": "owlto-finance",
+    "twitter": "@Owlto_Finance",
+    "logo": "owlto.png",
     "contracts": [
       "0x5e809A85Aa182A9921EDD10a4163745bb3e36284"
     ]
@@ -352,6 +401,8 @@ var (
   {
     "name": "coNFT",
     "slug": "co-nft",
+    "twitter": "@ConftApp",
+    "logo": "conft.jpg",
     "contracts": [
       "0x3AC934F275172a7fa0C0dD4545305bd5EF82a6F8",
       "0x9059cA87Ddc891b91e731C57D21809F1A4adC8D9",
@@ -362,6 +413,8 @@ var (
   {
     "name": "Symbiosis Finance",
     "slug": "symbiosis-finance",
+    "twitter": "@symbiosis_fi",
+    "logo": "symbiosis.svg",
     "contracts": [
       "0xda8057acB94905eb6025120cB2c38415Fd81BfEB",
       "0x5Aa5f7f84eD0E5db0a4a85C3947eA16B53352FD4",
@@ -372,6 +425,8 @@ var (
   {
     "name": "Pheasant Network",
     "slug": "pheasant",
+    "twitter": "@PheasantNetwork",
+    "logo": "pheasant.png",
     "contracts": [
       "0x0890f8A7b193A3eEE810DE3AdcFAd181b9ce294E",
       "0x84F90083e4aA00B5FD4DAaaEEc75bdF8978EDCD2",
@@ -387,6 +442,8 @@ var (
   {
     "name": "Mini Bridge",
     "slug": "minibridge",
+    "twitter": "@Chaineye_tools",
+    "logo": "minibridge.jpeg",
     "contracts": [
       "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
     ]
@@ -394,6 +451,8 @@ var (
   {
     "name": "Izumi Finance",
     "slug": "izumi-iziswap",
+    "twitter": "@izumi_Finance",
+    "logo": "izumi_finance.png",
     "contracts": [
       "0x8c7d3063579BdB0b90997e18A770eaE32E1eBb08",
       "0x4d4673745AAC664eFB9758fdd571F40d78a87bfe",
@@ -412,6 +471,8 @@ var (
   {
     "name": "Brigade",
     "slug": "brigade",
+    "twitter": "@tacowax",
+    "logo": "brigade.png",
     "contracts": [
       "0x8a93AAE6D94680658012B887BfDd981A17661Ef4",
       "0x409395BC4b50A9BbD45a943A8B0D6236E0F83540",
@@ -427,6 +488,8 @@ var (
   {
     "name": "OKX NFT Market",
     "slug": "okx-nft-market",
+    "twitter": "@okxweb3",
+    "logo": "okx.png",
     "contracts": [
       "0xa7FD99748cE527eAdC0bDAc60cba8a4eF4090f7c",
       "0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"
@@ -435,6 +498,8 @@ var (
   {
     "name": "World Of Dypians",
     "slug": "world-of-dypians",
+    "twitter": "@worldofdypians",
+    "logo": "dypians.png",
     "contracts": [
       "0xaf33f679be47733bD3aBb5b0b977B6ba3eD8d01E",
       "0x620655Ee8320bA51cf4cc06bf6a7C14022271764",
@@ -458,6 +523,7 @@ var (
   {
     "name": "Bullishs",
     "slug": "bullishs",
+    "logo": "bullishs.png",
     "contracts": [
       "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6"
     ]
@@ -499,6 +565,8 @@ var (
   {
     "name": "XenoBunny",
     "slug": "xeno-bunny",
+    "twitter": "@XenobunnyX",
+    "logo": "xenobunny.jpg",
     "contracts": [
       "0x1996E10c64213Fe5E86AC7A7ac03Ec169176E4a7",
       "0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2",
@@ -508,6 +576,7 @@ var (
   {
     "name": "Swing",
     "slug": "swing",
+    "logo": "swing.jpeg",
     "contracts": [
       "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB",
       "0x90f1Ef9D2cDe204C8494Cf73130771B350070B53",
@@ -517,7 +586,7 @@ var (
 	{
 		"name": "Symmetric",
 		"slug": "symmetric",
-		"contracts": [
+    "contracts": [
 			"0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
 			"0x4e4131dC27ed9501ac5fEb76F94572fDAe9f0fD0",
 			"0xFEF39453770fF2C6b2F453D1b6D075623a79e3Eb",
