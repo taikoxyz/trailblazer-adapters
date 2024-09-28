@@ -586,6 +586,8 @@ var (
 	{
 		"name": "Symmetric",
 		"slug": "symmetric",
+		"twitter": "@0xSymmetric",
+		"logo": "symmetric.svg",
     "contracts": [
 			"0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
 			"0x4e4131dC27ed9501ac5fEb76F94572fDAe9f0fD0",
