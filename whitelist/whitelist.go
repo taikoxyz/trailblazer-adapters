@@ -629,6 +629,15 @@ var (
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
+  },
+  {
+    "name": "1delta",
+    "slug": "1delta",
+    "twitter": "@1deltaDAO",
+    "logo": "1delta.svg",
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
+    ]
   }
 ]`
 )
