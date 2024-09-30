@@ -622,6 +622,13 @@ var (
       "0x37F7B1187B758EA0655506A0a2cCdff523EaD9d5",
       "0x58596657e3d7FF8028Cb9597876e6e8674e61C96"
     ]
+  },
+  {
+    "name": "Robinos",
+    "slug": "robinos",
+    "contracts": [
+      "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
+    ]
   }
 ]`
 )
