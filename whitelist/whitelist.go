@@ -606,6 +606,29 @@ var (
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
       "0x5cF295a3c53E090Cf230E1D40f413b8e3c225C26"
     ]
+  },
+  {
+    "name": "Swapsicle",
+    "slug": "swapsicle",
+    "contracts": [
+      "0xb68b27a1c93A52d698EecA5a759E2E4469432C09",
+      "0xBa90FC740a95A6997306255853959Bb284cb748a",
+      "0x7d027E68cD361F3A5F48ad52A09D21E10fD9AFAD",
+      "0x2939E1c0DC976b4adE181CAFDfDC76F39f837F16",
+      "0x6e497DbaC6a91CAeF4De3C6432838d25fC377a9e",
+      "0x28B5556518b12b626Fe581fabF5C81Fb69f8e04A",
+      "0xf93f75c7612f098098Fb2A511149F449225092f4",
+      "0x3E016e10d04dD9Ce5E76F58f73B2ea0a1548e6Bc",
+      "0x37F7B1187B758EA0655506A0a2cCdff523EaD9d5",
+      "0x58596657e3d7FF8028Cb9597876e6e8674e61C96"
+    ]
+  },
+  {
+    "name": "Robinos",
+    "slug": "robinos",
+    "contracts": [
+      "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
+    ]
   }
 ]`
 )
