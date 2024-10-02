@@ -629,6 +629,15 @@ var (
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
+  },
+  {
+    "name": "OmniHub",
+    "slug": "omnihub",
+    "twitter": "@omni_hub",
+    "logo": "omnihub.jpg",
+    "contracts": [
+      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
+    ]
   }
 ]`
 )
