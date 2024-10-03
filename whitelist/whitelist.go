@@ -593,6 +593,8 @@ var (
 	{
 		"name": "Symmetric",
 		"slug": "symmetric",
+		"twitter": "@0xSymmetric",
+		"logo": "symmetric.svg",
     "contracts": [
 			"0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
 			"0x4e4131dC27ed9501ac5fEb76F94572fDAe9f0fD0",
@@ -602,7 +604,9 @@ var (
 			"0xdfFD6094ACa1A90f3064BB265e87245dD6f12e68",
 			"0x0447cb41A2a0D4C4A76cA3e2b1be65076DD48A06",
 			"0xc4E44B978c814F9223784031474ba1498bd23335",
-			"0x76930FbaAbDB2D04B41835029D2320B2A0139cc5"
+			"0x76930FbaAbDB2D04B41835029D2320B2A0139cc5",
+			"0x7aE881bea5AaA4e8A1dd7cf1B78B92984C3F28D2",
+			"0xAA60Afa2FceC38EE762c52135f6Cbb22D8128DD7"
 		]
 	},
   {
