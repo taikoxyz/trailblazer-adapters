@@ -647,6 +647,15 @@ var (
       "0xbbFa45a92d9d071554B59D2d29174584D9b06bc3",
       "0x0f0244337f1215E6D8e13Af1b5ae639244d8a6f6"
     ]
+  }},
+  {
+    "name": "BarkFarm",
+    "slug": "barkfarm",
+    "twitter": "@BarkFarmApp",
+    "logo": "barkfarm.png",
+    "contracts": [
+      "0x72e5599798f36045c9549a11f2674d28c2209c30"
+    ]
   }
 ]`
 )
