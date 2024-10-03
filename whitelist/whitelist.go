@@ -20,6 +20,13 @@ var (
     ]
   },
   {
+    "name": "Magpie Protocol",
+    "slug": "magpie-protocol",
+    "contracts": [
+      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
+    ]
+  },
+  {
     "name": "Aspecta",
     "slug": "aspecta",
     "contracts": [
