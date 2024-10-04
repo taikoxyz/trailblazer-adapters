@@ -102,6 +102,11 @@ var (
 			common.HexToAddress("0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2"),
 			common.HexToAddress("0x553B1A22fB7c148690BC14014a9FDFc12e8Fdfa4"),
 		},
+		"OpenALCHI": {
+			common.HexToAddress("0x9a92338b1CFfdf34b4Cc0192A8882F523b853e44"),
+			common.HexToAddress("0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C"),
+			common.HexToAddress("0x5cF295a3c53E090Cf230E1D40f413b8e3c225C26"),
+		},
 	}
 )
 
