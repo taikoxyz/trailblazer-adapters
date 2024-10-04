@@ -667,6 +667,15 @@ var (
     "contracts": [
      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
     ]
+  },
+    {
+    "name": "BarKrypto",
+    "slug": "BarKrypto",
+    "twitter": "@BarKrypto",
+    "logo": "barkrypto.png",
+    "contracts": [
+      "0x72e5599798f36045c9549a11f2674d28c2209c30"
+    ]
   }
 ]`
 )
