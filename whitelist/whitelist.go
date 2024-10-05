@@ -52,6 +52,15 @@ var (
     ]
   },
   {
+    "name": "Eisen Finance",
+    "slug": "eisen",
+    "twitter": "@Eisenlabs",
+    "logo": "eisen.png",
+    "contracts": [
+      "0xFA0e9251503DaE51670d10288e6962d63191731d",    
+    ]
+  },
+  {
     "name": "Bunnyfi",
     "slug": "bunnyfi",
     "twitter": "@bunnyfilabs",
