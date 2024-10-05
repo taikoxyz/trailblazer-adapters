@@ -667,6 +667,18 @@ var (
     "contracts": [
      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
     ]
-  }
+  },
+  {
+    "name": "Chainspot",
+    "slug": "chainspot",
+    "twitter": "@chainspotio",
+    "logo": "chainspot.png",
+    "contracts": [
+      "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103",
+      "0x7057aB3fB2BeE9c18e0cDe4240DE4ff7f159E365",
+      "0x2b7Aa8bDc40B6d3d19d0dE7480c4db8d5B6495e2",
+      "0x73Ce60416035B8D7019f6399778c14ccf5C9c7A1",
+    ]
+  },
 ]`
 )
