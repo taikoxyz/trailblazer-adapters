@@ -40,7 +40,7 @@ func promptUser() error {
 	var adapterOptions = []string{
 		"Izumi", "RitsuLP", "NewTransactionSender", "NftDeployed", "GamingWhitelist", "DotTaikoIndexer",
 		"OrderFulfilledIndexer", "NewSaleIndexer", "ContractDeployed",
-		"CollectionCreated", "TokenSold", "ChainspotIndexer",
+		"CollectionCreated", "TokenSold",
 	}
 
 	var qs = []*survey.Question{
@@ -100,8 +100,6 @@ func executeCommand() error {
 		return processCollectionCreatedIndexer(client, blockNumber)
 	case "TokenSold":
 		return processTokenSoldIndexer(client, blockNumber)
-	case "ChainspotIndexer":
-        return processChainspotIndexer(client, blockNumber)
 	default:
 		return fmt.Errorf("adapter %s is not supported", adapter)
 	}
