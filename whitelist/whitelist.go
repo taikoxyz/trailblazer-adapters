@@ -20,6 +20,13 @@ var (
     ]
   },
   {
+    "name": "Magpie Protocol",
+    "slug": "magpie-protocol",
+    "contracts": [
+      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
+    ]
+  },
+  {
     "name": "Aspecta",
     "slug": "aspecta",
     "contracts": [
@@ -586,6 +593,8 @@ var (
 	{
 		"name": "Symmetric",
 		"slug": "symmetric",
+		"twitter": "@0xSymmetric",
+		"logo": "symmetric.svg",
     "contracts": [
 			"0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
 			"0x4e4131dC27ed9501ac5fEb76F94572fDAe9f0fD0",
@@ -595,7 +604,9 @@ var (
 			"0xdfFD6094ACa1A90f3064BB265e87245dD6f12e68",
 			"0x0447cb41A2a0D4C4A76cA3e2b1be65076DD48A06",
 			"0xc4E44B978c814F9223784031474ba1498bd23335",
-			"0x76930FbaAbDB2D04B41835029D2320B2A0139cc5"
+			"0x76930FbaAbDB2D04B41835029D2320B2A0139cc5",
+			"0x7aE881bea5AaA4e8A1dd7cf1B78B92984C3F28D2",
+			"0xAA60Afa2FceC38EE762c52135f6Cbb22D8128DD7"
 		]
 	},
   {
@@ -620,7 +631,9 @@ var (
       "0xf93f75c7612f098098Fb2A511149F449225092f4",
       "0x3E016e10d04dD9Ce5E76F58f73B2ea0a1548e6Bc",
       "0x37F7B1187B758EA0655506A0a2cCdff523EaD9d5",
-      "0x58596657e3d7FF8028Cb9597876e6e8674e61C96"
+      "0x58596657e3d7FF8028Cb9597876e6e8674e61C96",
+      "0x0cdde1dead51b156bd62113664d60b354b4df4ab",
+      "0xe130d0dcafbd98f7f4ba357da7cd504212d6f0ce"
     ]
   },
   {
@@ -637,6 +650,42 @@ var (
     "logo": "1delta.svg",
     "contracts": [
       "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
+    ]
+  },
+  {
+    "name": "TakoTako",
+    "slug": "takotako",
+    "twitter": "@TAKOTAKOxyz",
+    "logo": "takotako.png",
+    "contracts": [
+      "0x79a741EBFE9c323CF63180c405c050cdD98c21d8",
+      "0x72C6bDf69952b6bc8aCc18c178d9E03EAc5eaD50",
+      "0x7945F98240b310bD21F8814bdCEeBA6775a9A36A",
+      "0x820C66D8316856655AdB42B3b6cB6a1728D29567",
+      "0x6Afa285ab05657f7102F66F1B384347aEF3Ef6Aa",
+      "0x19871b9911ddbd422e06F66427768f9B65d36F81",
+      "0xbbFa45a92d9d071554B59D2d29174584D9b06bc3",
+      "0x0f0244337f1215E6D8e13Af1b5ae639244d8a6f6",
+      "0xA35f53a71FA6cd7AC9Df7F7814ecBc49dF255A38",
+      "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e"
+    ]
+  },
+  {
+    "name": "OmniHub",
+    "slug": "omnihub",
+    "twitter": "@omni_hub",
+    "logo": "omnihub.jpg",
+    "contracts": [
+     "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
+    ]
+  },
+  {
+    "name": "Chainspot",
+    "slug": "chainspot",
+    "twitter": "@ChainspotIO",
+    "logo": "chainspot.svg",
+    "contracts": [
+     "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
     ]
   }
 ]`
