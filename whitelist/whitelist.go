@@ -669,6 +669,15 @@ var (
     "contracts": [
      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
     ]
+  },
+  {
+    "name": "Chainspot",
+    "slug": "chainspot",
+    "twitter": "@ChainspotIO",
+    "logo": "chainspot.svg",
+    "contracts": [
+     "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
+    ]
   }
 ]`
 )
