@@ -34,15 +34,6 @@ var (
     ]
   },
   {
-    "name": "DZap",
-    "slug": "dzap",
-    "logo": "dzap.svg",
-    "twitter": "@dzap_io",
-    "contracts": [
-      "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
-    ]
-  },
-  {
     "name": "Eisen Finance",
     "slug": "eisen",
     "twitter": "@Eisenlabs",
