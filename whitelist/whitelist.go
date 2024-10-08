@@ -39,7 +39,7 @@ var (
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
     "contracts": [
-      "0xFA0e9251503DaE51670d10288e6962d63191731d",    
+      "0xFA0e9251503DaE51670d10288e6962d63191731d"
     ]
   },
   {
