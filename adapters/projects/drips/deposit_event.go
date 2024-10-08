@@ -22,11 +22,13 @@ var (
 
 type DripIndexer struct {
 	address common.Address
+	client  *ethclient.Client
 }
 
-func NewDripsIndexer(address common.Address) *DripIndexer {
+func NewDripsIndexer(address common.Address, client *ethclient.Client) *DripIndexer {
 	return &DripIndexer{
 		address: address,
+		client:  client,
 	}
 }
 
@@ -34,14 +36,13 @@ func (indexer *DripIndexer) Address() []common.Address {
 	return []common.Address{indexer.address}
 }
 
-// IndexLogs processes logs for ERC20 transfers.
-func (indexer *DripIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Lock, error) {
+func (indexer *DripIndexer) IndexLogs(ctx context.Context, logs []types.Log) ([]adapters.Lock, error) {
 	var result []adapters.Lock
 	for _, vLog := range logs {
 		if !isDeposit(vLog) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+		transferData, err := indexer.ProcessLog(ctx, vLog)
 		if err != nil {
 			return nil, err
 		}
@@ -56,7 +57,7 @@ func isDeposit(vLog types.Log) bool {
 	return vLog.Topics[0].Hex() == logDepositSigHash.Hex()
 }
 
-func (indexer *DripIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Lock, error) {
+func (indexer *DripIndexer) ProcessLog(ctx context.Context, vLog types.Log) (*adapters.Lock, error) {
 	user := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
 	var depositEvent struct {
 		Assets *big.Int
@@ -72,13 +73,11 @@ func (indexer *DripIndexer) ProcessLog(ctx context.Context, chainID *big.Int, cl
 		return nil, err
 	}
 
-	// Fetch the block details
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
+	block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
 	if err != nil {
 		return nil, err
 	}
 
-	// Return the LPTransfer struct with calculated values
 	return &adapters.Lock{
 		User:          user,
 		TokenAmount:   depositEvent.Assets,

@@ -33,6 +33,6 @@ type Lock struct {
 
 type LockLogsIndexer interface {
 	Address() []common.Address
-	IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]Lock, error)
-	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*Lock, error)
+	IndexLogs(ctx context.Context, logs []types.Log) ([]Lock, error)
+	ProcessLog(ctx context.Context, vLog types.Log) (*Lock, error)
 }
