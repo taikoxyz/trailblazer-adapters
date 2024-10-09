@@ -43,7 +43,7 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 	var locks []adapters.Lock
 
 	for _, l := range logs {
-		if !isDeposit(l) {
+		if !indexer.isDeposit(l) {
 			continue
 		}
 
@@ -84,6 +84,6 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 	return locks, nil
 }
 
-func isDeposit(l types.Log) bool {
+func (indexer *LockIndexer) isDeposit(l types.Log) bool {
 	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logDepositSignature)).Hex()
 }

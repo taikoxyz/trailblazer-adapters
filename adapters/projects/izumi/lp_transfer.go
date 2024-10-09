@@ -17,130 +17,143 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/izumi"
 )
 
-var (
-	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
-	logDepositSigHash  = crypto.Keccak256Hash([]byte("Deposit(address,uint256,uint256)"))
+const (
+	// https://taikoscan.io/address/0x33531bDBFE34fa6Fd5963D0423f7699775AacaaF
+	LPAddress string = "0x33531bDBFE34fa6Fd5963D0423f7699775AacaaF"
+
+	logTransferSignature string = "Transfer(address,address,uint256)"
+	logDepositSignature  string = "Deposit(address,uint256,uint256)"
 )
 
-// TransferIndexer is an implementation of LogsIndexer for ERC20 transfer logs.
-type TransferIndexer struct {
-	tokens    []common.Address
-	whitelist map[string]struct{}
-}
-
-// NewTransferIndexer creates a new TransferIndexer.
-func NewTransferIndexer(tokens []common.Address, whitelist map[string]struct{}) *TransferIndexer {
-	return &TransferIndexer{
-		tokens:    tokens,
-		whitelist: whitelist,
+func Whitelist() []string {
+	return []string{
+		"0xE2380f4Cc37027B4bF23bBb3b6c092470dB4975f", // https://taikoscan.io/address/0xE2380f4Cc37027B4bF23bBb3b6c092470dB4975f
+		"0x5264F77F8af8550cDa8e81Fee0360c0De6b52432", // https://taikoscan.io/address/0x5264F77F8af8550cDa8e81Fee0360c0De6b52432
 	}
 }
 
-func (indexer *TransferIndexer) Address() []common.Address {
-	return indexer.tokens
+type LPTransferIndexer struct {
+	client    *ethclient.Client
+	addresses []common.Address
+	Whitelist map[string]struct{}
 }
 
-// IndexLogs processes logs for ERC20 transfers.
-func (indexer *TransferIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.LPTransfer, error) {
-	var result []adapters.LPTransfer
-	for _, vLog := range logs {
-		if !isERC721Transfer(vLog) {
+func NewLPTransferIndexer(client *ethclient.Client, addresses []common.Address, whitelist []string) *LPTransferIndexer {
+	indexer := &LPTransferIndexer{
+		client:    client,
+		addresses: addresses,
+		Whitelist: map[string]struct{}{},
+	}
+
+	for _, addr := range whitelist {
+		indexer.Whitelist[addr] = struct{}{}
+	}
+
+	return indexer
+}
+
+var _ adapters.LogIndexer[adapters.LPTransfer] = &LPTransferIndexer{}
+
+func (indexer *LPTransferIndexer) Addresses() []common.Address {
+	return indexer.addresses
+}
+
+func (indexer *LPTransferIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.LPTransfer, error) {
+	var lpTransfers []adapters.LPTransfer
+
+	for _, l := range logs {
+		if !indexer.isERC721Transfer(l) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+
+		// Extract "from" and "to" addresses from the log
+		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
+		_, exists := indexer.Whitelist[to.Hex()]
+		if !exists {
+			return nil, nil
+		}
+		txReceipt, err := indexer.client.TransactionReceipt(ctx, l.TxHash)
 		if err != nil {
 			return nil, err
 		}
-		if transferData != nil {
-			result = append(result, *transferData)
+		from := adapters.ZeroAddress()
+		for _, log := range txReceipt.Logs {
+			if log.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logDepositSignature)).Hex() {
+				from = common.BytesToAddress(log.Topics[1].Bytes()[12:])
+			}
 		}
+		tokenID := l.Topics[3].Big()
+
+		// Fetch the block details
+		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
+		if err != nil {
+			return nil, err
+		}
+
+		// Initialize the LiquidityManager contract caller
+		liquidityManager, err := izumi.NewIzumiCaller(l.Address, indexer.client)
+		if err != nil {
+			return nil, err
+		}
+		// Fetch liquidity details using the Token ID (NFT)
+		liquidity, err := liquidityManager.Liquidities(&bind.CallOpts{
+			BlockNumber: block.Number(),
+		}, tokenID)
+		if err != nil {
+			return nil, err
+		}
+
+		// Fetch pool metadata using the pool ID
+		poolMeta, err := liquidityManager.PoolMetas(&bind.CallOpts{
+			BlockNumber: block.Number(),
+		}, liquidity.PoolId)
+		if err != nil {
+			return nil, err
+		}
+
+		// Fetch token addresses and decimals for the pool
+		token0Address := poolMeta.TokenX
+		token1Address := poolMeta.TokenY
+
+		_, token0Decimals, err := fetchTokenDetails(token0Address, indexer.client)
+		if err != nil {
+			return nil, err
+		}
+
+		_, token1Decimals, err := fetchTokenDetails(token1Address, indexer.client)
+		if err != nil {
+			return nil, err
+		}
+
+		// Calculate the amount of tokens in the liquidity position
+		token0Amount, token1Amount, err := calculateLiquidityAmounts(liquidityManager, liquidity, poolMeta, block, indexer.client)
+		if err != nil {
+			return nil, err
+		}
+
+		// Return the LPTransfer struct with calculated values
+		lpTransfer := &adapters.LPTransfer{
+			From:           from,
+			To:             to,
+			Token0Amount:   token0Amount,
+			Token0Decimals: token0Decimals,
+			Token0:         token0Address,
+			Token1Amount:   token1Amount,
+			Token1Decimals: token1Decimals,
+			Token1:         token1Address,
+			Time:           block.Time(),
+			BlockNumber:    block.NumberU64(),
+			TxHash:         l.TxHash,
+		}
+
+		lpTransfers = append(lpTransfers, *lpTransfer)
 	}
-	return result, nil
+
+	return lpTransfers, nil
 }
 
-func isERC721Transfer(vLog types.Log) bool {
-	return len(vLog.Topics) == 4 && vLog.Topics[0].Hex() == logTransferSigHash.Hex()
-}
-
-func (indexer *TransferIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.LPTransfer, error) {
-	// Extract "from" and "to" addresses from the log
-	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
-	_, exists := indexer.whitelist[to.Hex()]
-	if !exists {
-		return nil, nil
-	}
-	txReceipt, err := client.TransactionReceipt(ctx, vLog.TxHash)
-	if err != nil {
-		return nil, err
-	}
-	from := adapters.ZeroAddress
-	for _, log := range txReceipt.Logs {
-		if log.Topics[0].Hex() == logDepositSigHash.Hex() {
-			from = common.BytesToAddress(log.Topics[1].Bytes()[12:])
-		}
-	}
-	tokenID := vLog.Topics[3].Big()
-
-	// Fetch the block details
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
-	if err != nil {
-		return nil, err
-	}
-
-	// Initialize the LiquidityManager contract caller
-	liquidityManager, err := izumi.NewIzumiCaller(vLog.Address, client)
-	if err != nil {
-		return nil, err
-	}
-	// Fetch liquidity details using the Token ID (NFT)
-	liquidity, err := liquidityManager.Liquidities(&bind.CallOpts{
-		BlockNumber: block.Number(),
-	}, tokenID)
-	if err != nil {
-		return nil, err
-	}
-
-	// Fetch pool metadata using the pool ID
-	poolMeta, err := liquidityManager.PoolMetas(&bind.CallOpts{
-		BlockNumber: block.Number(),
-	}, liquidity.PoolId)
-	if err != nil {
-		return nil, err
-	}
-
-	// Fetch token addresses and decimals for the pool
-	token0Address := poolMeta.TokenX
-	token1Address := poolMeta.TokenY
-
-	_, token0Decimals, err := fetchTokenDetails(token0Address, client)
-	if err != nil {
-		return nil, err
-	}
-
-	_, token1Decimals, err := fetchTokenDetails(token1Address, client)
-	if err != nil {
-		return nil, err
-	}
-
-	// Calculate the amount of tokens in the liquidity position
-	token0Amount, token1Amount, err := calculateLiquidityAmounts(liquidityManager, liquidity, poolMeta, block, client)
-	if err != nil {
-		return nil, err
-	}
-
-	// Return the LPTransfer struct with calculated values
-	return &adapters.LPTransfer{
-		From:           from,
-		To:             to,
-		Token0Amount:   token0Amount,
-		Token0Decimals: token0Decimals,
-		Token0:         token0Address,
-		Token1Amount:   token1Amount,
-		Token1Decimals: token1Decimals,
-		Token1:         token1Address,
-		Time:           block.Time(),
-		BlockNumber:    block.Number().Uint64(),
-	}, nil
+func (indexer *LPTransferIndexer) isERC721Transfer(l types.Log) bool {
+	return len(l.Topics) == 4 && l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logTransferSignature)).Hex()
 }
 
 // Helper function to fetch token details (caller and decimals)
@@ -173,7 +186,7 @@ func calculateLiquidityAmounts(caller *izumi.IzumiCaller, liquidity struct {
 		BlockNumber: block.Number(),
 	}, poolMeta.TokenX, poolMeta.TokenY, poolMeta.Fee)
 
-	if poolAddress == adapters.ZeroAddress || err != nil {
+	if poolAddress == adapters.ZeroAddress() || err != nil {
 		return nil, nil, fmt.Errorf("pool not found")
 	}
 
@@ -212,6 +225,7 @@ func getPoolPrice(pool *izipool.IziPoolCaller, block *types.Block) (*struct {
 
 	return &state, nil
 }
+
 func pow(base *big.Float, exp *big.Int) *big.Float {
 	result := new(big.Float).SetPrec(200).SetFloat64(1.0) // Initialize result as 1.0
 	baseCopy := new(big.Float).SetPrec(200).Copy(base)    // Copy base to avoid modifying original

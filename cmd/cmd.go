@@ -17,6 +17,12 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/domains"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/drips"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/gaming"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/izumi"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/loopex"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/nfts2me"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okx"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/omnihub"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/ritsu"
 	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
@@ -92,35 +98,81 @@ func executeCommand(p prompt) error {
 	adaptr := adapter(p.Adapter)
 	switch adaptr {
 	case RitsuLP:
-		return processRitsuLPIndexer(client, p.Blocknumber)
-	case Izumi:
-		return processIziLPIndexer(client, p.Blocknumber)
-	case NewTransactionSender:
+		indexer := ritsu.NewTransferIndexer(
+			client,
+			lo.Map(ritsu.LPAdresses(), func(a string, index int) common.Address {
+				return common.HexToAddress(a)
+			}),
+			ritsu.Whitelist(),
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case IzumiLP:
+		indexer := izumi.NewLPTransferIndexer(
+			client,
+			[]common.Address{common.HexToAddress(izumi.LPAddress)},
+			izumi.Whitelist(),
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case TransactionSender:
 		processor := transactionsender.New(client)
 		return processBlock(ctx, client, processor, p.Blocknumber)
+
 	case NftDeployed:
 		processor := nftdeployed.New(client)
 		return processBlock(ctx, client, processor, p.Blocknumber)
+
 	case GamingWhitelist:
 		processor := gaming.NewGamingProcessor(client)
 		return processBlock(ctx, client, processor, p.Blocknumber)
-	case OrderFulfilledIndexer:
-		return processOrderFulfilledIndexer(client, p.Blocknumber)
-	case DotTaikoIndexer:
+
+	case OkxOrderFulfilled:
+		indexer := okx.NewOrderFulfilledIndexer(
+			client,
+			[]common.Address{common.HexToAddress(okx.OrderFulfilledAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case DotTaikoDomains:
 		indexer := domains.NewDotTaikoIndexer(client)
 		return processLog(ctx, client, indexer, p.Blocknumber)
-	case NewSaleIndexer:
-		return processNewSaleIndexer(client, p.Blocknumber)
-	case ContractDeployed:
-		return processContractDeployedIndexer(client, p.Blocknumber)
-	case CollectionCreated:
-		return processCollectionCreatedIndexer(client, p.Blocknumber)
-	case TokenSold:
-		indexer := conft.NewTokenSoldIndexer(client, []common.Address{common.HexToAddress(conft.TokenSoldAddress)})
+
+	case LoopexNewSale:
+		indexer := loopex.NewNewSaleIndexer(
+			client,
+			[]common.Address{common.HexToAddress(loopex.NewSaleAddress)},
+		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
-	case Drips:
-		indexer := drips.NewLockIndexer(client, []common.Address{common.HexToAddress(drips.LockAddress)})
+
+	case OmnihubContractDeployed:
+		indexer := omnihub.NewContractDeployedIndexer(
+			client,
+			[]common.Address{common.HexToAddress(omnihub.ContractDeployedAddress)},
+		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case Nfts2meCollectionCreated:
+		indexer := nfts2me.NewCollectionCreatedIndexer(
+			client,
+			[]common.Address{common.HexToAddress(nfts2me.CollectionCreatedAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case ConftTokenSold:
+		indexer := conft.NewTokenSoldIndexer(
+			client,
+			[]common.Address{common.HexToAddress(conft.TokenSoldAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case DripsLock:
+		indexer := drips.NewLockIndexer(
+			client,
+			[]common.Address{common.HexToAddress(drips.LockAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
 	default:
 		return fmt.Errorf("adapter %s is not supported", p.Adapter)
 	}
@@ -141,7 +193,7 @@ func processLog[T any](ctx context.Context, client *ethclient.Client, indexer ad
 	return nil
 }
 
-func processBlock[T any](ctx context.Context, client *ethclient.Client, processor adapters.BlockPprocessor[T], blocknumber int64) error {
+func processBlock[T any](ctx context.Context, client *ethclient.Client, processor adapters.BlockProcessor[T], blocknumber int64) error {
 	block, err := adapters.GetBlock(ctx, client, blocknumber)
 	if err != nil {
 		return err

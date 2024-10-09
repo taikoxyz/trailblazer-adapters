@@ -52,7 +52,7 @@ func (indexer *TokenSoldIndexer) Index(ctx context.Context, logs ...types.Log) (
 	var whitelist []adapters.Whitelist
 
 	for _, l := range logs {
-		if !isTokenSoldLog(l) {
+		if !indexer.isTokenSoldLog(l) {
 			continue
 		}
 
@@ -86,6 +86,6 @@ func (indexer *TokenSoldIndexer) Index(ctx context.Context, logs ...types.Log) (
 	return whitelist, nil
 }
 
-func isTokenSoldLog(l types.Log) bool {
+func (indexer *TokenSoldIndexer) isTokenSoldLog(l types.Log) bool {
 	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logTokenSoldSignature)).Hex()
 }

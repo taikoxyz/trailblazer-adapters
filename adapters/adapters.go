@@ -11,14 +11,14 @@ import (
 )
 
 const (
-	ZeroAddressZ string = "0x0000000000000000000000000000000000000000"
-
 	// https://taikoscan.io/address/0xa9d23408b9ba935c230493c40c73824df71a0975
 	TaikoTokenAddress  string = "0xa9d23408b9ba935c230493c40c73824df71a0975"
 	TaikoTokenDecimals uint8  = 18
 )
 
-var ZeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
+func ZeroAddress() common.Address {
+	return common.HexToAddress("0x0000000000000000000000000000000000000000")
+}
 
 type Whitelist struct {
 	User        common.Address
@@ -56,7 +56,7 @@ type LogIndexer[T any] interface {
 	Index(context.Context, ...types.Log) ([]T, error)
 }
 
-type BlockPprocessor[T any] interface {
+type BlockProcessor[T any] interface {
 	Process(context.Context, ...*types.Block) ([]T, error)
 }
 

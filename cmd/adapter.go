@@ -7,33 +7,33 @@ func (a adapter) String() string {
 }
 
 const (
-	Izumi                 adapter = "Izumi"
-	RitsuLP               adapter = "RitsuLP"
-	NewTransactionSender  adapter = "NewTransactionSender"
-	NftDeployed           adapter = "NftDeployed"
-	GamingWhitelist       adapter = "GamingWhitelist"
-	DotTaikoIndexer       adapter = "DotTaikoIndexer"
-	OrderFulfilledIndexer adapter = "OrderFulfilledIndexer"
-	NewSaleIndexer        adapter = "NewSaleIndexer"
-	ContractDeployed      adapter = "ContractDeployed"
-	CollectionCreated     adapter = "CollectionCreated"
-	TokenSold             adapter = "TokenSold"
-	Drips                 adapter = "Drips"
+	IzumiLP                  adapter = "IzumiLP"
+	RitsuLP                  adapter = "RitsuLP"
+	TransactionSender        adapter = "TransactionSender"
+	NftDeployed              adapter = "NftDeployed"
+	GamingWhitelist          adapter = "GamingWhitelist"
+	DotTaikoDomains          adapter = "DotTaikoDomains"
+	OkxOrderFulfilled        adapter = "OkxOrderFulfilled"
+	LoopexNewSale            adapter = "LoopexNewSale"
+	OmnihubContractDeployed  adapter = "OmnihubContractDeployed"
+	Nfts2meCollectionCreated adapter = "Nfts2meCollectionCreated"
+	ConftTokenSold           adapter = "ConftTokenSold"
+	DripsLock                adapter = "DripsLock"
 )
 
 func adapterz() []adapter {
 	return []adapter{
-		Izumi,
+		IzumiLP,
 		RitsuLP,
-		NewTransactionSender,
+		TransactionSender,
 		NftDeployed,
 		GamingWhitelist,
-		DotTaikoIndexer,
-		OrderFulfilledIndexer,
-		NewSaleIndexer,
-		ContractDeployed,
-		CollectionCreated,
-		TokenSold,
-		Drips,
+		DotTaikoDomains,
+		OkxOrderFulfilled,
+		LoopexNewSale,
+		OmnihubContractDeployed,
+		Nfts2meCollectionCreated,
+		ConftTokenSold,
+		DripsLock,
 	}
 }

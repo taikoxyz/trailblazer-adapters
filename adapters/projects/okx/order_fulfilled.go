@@ -14,13 +14,12 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/order"
 )
 
-var (
-	logOrderFulfilledSigHash = crypto.Keccak256Hash([]byte("OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])"))
-)
+const (
+	// https://taikoscan.io/address/0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC
+	OrderFulfilledAddress string = "0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"
 
-type OrderFulfilledIndexer struct {
-	TargetAddresses []common.Address
-}
+	logOrderFulfilledSignature string = "OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])"
+)
 
 type SpentItem struct {
 	ItemType   uint8
@@ -46,55 +45,61 @@ type OrderFulfilledEvent struct {
 	Consideration []ReceivedItem
 }
 
-func NewOrderFulfilledIndexer() *OrderFulfilledIndexer {
-	return &OrderFulfilledIndexer{TargetAddresses: []common.Address{
-		common.HexToAddress("0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"),
-	}}
+type OrderFulfilledIndexer struct {
+	client    *ethclient.Client
+	addresses []common.Address
 }
+
+func NewOrderFulfilledIndexer(client *ethclient.Client, addresses []common.Address) *OrderFulfilledIndexer {
+	return &OrderFulfilledIndexer{
+		client:    client,
+		addresses: addresses,
+	}
+}
+
+var _ adapters.LogIndexer[adapters.Whitelist] = &OrderFulfilledIndexer{}
 
 func (indexer *OrderFulfilledIndexer) Addresses() []common.Address {
-	return indexer.TargetAddresses
+	return indexer.addresses
 }
 
-func (indexer *OrderFulfilledIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
-	var result []adapters.Whitelist
-	for _, vLog := range logs {
-		if !indexer.isRelevantLog(vLog.Topics[0]) {
+func (indexer *OrderFulfilledIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Whitelist, error) {
+	var whitelist []adapters.Whitelist
+
+	for _, l := range logs {
+		if !indexer.isOrderFulfilledLog(l) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+
+		var orderFulfilledEvent OrderFulfilledEvent
+
+		orderFulfilledABI, err := abi.JSON(strings.NewReader(order.ABI))
 		if err != nil {
 			return nil, err
 		}
-		result = append(result, *transferData)
+		err = orderFulfilledABI.UnpackIntoInterface(&orderFulfilledEvent, "OrderFulfilled", l.Data)
+		if err != nil {
+			return nil, err
+		}
+
+		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
+		if err != nil {
+			return nil, err
+		}
+
+		w := &adapters.Whitelist{
+			User:        orderFulfilledEvent.Recipient,
+			Time:        block.Time(),
+			BlockNumber: block.NumberU64(),
+			TxHash:      l.TxHash,
+		}
+
+		whitelist = append(whitelist, *w)
 	}
-	return result, nil
+
+	return whitelist, nil
 }
 
-func (indexer *OrderFulfilledIndexer) isRelevantLog(topic common.Hash) bool {
-	return topic.Hex() == logOrderFulfilledSigHash.Hex()
-}
-
-func (indexer *OrderFulfilledIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
-	var orderFulfilledEvent OrderFulfilledEvent
-
-	orderFulfilledABI, err := abi.JSON(strings.NewReader(order.ABI))
-	if err != nil {
-		return nil, err
-	}
-	err = orderFulfilledABI.UnpackIntoInterface(&orderFulfilledEvent, "OrderFulfilled", vLog.Data)
-	if err != nil {
-		return nil, err
-	}
-
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
-	if err != nil {
-		return nil, err
-	}
-
-	return &adapters.Whitelist{
-		User:        orderFulfilledEvent.Recipient,
-		Time:        block.Time(),
-		BlockNumber: block.Number().Uint64(),
-	}, nil
+func (indexer *OrderFulfilledIndexer) isOrderFulfilledLog(l types.Log) bool {
+	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logOrderFulfilledSignature)).Hex()
 }

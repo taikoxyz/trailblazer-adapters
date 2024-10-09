@@ -30,7 +30,7 @@ func New(client *ethclient.Client) *Processor {
 	}
 }
 
-var _ adapters.BlockPprocessor[adapters.Whitelist] = &Processor{}
+var _ adapters.BlockProcessor[adapters.Whitelist] = &Processor{}
 
 func (processor *Processor) Process(ctx context.Context, blocks ...*types.Block) ([]adapters.Whitelist, error) {
 	var whitelist []adapters.Whitelist

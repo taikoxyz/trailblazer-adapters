@@ -115,17 +115,19 @@ type GamingProcessor struct {
 }
 
 func NewGamingProcessor(client *ethclient.Client) *GamingProcessor {
-	whitelist := &GamingProcessor{
+	processor := &GamingProcessor{
 		client:          client,
 		ValidRecipients: map[string]struct{}{},
 	}
 	for _, addrList := range Recipients() {
 		for _, addr := range addrList {
-			whitelist.ValidRecipients[addr] = struct{}{}
+			processor.ValidRecipients[addr] = struct{}{}
 		}
 	}
-	return whitelist
+	return processor
 }
+
+var _ adapters.BlockProcessor[adapters.Whitelist] = &GamingProcessor{}
 
 func (indexer *GamingProcessor) Process(ctx context.Context, blocks ...*types.Block) ([]adapters.Whitelist, error) {
 	var whitelist []adapters.Whitelist

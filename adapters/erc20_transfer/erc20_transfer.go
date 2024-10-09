@@ -36,7 +36,7 @@ func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapter
 	var whitelist []adapters.Whitelist
 
 	for _, l := range logs {
-		if !isERC20Transfer(l) {
+		if !indexer.isERC20Transfer(l) {
 			continue
 		}
 
@@ -74,6 +74,6 @@ func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapter
 	return whitelist, nil
 }
 
-func isERC20Transfer(l types.Log) bool {
+func (indexer *Indexer) isERC20Transfer(l types.Log) bool {
 	return len(l.Topics) == 3 && l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logTransferSignature)).Hex()
 }

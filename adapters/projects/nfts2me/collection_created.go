@@ -11,45 +11,57 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 )
 
-var (
-	logTransferSigHash = crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
+const (
+	// https://taikoscan.io/address/0x00000000001594C61dD8a6804da9AB58eD2483ce
+	CollectionCreatedAddress = "0x00000000001594C61dD8a6804da9AB58eD2483ce"
+
+	logTransferSignature string = "Transfer(address,address,uint256)"
 )
 
 type CollectionCreatedIndexer struct {
-	TargetAddresses []common.Address
+	client    *ethclient.Client
+	addresses []common.Address
 }
 
-// NewCollectionCreatedIndexer creates a new CollectionCreatedIndexer.
-func NewCollectionCreatedIndexer() *CollectionCreatedIndexer {
-	return &CollectionCreatedIndexer{TargetAddresses: []common.Address{common.HexToAddress("0x00000000001594C61dD8a6804da9AB58eD2483ce")}}
+func NewCollectionCreatedIndexer(client *ethclient.Client, addresses []common.Address) *CollectionCreatedIndexer {
+	return &CollectionCreatedIndexer{
+		client:    client,
+		addresses: addresses,
+	}
 }
+
+var _ adapters.LogIndexer[adapters.Whitelist] = &CollectionCreatedIndexer{}
 
 func (indexer *CollectionCreatedIndexer) Addresses() []common.Address {
-	return indexer.TargetAddresses
+	return indexer.addresses
 }
 
-func (indexer *CollectionCreatedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
-	var result []adapters.Whitelist
-	for _, vLog := range logs {
-		if !isERC721Transfer(vLog) && !isFromZeroAddress(vLog) {
+func (indexer *CollectionCreatedIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Whitelist, error) {
+	var whitelist []adapters.Whitelist
+
+	for _, l := range logs {
+		if !indexer.isERC721Transfer(l) && !indexer.isFromZeroAddress(l) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+
+		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
+
+		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
 		if err != nil {
 			return nil, err
 		}
-		result = append(result, *transferData)
+
+		w := &adapters.Whitelist{
+			User:        to,
+			Time:        block.Time(),
+			BlockNumber: block.NumberU64(),
+			TxHash:      l.TxHash,
+		}
+
+		whitelist = append(whitelist, *w)
 	}
-	return result, nil
-}
 
-func isERC721Transfer(vLog types.Log) bool {
-	return len(vLog.Topics) == 4 && vLog.Topics[0].Hex() == logTransferSigHash.Hex()
-}
-
-func isFromZeroAddress(vLog types.Log) bool {
-	from := common.BytesToAddress(vLog.Topics[1].Bytes()[12:])
-	return from.Hex() != adapters.ZeroAddress.Hex()
+	return whitelist, nil
 }
 
 // processLog processes a single ERC20 transfer log.
@@ -66,4 +78,13 @@ func (indexer *CollectionCreatedIndexer) ProcessLog(ctx context.Context, chainID
 		Time:        block.Time(),
 		BlockNumber: block.Number().Uint64(),
 	}, nil
+}
+
+func (indexer *CollectionCreatedIndexer) isERC721Transfer(l types.Log) bool {
+	return len(l.Topics) == 4 && l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logTransferSignature)).Hex()
+}
+
+func (indexer *CollectionCreatedIndexer) isFromZeroAddress(l types.Log) bool {
+	from := common.BytesToAddress(l.Topics[1].Bytes()[12:])
+	return from.Hex() != adapters.ZeroAddress().Hex()
 }
