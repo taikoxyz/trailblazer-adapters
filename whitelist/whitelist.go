@@ -662,6 +662,15 @@ var (
     ]
   },
   {
+    "name": "1delta",
+    "slug": "1delta",
+    "twitter": "@1deltaDAO",
+    "logo": "1delta.svg",
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
+    ]
+  },
+  {
     "name": "TakoTako",
     "slug": "takotako",
     "twitter": "@TAKOTAKOxyz",
