@@ -739,6 +739,15 @@ var (
         "0x02A148dAd540289F3e7374bcb3D86722aDdDfc8E",
         "0x158bF5461c439Ba6B1d20Eb878cf9C77345C7bc8"
     ]
+  },
+  {
+    "name": "BarKrypto",
+    "slug": "BarKrypto",
+    "twitter": "@BarKrypto",
+    "logo": "barkrypto.png",
+    "contracts": [
+      "0x72e5599798f36045c9549a11f2674d28c2209c30"
+    ]
   }
 ]`
 )
