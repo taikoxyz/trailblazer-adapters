@@ -1,4 +1,4 @@
-package transfer
+package erc20transfer
 
 import (
 	"context"
@@ -16,7 +16,6 @@ import (
 
 const logTransferSignature string = "Transfer(address,address,uint256)"
 
-// Indexer is an implementation of adapters.LogIndexer for ERC20 transfer logs.
 type Indexer struct {
 	client *ethclient.Client
 }
@@ -35,13 +34,14 @@ func (indexer *Indexer) Addresses() []common.Address {
 
 func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Whitelist, error) {
 	var whitelist []adapters.Whitelist
-	var transferEvent struct {
-		Value *big.Int
-	}
 
 	for _, l := range logs {
 		if !isERC20Transfer(l) {
 			continue
+		}
+
+		var transferEvent struct {
+			Value *big.Int
 		}
 
 		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])

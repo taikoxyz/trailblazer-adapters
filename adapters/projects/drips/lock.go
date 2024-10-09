@@ -16,41 +16,39 @@ import (
 
 const (
 	// https://taikoscan.io/address/0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349
-	DripsLockAddress = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	LockAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
 
 	logDepositSignature string = "Deposit(address,uint256)"
-	// https://taikoscan.io/address/0xa9d23408b9ba935c230493c40c73824df71a0975
-	TaikoTokenAddress  string = "0xa9d23408b9ba935c230493c40c73824df71a0975"
-	TaikoTokenDecimals uint8  = 18
 )
 
-type Indexer struct {
-	client  *ethclient.Client
-	address common.Address
+type LockIndexer struct {
+	client    *ethclient.Client
+	addresses []common.Address
 }
 
-func New(client *ethclient.Client, address common.Address) *Indexer {
-	return &Indexer{
-		client:  client,
-		address: address,
+func NewLockIndexer(client *ethclient.Client, addresses []common.Address) *LockIndexer {
+	return &LockIndexer{
+		client:    client,
+		addresses: addresses,
 	}
 }
 
-var _ adapters.LogIndexer[adapters.Lock] = &Indexer{}
+var _ adapters.LogIndexer[adapters.Lock] = &LockIndexer{}
 
-func (indexer *Indexer) Addresses() []common.Address {
-	return []common.Address{indexer.address}
+func (indexer *LockIndexer) Addresses() []common.Address {
+	return indexer.addresses
 }
 
-func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Lock, error) {
+func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Lock, error) {
 	var locks []adapters.Lock
-	var depositEvent struct {
-		Assets *big.Int
-	}
 
 	for _, l := range logs {
 		if !isDeposit(l) {
 			continue
+		}
+
+		var depositEvent struct {
+			Assets *big.Int
 		}
 
 		user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
@@ -73,8 +71,8 @@ func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapter
 		lock := &adapters.Lock{
 			User:          user,
 			TokenAmount:   depositEvent.Assets,
-			TokenDecimals: TaikoTokenDecimals,
-			Token:         common.HexToAddress(TaikoTokenAddress),
+			TokenDecimals: adapters.TaikoTokenDecimals,
+			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			Time:          block.Time(),
 			BlockNumber:   block.NumberU64(),
 			TxHash:        l.TxHash,

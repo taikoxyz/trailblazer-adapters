@@ -12,7 +12,12 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/spf13/cobra"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
+	nftdeployed "github.com/taikoxyz/trailblazer-adapters/adapters/nft_deployed"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/conft"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/domains"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/drips"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/gaming"
+	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
 const taikoRPC string = "https://rpc.taiko.xyz"
@@ -91,15 +96,19 @@ func executeCommand(p prompt) error {
 	case Izumi:
 		return processIziLPIndexer(client, p.Blocknumber)
 	case NewTransactionSender:
-		return processNewTransactionSender(client, p.Blocknumber)
+		processor := transactionsender.New(client)
+		return processBlock(ctx, client, processor, p.Blocknumber)
 	case NftDeployed:
-		return processNewNftDeployed(client, p.Blocknumber)
+		processor := nftdeployed.New(client)
+		return processBlock(ctx, client, processor, p.Blocknumber)
 	case GamingWhitelist:
-		return processNewGamingWhitelist(client, p.Blocknumber)
+		processor := gaming.NewGamingProcessor(client)
+		return processBlock(ctx, client, processor, p.Blocknumber)
 	case OrderFulfilledIndexer:
 		return processOrderFulfilledIndexer(client, p.Blocknumber)
 	case DotTaikoIndexer:
-		return processDotTaikoIndexer(client, p.Blocknumber)
+		indexer := domains.NewDotTaikoIndexer(client)
+		return processLog(ctx, client, indexer, p.Blocknumber)
 	case NewSaleIndexer:
 		return processNewSaleIndexer(client, p.Blocknumber)
 	case ContractDeployed:
@@ -107,9 +116,10 @@ func executeCommand(p prompt) error {
 	case CollectionCreated:
 		return processCollectionCreatedIndexer(client, p.Blocknumber)
 	case TokenSold:
-		return processTokenSoldIndexer(client, p.Blocknumber)
+		indexer := conft.NewTokenSoldIndexer(client, []common.Address{common.HexToAddress(conft.TokenSoldAddress)})
+		return processLog(ctx, client, indexer, p.Blocknumber)
 	case Drips:
-		indexer := drips.New(client, common.HexToAddress(drips.DripsLockAddress))
+		indexer := drips.NewLockIndexer(client, []common.Address{common.HexToAddress(drips.LockAddress)})
 		return processLog(ctx, client, indexer, p.Blocknumber)
 	default:
 		return fmt.Errorf("adapter %s is not supported", p.Adapter)

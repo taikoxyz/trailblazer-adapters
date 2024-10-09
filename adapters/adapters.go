@@ -10,6 +10,14 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
+const (
+	ZeroAddressZ string = "0x0000000000000000000000000000000000000000"
+
+	// https://taikoscan.io/address/0xa9d23408b9ba935c230493c40c73824df71a0975
+	TaikoTokenAddress  string = "0xa9d23408b9ba935c230493c40c73824df71a0975"
+	TaikoTokenDecimals uint8  = 18
+)
+
 var ZeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
 
 type Whitelist struct {
@@ -30,6 +38,7 @@ type LPTransfer struct {
 	Token1         common.Address
 	Time           uint64
 	BlockNumber    uint64
+	TxHash         common.Hash
 }
 
 type Lock struct {
