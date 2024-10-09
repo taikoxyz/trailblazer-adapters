@@ -24,14 +24,14 @@ func TestIndexer(t *testing.T) {
 
 	indexer := drips.New(client, common.HexToAddress(drips.DripsLockAddress))
 
-	logs, err := adapters.GetLogs(ctx, client, indexer.Address(), blocknumber)
+	logs, err := adapters.GetLogs(ctx, client, indexer.Addresses(), blocknumber)
 	require.NoError(t, err)
 
 	locks, err := indexer.Index(ctx, logs...)
 	assert.NoError(t, err)
 	assert.Len(t, locks, 1)
 	assert.Equal(t, common.HexToAddress("0xC3204E92B0e7731d75Ad667a93c8Da815BD9Ac61"), locks[0].User)
-	assert.Equal(t, *big.NewInt(2000000000000000000), locks[0].TokenAmount)
+	assert.Equal(t, big.NewInt(2000000000000000000), locks[0].TokenAmount)
 	assert.Equal(t, drips.TaikoTokenDecimals, locks[0].TokenDecimals)
 	assert.Equal(t, common.HexToAddress(drips.TaikoTokenAddress), locks[0].Token)
 	assert.Equal(t, uint64(1728390191), locks[0].Time)

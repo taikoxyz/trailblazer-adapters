@@ -12,7 +12,6 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/drips"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/optional"
 )
 
 const (
@@ -39,7 +38,7 @@ func New(client *ethclient.Client, address common.Address) *Indexer {
 
 var _ adapters.LogIndexer[adapters.Lock] = &Indexer{}
 
-func (indexer *Indexer) Address() []common.Address {
+func (indexer *Indexer) Addresses() []common.Address {
 	return []common.Address{indexer.address}
 }
 
@@ -73,16 +72,17 @@ func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapter
 
 		lock := &adapters.Lock{
 			User:          user,
-			TokenAmount:   optional.FromBigInt(depositEvent.Assets),
+			TokenAmount:   depositEvent.Assets,
 			TokenDecimals: TaikoTokenDecimals,
 			Token:         common.HexToAddress(TaikoTokenAddress),
 			Time:          block.Time(),
-			BlockNumber:   block.Number().Uint64(),
+			BlockNumber:   block.NumberU64(),
 			TxHash:        l.TxHash,
 		}
 
 		locks = append(locks, *lock)
 	}
+
 	return locks, nil
 }
 
