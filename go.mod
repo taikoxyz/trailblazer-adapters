@@ -6,6 +6,7 @@ require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/ethereum/go-ethereum v1.14.11
 	github.com/spf13/cobra v1.8.1
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
@@ -47,5 +48,6 @@ require (
 	golang.org/x/sys v0.22.0 // indirect
 	golang.org/x/term v0.22.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	rsc.io/tmplfunc v0.0.3 // indirect
 )

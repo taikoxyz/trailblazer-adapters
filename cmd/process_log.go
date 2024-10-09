@@ -63,7 +63,7 @@ func processLPLogIndexer(client *ethclient.Client, processor adapters.LPLogsInde
 	return nil
 }
 
-func processLockIndexer(client *ethclient.Client, processor adapters.LockLogsIndexer, blockNumber int64) error {
+func processLockIndexer(client *ethclient.Client, processor adapters.LogIndexer[adapters.Lock], blockNumber int64) error {
 	ctx := context.Background()
 	query := ethereum.FilterQuery{
 		Addresses: processor.Address(),
@@ -75,12 +75,12 @@ func processLockIndexer(client *ethclient.Client, processor adapters.LockLogsInd
 		log.Fatalf("Failed to fetch the logs: %v", err)
 		return err
 	}
-	senders, err := processor.IndexLogs(ctx, logs)
+	senders, err := processor.Index(ctx, logs...)
 	if err != nil {
 		log.Fatalf("Failed to process the logs: %v", err)
 		return err
 	}
 
-	fmt.Printf("Senders: %v\n", senders)
+	fmt.Printf("Senders: %+v\n", senders)
 	return nil
 }
