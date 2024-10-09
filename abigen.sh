@@ -1,12 +1,12 @@
 #/bin/sh
 
-names=("erc20", "ritsu", "izumi", "iziPool")
-
+names=("erc20" "ritsu" "izumi" "iziPool")
 
 for (( i = 0; i < ${#names[@]}; ++i ));
 do
     lower=$(echo "${names[i]}" | tr '[:upper:]' '[:lower:]')
-    abigen --abi ${names[i]}.json \
+    mkdir -p adapters/contracts/$lower
+    abigen --abi ./abi/${names[i]}.json \
     --pkg $lower \
     --type ${names[i]} \
     --out adapters/contracts/$lower/${names[i]}.go
