@@ -728,5 +728,15 @@
           "0x02A148dAd540289F3e7374bcb3D86722aDdDfc8E",
           "0x158bF5461c439Ba6B1d20Eb878cf9C77345C7bc8"
       ]
+    },
+    {
+      "name": "Loopring",
+      "slug": "Loopring",
+      "twitter": "@loopringorg",
+      "logo": "loopring_logo.png",
+      "contracts": [
+          "0xbD787F374198d29E2F8Fa228c778FE39e1a5d3a9",
+          "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC"
+      ]
     }
   ]
