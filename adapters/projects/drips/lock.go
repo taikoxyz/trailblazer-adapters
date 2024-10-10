@@ -2,7 +2,6 @@ package drips
 
 import (
 	"context"
-	"fmt"
 	"math/big"
 	"strings"
 
