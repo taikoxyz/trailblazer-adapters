@@ -48,7 +48,8 @@ type Lock struct {
 	TokenAmount   *big.Int
 	TokenDecimals uint8
 	Token         common.Address
-	Time          uint64
+	Duration      uint64
+	BlockTime     uint64
 	BlockNumber   uint64
 	TxHash        common.Hash
 }

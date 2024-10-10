@@ -34,7 +34,8 @@ func TestLockIndexer(t *testing.T) {
 	assert.Equal(t, big.NewInt(2000000000000000000), locks[0].TokenAmount)
 	assert.Equal(t, adapters.TaikoTokenDecimals, locks[0].TokenDecimals)
 	assert.Equal(t, common.HexToAddress(adapters.TaikoTokenAddress), locks[0].Token)
-	assert.Equal(t, uint64(1728390191), locks[0].Time)
+	assert.Equal(t, uint64(1728390191), locks[0].BlockTime)
+	assert.Equal(t, uint64(86400), locks[0].Duration)
 	assert.Equal(t, uint64(blocknumber), locks[0].BlockNumber)
 	assert.Equal(t, common.HexToHash("0x95f528b52f0a75176543f516014bbba26e003f1c17c9b9413e936240e3f44650"), locks[0].TxHash)
 }

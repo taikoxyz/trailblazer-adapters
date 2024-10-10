@@ -67,6 +67,8 @@ func (indexer *LockIndexer) processDepositLog(ctx context.Context, l types.Log) 
 	}
 
 	user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
+	lockEndTime := l.Topics[2].Big()
+	duration := new(big.Int).Sub(lockEndTime, depositEvent.Ts)
 
 	block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
 	if err != nil {
@@ -103,7 +105,7 @@ func (indexer *LockIndexer) processDepositLog(ctx context.Context, l types.Log) 
 		return nil, errors.Join(err, errors.New("fetching pool tokens"))
 	}
 
-	return indexer.createLocks(user, depositEvent.Value, totalSupply, poolTokens, block, l.TxHash), nil
+	return indexer.createLocks(user, duration, depositEvent.Value, totalSupply, poolTokens, block, l.TxHash), nil
 }
 
 func (indexer *LockIndexer) parseDepositEvent(l types.Log) (*struct {
@@ -151,7 +153,7 @@ func (indexer *LockIndexer) fetchBalancerTokenInfo(balancerToken *balancer_token
 	return totalSupply, poolId, vault, nil
 }
 
-func (indexer *LockIndexer) createLocks(user common.Address, depositValue *big.Int, totalSupply *big.Int, poolTokens struct {
+func (indexer *LockIndexer) createLocks(user common.Address, duration, depositValue *big.Int, totalSupply *big.Int, poolTokens struct {
 	Tokens          []common.Address
 	Balances        []*big.Int
 	LastChangeBlock *big.Int
@@ -168,7 +170,8 @@ func (indexer *LockIndexer) createLocks(user common.Address, depositValue *big.I
 			TokenAmount:   userAmount,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         token,
-			Time:          block.Time(),
+			Duration:      duration.Uint64(),
+			BlockTime:     block.Time(),
 			BlockNumber:   block.NumberU64(),
 			TxHash:        txHash,
 		}

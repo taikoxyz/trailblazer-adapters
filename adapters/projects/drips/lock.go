@@ -18,7 +18,7 @@ const (
 	// https://taikoscan.io/address/0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349
 	LockAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
 
-	logDepositSignature string = "Deposit(address,uint256)"
+	logDepositWithDurationSignature string = "DepositWithDuration(address,uint256,uint256,uint256)"
 )
 
 type LockIndexer struct {
@@ -43,12 +43,14 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 	var locks []adapters.Lock
 
 	for _, l := range logs {
-		if !indexer.isDeposit(l) {
+		if !indexer.isDepositWithDuration(l) {
 			continue
 		}
 
-		var depositEvent struct {
-			Assets *big.Int
+		var depositWithDurationEvent struct {
+			LockStart *big.Int
+			Amount    *big.Int
+			Duration  *big.Int
 		}
 
 		user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
@@ -58,7 +60,7 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 			return nil, err
 		}
 
-		err = dripsABI.UnpackIntoInterface(&depositEvent, "Deposit", l.Data)
+		err = dripsABI.UnpackIntoInterface(&depositWithDurationEvent, "DepositWithDuration", l.Data)
 		if err != nil {
 			return nil, err
 		}
@@ -70,10 +72,11 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 
 		lock := &adapters.Lock{
 			User:          user,
-			TokenAmount:   depositEvent.Assets,
+			TokenAmount:   depositWithDurationEvent.Amount,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
-			Time:          block.Time(),
+			Duration:      depositWithDurationEvent.Duration.Uint64(),
+			BlockTime:     block.Time(),
 			BlockNumber:   block.NumberU64(),
 			TxHash:        l.TxHash,
 		}
@@ -84,6 +87,6 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 	return locks, nil
 }
 
-func (indexer *LockIndexer) isDeposit(l types.Log) bool {
-	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logDepositSignature)).Hex()
+func (indexer *LockIndexer) isDepositWithDuration(l types.Log) bool {
+	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logDepositWithDurationSignature)).Hex()
 }

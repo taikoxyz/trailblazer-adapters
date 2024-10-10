@@ -33,13 +33,15 @@ func TestLockIndexer(t *testing.T) {
 	txHash := common.HexToHash("0x27058b3cfbd15e3466cdd1b86ab387a473f2ca01c0697eb6b47ae7b33fdf97b0")
 	user := common.HexToAddress("0x7255Db0d1C1B93Fb756157074fa0613Aa6878F31")
 	time := 1728397319
+	duration := 4959481
 	expectedLocks := []adapters.Lock{
 		{
 			User:          user,
 			TokenAmount:   big.NewInt(45884668717994),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.WETHAddress),
-			Time:          uint64(time),
+			Duration:      uint64(duration),
+			BlockTime:     uint64(time),
 			BlockNumber:   uint64(blocknumber),
 			TxHash:        txHash,
 		},
@@ -48,7 +50,8 @@ func TestLockIndexer(t *testing.T) {
 			TokenAmount:   big.NewInt(287649277362130342),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
-			Time:          uint64(time),
+			Duration:      uint64(duration),
+			BlockTime:     uint64(time),
 			BlockNumber:   uint64(blocknumber),
 			TxHash:        txHash,
 		},
@@ -58,8 +61,9 @@ func TestLockIndexer(t *testing.T) {
 		assert.Equal(t, expectedLocks[i].User, lock.User)
 		assert.Equal(t, expectedLocks[i].TokenAmount, lock.TokenAmount)
 		assert.Equal(t, expectedLocks[i].TokenDecimals, lock.TokenDecimals)
+		assert.Equal(t, expectedLocks[i].Duration, lock.Duration)
 		assert.Equal(t, expectedLocks[i].Token, lock.Token)
-		assert.Equal(t, expectedLocks[i].Time, lock.Time)
+		assert.Equal(t, expectedLocks[i].BlockTime, lock.BlockTime)
 		assert.Equal(t, expectedLocks[i].BlockNumber, lock.BlockNumber)
 		assert.Equal(t, expectedLocks[i].TxHash, lock.TxHash)
 	}
