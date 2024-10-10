@@ -1,8 +1,8 @@
 # Trailblazer Adapters
 
-## Adding a New Protocol Adapter
+## Adding a new protocol adapter
 
-### 1. Add your project under adapters/projects folder
+### 1. Add your project under `adapters/projects`
 
 ### 2. Write an indexer in the new folder
 
@@ -19,5 +19,3 @@ Create a pull request (PR) on GitHub to merge your changes into the main branch.
 ### 5. Review and Merge
 
 Wait for the PR to be reviewed by the maintainers. Once approved, your changes will be merged, and the protocol info will be added to trailblazers. 
-
-For further details, refer to the official documentation or contact the maintainers for support.

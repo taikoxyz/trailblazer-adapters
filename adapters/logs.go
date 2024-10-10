@@ -22,15 +22,6 @@ type LPLogsIndexer interface {
 	ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*LPTransfer, error)
 }
 
-type Lock struct {
-	User          common.Address
-	TokenAmount   *big.Int
-	TokenDecimals uint8
-	Token         common.Address
-	Time          uint64
-	BlockNumber   uint64
-}
-
 type LockLogsIndexer interface {
 	Address() []common.Address
 	IndexLogs(ctx context.Context, logs []types.Log) ([]Lock, error)

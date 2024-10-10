@@ -11,62 +11,67 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 )
 
-var (
-	logContractDeployedSigHash = crypto.Keccak256Hash([]byte("ContractDeployed(address)"))
+const (
+	// https://taikoscan.io/address/0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919
+	ContractDeployedAddress string = "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
+
+	logContractDeployedSignature string = "ContractDeployed(address)"
 )
 
 type ContractDeployedIndexer struct {
-	TargetAddresses []common.Address
+	client    *ethclient.Client
+	addresses []common.Address
 }
 
-func NewContractDeployedIndexer() *ContractDeployedIndexer {
-	return &ContractDeployedIndexer{TargetAddresses: []common.Address{
-		common.HexToAddress("0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"),
-	}}
+func NewContractDeployedIndexer(client *ethclient.Client, addresses []common.Address) *ContractDeployedIndexer {
+	return &ContractDeployedIndexer{
+		client:    client,
+		addresses: addresses,
+	}
 }
+
+var _ adapters.LogIndexer[adapters.Whitelist] = &ContractDeployedIndexer{}
 
 func (indexer *ContractDeployedIndexer) Addresses() []common.Address {
-	return indexer.TargetAddresses
+	return indexer.addresses
 }
 
-func (indexer *ContractDeployedIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
-	var result []adapters.Whitelist
-	for _, vLog := range logs {
-		if !indexer.isRelevantLog(vLog.Topics[0]) {
+func (indexer *ContractDeployedIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Whitelist, error) {
+	var whitelist []adapters.Whitelist
+
+	for _, l := range logs {
+		if !indexer.isContractDeployedLog(l) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+
+		tx, err := indexer.client.TransactionInBlock(ctx, l.BlockHash, l.TxIndex)
 		if err != nil {
 			return nil, err
 		}
-		result = append(result, *transferData)
+
+		sender, err := indexer.client.TransactionSender(ctx, tx, l.BlockHash, l.TxIndex)
+		if err != nil {
+			return nil, err
+		}
+
+		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
+		if err != nil {
+			return nil, err
+		}
+
+		w := &adapters.Whitelist{
+			User:        sender,
+			Time:        block.Time(),
+			BlockNumber: block.NumberU64(),
+			TxHash:      l.TxHash,
+		}
+
+		whitelist = append(whitelist, *w)
 	}
-	return result, nil
+
+	return whitelist, nil
 }
 
-func (indexer *ContractDeployedIndexer) isRelevantLog(topic common.Hash) bool {
-	return topic.Hex() == logContractDeployedSigHash.Hex()
-}
-
-func (indexer *ContractDeployedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
-	txn, err := client.TransactionInBlock(ctx, vLog.BlockHash, vLog.TxIndex)
-	if err != nil {
-		return nil, err
-	}
-
-	sender, err := client.TransactionSender(ctx, txn, vLog.BlockHash, vLog.TxIndex)
-	if err != nil {
-		return nil, err
-	}
-
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
-	if err != nil {
-		return nil, err
-	}
-
-	return &adapters.Whitelist{
-		User:        sender,
-		Time:        block.Time(),
-		BlockNumber: block.Number().Uint64(),
-	}, nil
+func (indexer *ContractDeployedIndexer) isContractDeployedLog(l types.Log) bool {
+	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logContractDeployedSignature)).Hex()
 }
