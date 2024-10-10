@@ -5,7 +5,6 @@ go 1.23.0
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/ethereum/go-ethereum v1.14.11
-	github.com/pkg/errors v0.9.1
 	github.com/samber/lo v1.47.0
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0

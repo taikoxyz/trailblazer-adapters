@@ -2,6 +2,7 @@ package symmetric
 
 import (
 	"context"
+	"errors"
 	"math/big"
 	"strings"
 
@@ -11,7 +12,6 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/pkg/errors"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/balancer_token"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/balancer_vault"
@@ -51,7 +51,7 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 
 		lock, err := indexer.processDepositLog(ctx, l)
 		if err != nil {
-			return nil, errors.Wrap(err, "processing deposit log")
+			return nil, errors.Join(err, errors.New("processing deposit log"))
 		}
 
 		locks = append(locks, lock...)
@@ -63,44 +63,44 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 func (indexer *LockIndexer) processDepositLog(ctx context.Context, l types.Log) ([]adapters.Lock, error) {
 	depositEvent, err := indexer.parseDepositEvent(l)
 	if err != nil {
-		return nil, errors.Wrap(err, "parsing deposit event")
+		return nil, errors.Join(err, errors.New("parsing deposit event"))
 	}
 
 	user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
 
 	block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
 	if err != nil {
-		return nil, errors.Wrap(err, "fetching block")
+		return nil, errors.Join(err, errors.New("fetching block"))
 	}
 
 	symmetricContract, err := symmetric.NewSymmetric(l.Address, indexer.client)
 	if err != nil {
-		return nil, errors.Wrap(err, "creating symmetric contract")
+		return nil, errors.Join(err, errors.New("creating symmetric contract"))
 	}
 
 	token, err := symmetricContract.Token(&bind.CallOpts{BlockNumber: block.Number()})
 	if err != nil {
-		return nil, errors.Wrap(err, "fetching token")
+		return nil, errors.Join(err, errors.New("fetching token"))
 	}
 
 	balancerToken, err := balancer_token.NewBalancerToken(token, indexer.client)
 	if err != nil {
-		return nil, errors.Wrap(err, "creating balancer token")
+		return nil, errors.Join(err, errors.New("creating balancer token"))
 	}
 
 	totalSupply, poolId, vault, err := indexer.fetchBalancerTokenInfo(balancerToken, block.Number())
 	if err != nil {
-		return nil, errors.Wrap(err, "fetching balancer token info")
+		return nil, errors.Join(err, errors.New("fetching balancer token info"))
 	}
 
 	balancerVault, err := balancer_vault.NewBalancerVault(vault, indexer.client)
 	if err != nil {
-		return nil, errors.Wrap(err, "creating balancer vault")
+		return nil, errors.Join(err, errors.New("creating balancer vault"))
 	}
 
 	poolTokens, err := balancerVault.GetPoolTokens(&bind.CallOpts{BlockNumber: block.Number()}, poolId)
 	if err != nil {
-		return nil, errors.Wrap(err, "fetching pool tokens")
+		return nil, errors.Join(err, errors.New("fetching pool tokens"))
 	}
 
 	return indexer.createLocks(user, depositEvent.Value, totalSupply, poolTokens, block, l.TxHash), nil
@@ -119,12 +119,12 @@ func (indexer *LockIndexer) parseDepositEvent(l types.Log) (*struct {
 
 	symmetricABI, err := abi.JSON(strings.NewReader(symmetric.SymmetricABI))
 	if err != nil {
-		return nil, errors.Wrap(err, "parsing ABI")
+		return nil, errors.Join(err, errors.New("parsing ABI"))
 	}
 
 	err = symmetricABI.UnpackIntoInterface(&depositEvent, "Deposit", l.Data)
 	if err != nil {
-		return nil, errors.Wrap(err, "unpacking event data")
+		return nil, errors.Join(err, errors.New("unpacking event data"))
 	}
 
 	return &depositEvent, nil
@@ -135,17 +135,17 @@ func (indexer *LockIndexer) fetchBalancerTokenInfo(balancerToken *balancer_token
 
 	totalSupply, err := balancerToken.TotalSupply(opts)
 	if err != nil {
-		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching total supply")
+		return nil, [32]byte{}, common.Address{}, errors.Join(err, errors.New("fetching total supply"))
 	}
 
 	poolId, err := balancerToken.GetPoolId(opts)
 	if err != nil {
-		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching pool ID")
+		return nil, [32]byte{}, common.Address{}, errors.Join(err, errors.New("fetching pool ID"))
 	}
 
 	vault, err := balancerToken.GetVault(opts)
 	if err != nil {
-		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching vault")
+		return nil, [32]byte{}, common.Address{}, errors.Join(err, errors.New("fetching vault"))
 	}
 
 	return totalSupply, poolId, vault, nil
