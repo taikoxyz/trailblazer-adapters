@@ -23,6 +23,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okx"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/omnihub"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/ritsu"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/symmetric"
 	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
@@ -170,6 +171,12 @@ func executeCommand(p prompt) error {
 		indexer := drips.NewLockIndexer(
 			client,
 			[]common.Address{common.HexToAddress(drips.LockAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case SymmetricLock:
+		indexer := symmetric.NewLockIndexer(
+			client,
+			[]common.Address{common.HexToAddress(symmetric.LockAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 

@@ -19,6 +19,7 @@ const (
 	Nfts2meCollectionCreated adapter = "Nfts2meCollectionCreated"
 	ConftTokenSold           adapter = "ConftTokenSold"
 	DripsLock                adapter = "DripsLock"
+	SymmetricLock            adapter = "SymmetricLock"
 )
 
 func adapterz() []adapter {
@@ -35,5 +36,6 @@ func adapterz() []adapter {
 		Nfts2meCollectionCreated,
 		ConftTokenSold,
 		DripsLock,
+		SymmetricLock,
 	}
 }

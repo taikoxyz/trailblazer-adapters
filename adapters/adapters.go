@@ -11,6 +11,8 @@ import (
 )
 
 const (
+	// https://taikoscan.io/address/0xA51894664A773981C6C112C43ce576f315d5b1B6
+	WETHAddress string = "0xA51894664A773981C6C112C43ce576f315d5b1B6"
 	// https://taikoscan.io/address/0xa9d23408b9ba935c230493c40c73824df71a0975
 	TaikoTokenAddress  string = "0xa9d23408b9ba935c230493c40c73824df71a0975"
 	TaikoTokenDecimals uint8  = 18
