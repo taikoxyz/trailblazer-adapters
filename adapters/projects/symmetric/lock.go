@@ -11,6 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/pkg/errors"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/balancer_token"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/balancer_vault"
@@ -18,10 +19,8 @@ import (
 )
 
 const (
-	// https://taikoscan.io/address/0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3
-	LockAddress string = "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3"
-
-	logDepositSignature string = "Deposit(address,uint256,uint256,int128,uint256)"
+	LockAddress         = "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3"
+	logDepositSignature = "Deposit(address,uint256,uint256,int128,uint256)"
 )
 
 type LockIndexer struct {
@@ -50,97 +49,133 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 			continue
 		}
 
-		var depositEvent struct {
-			Value *big.Int
-			Type  *big.Int
-			Ts    *big.Int
-		}
-
-		user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
-
-		symmetricABI, err := abi.JSON(strings.NewReader(symmetric.SymmetricABI))
+		lock, err := indexer.processDepositLog(ctx, l)
 		if err != nil {
-			return nil, err
+			return nil, errors.Wrap(err, "processing deposit log")
 		}
 
-		err = symmetricABI.UnpackIntoInterface(&depositEvent, "Deposit", l.Data)
-		if err != nil {
-			return nil, err
-		}
-
-		symmetric, err := symmetric.NewSymmetric(l.Address, indexer.client)
-		if err != nil {
-			return nil, err
-		}
-
-		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
-		if err != nil {
-			return nil, err
-		}
-
-		token, err := symmetric.Token(&bind.CallOpts{
-			BlockNumber: block.Number(),
-		})
-		if err != nil {
-			return nil, err
-		}
-
-		balancerToken, err := balancer_token.NewBalancerToken(token, indexer.client)
-		if err != nil {
-			return nil, err
-		}
-
-		totalSupply, err := balancerToken.TotalSupply(&bind.CallOpts{
-			BlockNumber: block.Number(),
-		})
-		if err != nil {
-			return nil, err
-		}
-
-		poolId, err := balancerToken.GetPoolId(&bind.CallOpts{
-			BlockNumber: block.Number(),
-		})
-		if err != nil {
-			return nil, err
-		}
-
-		vault, err := balancerToken.GetVault(&bind.CallOpts{
-			BlockNumber: block.Number(),
-		})
-		if err != nil {
-			return nil, err
-		}
-
-		balancerVault, err := balancer_vault.NewBalancerVault(vault, indexer.client)
-		if err != nil {
-			return nil, err
-		}
-
-		poolTokens, err := balancerVault.GetPoolTokens(&bind.CallOpts{
-			BlockNumber: block.Number(),
-		}, poolId)
-		if err != nil {
-			return nil, err
-		}
-
-		for i, token := range poolTokens.Tokens {
-			tokenAmount := poolTokens.Balances[i]
-			userAmount := new(big.Int).Mul(tokenAmount, depositEvent.Value)
-			userAmount.Div(userAmount, totalSupply)
-			lock := &adapters.Lock{
-				User:          user,
-				TokenAmount:   userAmount,
-				TokenDecimals: adapters.TaikoTokenDecimals,
-				Token:         token,
-				Time:          block.Time(),
-				BlockNumber:   block.NumberU64(),
-				TxHash:        l.TxHash,
-			}
-			locks = append(locks, *lock)
-		}
+		locks = append(locks, lock...)
 	}
 
 	return locks, nil
+}
+
+func (indexer *LockIndexer) processDepositLog(ctx context.Context, l types.Log) ([]adapters.Lock, error) {
+	depositEvent, err := indexer.parseDepositEvent(l)
+	if err != nil {
+		return nil, errors.Wrap(err, "parsing deposit event")
+	}
+
+	user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
+
+	block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
+	if err != nil {
+		return nil, errors.Wrap(err, "fetching block")
+	}
+
+	symmetricContract, err := symmetric.NewSymmetric(l.Address, indexer.client)
+	if err != nil {
+		return nil, errors.Wrap(err, "creating symmetric contract")
+	}
+
+	token, err := symmetricContract.Token(&bind.CallOpts{BlockNumber: block.Number()})
+	if err != nil {
+		return nil, errors.Wrap(err, "fetching token")
+	}
+
+	balancerToken, err := balancer_token.NewBalancerToken(token, indexer.client)
+	if err != nil {
+		return nil, errors.Wrap(err, "creating balancer token")
+	}
+
+	totalSupply, poolId, vault, err := indexer.fetchBalancerTokenInfo(balancerToken, block.Number())
+	if err != nil {
+		return nil, errors.Wrap(err, "fetching balancer token info")
+	}
+
+	balancerVault, err := balancer_vault.NewBalancerVault(vault, indexer.client)
+	if err != nil {
+		return nil, errors.Wrap(err, "creating balancer vault")
+	}
+
+	poolTokens, err := balancerVault.GetPoolTokens(&bind.CallOpts{BlockNumber: block.Number()}, poolId)
+	if err != nil {
+		return nil, errors.Wrap(err, "fetching pool tokens")
+	}
+
+	return indexer.createLocks(user, depositEvent.Value, totalSupply, poolTokens, block, l.TxHash), nil
+}
+
+func (indexer *LockIndexer) parseDepositEvent(l types.Log) (*struct {
+	Value *big.Int
+	Type  *big.Int
+	Ts    *big.Int
+}, error) {
+	var depositEvent struct {
+		Value *big.Int
+		Type  *big.Int
+		Ts    *big.Int
+	}
+
+	symmetricABI, err := abi.JSON(strings.NewReader(symmetric.SymmetricABI))
+	if err != nil {
+		return nil, errors.Wrap(err, "parsing ABI")
+	}
+
+	err = symmetricABI.UnpackIntoInterface(&depositEvent, "Deposit", l.Data)
+	if err != nil {
+		return nil, errors.Wrap(err, "unpacking event data")
+	}
+
+	return &depositEvent, nil
+}
+
+func (indexer *LockIndexer) fetchBalancerTokenInfo(balancerToken *balancer_token.BalancerToken, blockNumber *big.Int) (*big.Int, [32]byte, common.Address, error) {
+	opts := &bind.CallOpts{BlockNumber: blockNumber}
+
+	totalSupply, err := balancerToken.TotalSupply(opts)
+	if err != nil {
+		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching total supply")
+	}
+
+	poolId, err := balancerToken.GetPoolId(opts)
+	if err != nil {
+		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching pool ID")
+	}
+
+	vault, err := balancerToken.GetVault(opts)
+	if err != nil {
+		return nil, [32]byte{}, common.Address{}, errors.Wrap(err, "fetching vault")
+	}
+
+	return totalSupply, poolId, vault, nil
+}
+
+func (indexer *LockIndexer) createLocks(user common.Address, depositValue *big.Int, totalSupply *big.Int, poolTokens struct {
+	Tokens          []common.Address
+	Balances        []*big.Int
+	LastChangeBlock *big.Int
+}, block *types.Block, txHash common.Hash) []adapters.Lock {
+	var locks []adapters.Lock
+
+	for i, token := range poolTokens.Tokens {
+		tokenAmount := poolTokens.Balances[i]
+		userAmount := new(big.Int).Mul(tokenAmount, depositValue)
+		userAmount.Div(userAmount, totalSupply)
+
+		lock := adapters.Lock{
+			User:          user,
+			TokenAmount:   userAmount,
+			TokenDecimals: adapters.TaikoTokenDecimals,
+			Token:         token,
+			Time:          block.Time(),
+			BlockNumber:   block.NumberU64(),
+			TxHash:        txHash,
+		}
+		locks = append(locks, lock)
+	}
+
+	return locks
 }
 
 func (indexer *LockIndexer) isDeposit(l types.Log) bool {
