@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - barkrypto
 
 jobs:
   build:
