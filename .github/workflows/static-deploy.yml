@@ -14,18 +14,18 @@ jobs:
     steps:
       # Step 1: Check out the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Authenticate to Google Cloud
       - id: 'auth'
         name: Authenticate to Google Cloud
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}'
 
       # Step 3: Set up Google Cloud SDK
       - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v1'
+        uses: 'google-github-actions/setup-gcloud@v2'
 
       # Step 4: Sync Folder to GCS Bucket
       - name: Sync Folder to GCS Bucket

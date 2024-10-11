@@ -11,14 +11,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21.3' # Adjust to your Go version
+           go-version-file: 'go.mod'
 
       - name: Install dependencies
         run: go mod tidy
@@ -26,9 +26,9 @@ jobs:
       - name: Get the current tag
         id: get_tag
         run: |
-          TAG=$(git describe --tags --abbrev=0)
+          TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "Current tag: $TAG"
-          echo "::set-output name=tag::$TAG"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
       - name: Bump version and create tag
         id: bump_version
@@ -36,7 +36,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           # Get the current tag
-          TAG=$(git describe --tags --abbrev=0)
+          TAG=${{ steps.get_tag.outputs.tag }}
           # Extract the version number components
           IFS='.' read -r -a VERSION_PARTS <<< "${TAG#v}"
           MAJOR=${VERSION_PARTS[0]}
@@ -48,7 +48,7 @@ jobs:
           git tag $NEW_TAG
           git push origin $NEW_TAG
           echo "New tag: $NEW_TAG"
-          echo "::set-output name=new_tag::$NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
