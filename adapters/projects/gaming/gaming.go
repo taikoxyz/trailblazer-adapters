@@ -76,6 +76,7 @@ func Recipients() map[string][]string {
 		},
 		"Robots.Farm": {
 			"0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
+			"0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6",
 		},
 		"WorldOfDypians": {
 			"0xCb2Eb4ba62346751F36bA652010b553759141AEE",
