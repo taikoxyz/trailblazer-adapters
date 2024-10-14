@@ -24,6 +24,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/omnihub"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/ritsu"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/symmetric"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/nomis"
 	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
@@ -177,6 +178,13 @@ func executeCommand(p prompt) error {
 		indexer := symmetric.NewLockIndexer(
 			client,
 			[]common.Address{common.HexToAddress(symmetric.LockAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+
+	case NomisScoreMinted:
+		indexer := nomis.NewScoreMintedIndexer(
+			client,
+			[]common.Address{common.HexToAddress(nomis.ScoreMintedAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 

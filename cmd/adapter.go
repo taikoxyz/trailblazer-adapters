@@ -20,6 +20,7 @@ const (
 	ConftTokenSold           adapter = "ConftTokenSold"
 	DripsLock                adapter = "DripsLock"
 	SymmetricLock            adapter = "SymmetricLock"
+	NomisScoreMinted         adapter = "NomisScoreMinted"
 )
 
 func adapterz() []adapter {
@@ -30,7 +31,7 @@ func adapterz() []adapter {
 		NftDeployed,
 		GamingWhitelist,
 		DotTaikoDomains,
-		OkxOrderFulfilled,
+		NomisScoreMinted,
 		LoopexNewSale,
 		OmnihubContractDeployed,
 		Nfts2meCollectionCreated,
