@@ -771,5 +771,14 @@
       "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
       "0xfE96910cF84318d1B8a5e2a6962774711467C0be"
     ]
+  },
+  {
+    "name": "NomisScore",
+    "slug": "nomis",
+    "twitter": "@0xNomis",
+    "logo": "nomis.svg",
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
   }
 ]
