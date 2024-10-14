@@ -23,14 +23,14 @@ const (
 )
 
 type ChangedScoreEvent struct {
-	TokenId     		*big.Int
-	Owner        		common.Address
-	Score		 		uint16
-	CalculationModel 	uint16
-	ChainId				*big.Int
-	MetadataUrl			string
-	ReferralCode		string
-	ReferrerCode		string
+	TokenId             *big.Int
+	Owner               common.Address
+	Score               uint16
+	CalculationModel    uint16
+	ChainId             *big.Int
+	MetadataUrl         string
+	ReferralCode        string
+	ReferrerCode        string
 }
 
 type ScoreMintedIndexer struct {
