@@ -760,5 +760,16 @@
       "0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
       "0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6"
     ]
+  },
+  {
+    "name": "Bebop",
+    "slug": "bebop",
+    "twitter": "@bebop_dex",
+    "logo": "bebop.svg",
+    "contracts": [
+      "0xbbbbbBB520d69a9775E85b458C58c648259FAD5F",
+      "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
+      "0xfE96910cF84318d1B8a5e2a6962774711467C0be"
+    ]
   }
 ]
