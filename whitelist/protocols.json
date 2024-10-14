@@ -485,7 +485,7 @@
   {
     "name": "Brigade",
     "slug": "brigade",
-    "twitter": "@tacowax",
+    "twitter": "@tacostudios_io",
     "logo": "brigade.png",
     "contracts": [
       "0x8a93AAE6D94680658012B887BfDd981A17661Ef4",
@@ -749,6 +749,16 @@
     "logo": "taikodrips.png",
     "contracts": [
       "0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"
+    ]
+  },
+  {
+    "name": "Robots.Farm",
+    "slug": "robotsfarm",
+    "twitter": "@robotsfarm",
+    "logo": "robotsfarm.jpg",
+    "contracts": [
+      "0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
+      "0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6"
     ]
   }
 ]
