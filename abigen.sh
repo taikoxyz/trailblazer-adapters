@@ -1,6 +1,6 @@
 #/bin/sh
 
-names=("erc20" "ritsu" "izumi" "iziPool" "drips" "symmetric" "balancer_vault" "balancer_token")
+names=("erc20" "ritsu" "izumi" "iziPool" "drips" "symmetric" "balancer_vault" "balancer_token" "robinos")
 
 for (( i = 0; i < ${#names[@]}; ++i ));
 do

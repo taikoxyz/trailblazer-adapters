@@ -59,6 +59,23 @@ type LogIndexer[T any] interface {
 	Index(context.Context, ...types.Log) ([]T, error)
 }
 
+type Robinos struct {
+	User          common.Address
+	TokenAmount   *big.Int
+	TokenDecimals uint8
+	Token         common.Address
+	EventCode     string
+	Duration      uint64
+	BlockTime     uint64
+	BlockNumber   uint64
+	TxHash        common.Hash
+}
+
+type RewardIndexer[T any] interface {
+	Addresses() []common.Address
+	Index(context.Context, ...types.Log) ([]T, error)
+}
+
 type BlockProcessor[T any] interface {
 	Process(context.Context, ...*types.Block) ([]T, error)
 }
