@@ -1,4 +1,4 @@
-package symmetric_test
+package robinos_test
 
 import (
 	"context"

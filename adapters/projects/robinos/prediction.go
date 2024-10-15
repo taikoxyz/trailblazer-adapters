@@ -1,4 +1,4 @@
-package symmetric
+package robinos
 
 import (
 	"context"
@@ -25,25 +25,25 @@ const (
 
 var SelectedMultiplierEvents = []string{"Prediction - $TAIKO price on Oct 20", "Serie A 24/25 - Juventus v. Lazio", "EPL 24/25 - Liverpool v. Chelsea", "EPL 24/25 - Man Utd v. Brentford"}
 
-type RobinosIndexer struct {
+type PredictionIndexer struct {
 	client    *ethclient.Client
 	addresses []common.Address
 }
 
-func NewMultiplierEventIndexer(client *ethclient.Client, addresses []common.Address) *RobinosIndexer {
-	return &RobinosIndexer{
+func NewRobinosIndexer(client *ethclient.Client, addresses []common.Address) *PredictionIndexer {
+	return &PredictionIndexer{
 		client:    client,
 		addresses: addresses,
 	}
 }
 
-var _ adapters.RewardIndexer[adapters.Robinos] = &RobinosIndexer{}
+var _ adapters.LogIndexer[adapters.Prediction] = &PredictionIndexer{}
 
-func (indexer *RobinosIndexer) Addresses() []common.Address {
+func (indexer *PredictionIndexer) Addresses() []common.Address {
 	return indexer.addresses
 }
 
-func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Lock, error) {
+func (indexer *PredictionIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Lock, error) {
 	var locks []adapters.Lock
 
 	for _, l := range logs {
