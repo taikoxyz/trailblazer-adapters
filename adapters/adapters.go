@@ -65,7 +65,6 @@ type Prediction struct {
 	TokenDecimals uint8
 	Token         common.Address
 	EventCode     string
-	WinnerIndex   uint8 // 0 or 1
 	BlockTime     uint64
 	BlockNumber   uint64
 	TxHash        common.Hash
