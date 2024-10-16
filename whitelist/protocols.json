@@ -27,7 +27,7 @@
   {
     "name": "DZap",
     "slug": "dzap",
-    "logo": "dzap.svg",
+    "logo": "dzap.png",
     "twitter": "@dzap_io",
     "contracts": [
       "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
@@ -772,6 +772,15 @@
       "0xbbbbbBB520d69a9775E85b458C58c648259FAD5F",
       "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
       "0xfE96910cF84318d1B8a5e2a6962774711467C0be"
+    ]
+  },
+  {
+    "name": "Router",
+    "slug": "router",
+    "twitter": "@routerprotocol",
+    "logo": "router.svg",
+    "contracts": [
+      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
     ]
   }
 ]
