@@ -48,9 +48,9 @@ func (indexer *PredictionIndexer) Index(ctx context.Context, logs ...types.Log) 
 
 		// Unpack the reward distributed event
 		var event struct {
-			EventCode string
-			Rewards   []*big.Int
-			Users     []common.Address
+			EventCode    string
+			UserRewards  []*big.Int
+			WinningUsers []common.Address
 		}
 		if err := processRewardDistributedLog(l, &event); err != nil {
 			return nil, err
@@ -67,8 +67,8 @@ func (indexer *PredictionIndexer) Index(ctx context.Context, logs ...types.Log) 
 		}
 
 		// Process each user and their corresponding reward
-		for i, user := range event.Users {
-			reward := event.Rewards[i]
+		for i, user := range event.WinningUsers {
+			reward := event.UserRewards[i]
 
 			// Create a Prediction struct
 			prediction := adapters.Prediction{
@@ -91,9 +91,9 @@ func (indexer *PredictionIndexer) Index(ctx context.Context, logs ...types.Log) 
 
 // Helper function to unpack the RewardDistributed event from the log
 func processRewardDistributedLog(vLog types.Log, event *struct {
-	EventCode string
-	Rewards   []*big.Int
-	Users     []common.Address
+	EventCode    string
+	UserRewards  []*big.Int
+	WinningUsers []common.Address
 }) error {
 	contractABI, err := abi.JSON(strings.NewReader(robinos.RobinosABI))
 	if err != nil {
@@ -101,7 +101,6 @@ func processRewardDistributedLog(vLog types.Log, event *struct {
 	}
 	return contractABI.UnpackIntoInterface(event, "RewardDistributed", vLog.Data)
 }
-
 
 // Check if the log is a RewardDistributed event
 func (indexer *PredictionIndexer) isRewardDistributedEvent(l types.Log) bool {
