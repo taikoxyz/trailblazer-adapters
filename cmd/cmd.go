@@ -24,6 +24,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/omnihub"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/ritsu"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/symmetric"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/robinos"
 	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
@@ -177,6 +178,12 @@ func executeCommand(p prompt) error {
 		indexer := symmetric.NewLockIndexer(
 			client,
 			[]common.Address{common.HexToAddress(symmetric.LockAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case RobinosPrediction:
+		indexer := robinos.NewPredictionIndexer (
+			client,
+			[]common.Address{common.HexToAddress(robinos.RobinosAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 
