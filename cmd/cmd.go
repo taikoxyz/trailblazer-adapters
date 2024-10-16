@@ -184,6 +184,7 @@ func executeCommand(p prompt) error {
 		indexer := robinos.NewPredictionIndexer (
 			client,
 			[]common.Address{common.HexToAddress(robinos.RobinosAddress)},
+			[]string{"Prediction - $TAIKO price on Oct 20", "Serie A 24/25 - Juventus v. Lazio", "EPL 24/25 - Liverpool v. Chelsea", "EPL 24/25 - Man Utd v. Brentford"},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 
