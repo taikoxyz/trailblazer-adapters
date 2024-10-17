@@ -11,6 +11,8 @@
   {
     "name": "Magpie Protocol",
     "slug": "magpie-protocol",
+    "twitter": "@magpieprotocol",
+    "logo": "magpie.svg",
     "contracts": [
       "0x956df8424b556f0076e8abf5481605f5a791cc7f"
     ]
@@ -25,7 +27,7 @@
   {
     "name": "DZap",
     "slug": "dzap",
-    "logo": "dzap.svg",
+    "logo": "dzap.png",
     "twitter": "@dzap_io",
     "contracts": [
       "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
@@ -409,7 +411,9 @@
     "twitter": "@Owlto_Finance",
     "logo": "owlto.png",
     "contracts": [
-      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284"
+      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284",
+      "0xC626845BF4E6a5802Ef774dA0B3DfC6707F015F7",
+      "0x4cAC0cda8c1A9C5f71c4bFc7FE9d3e5740fa7ba9"
     ]
   },
   {
@@ -485,7 +489,7 @@
   {
     "name": "Brigade",
     "slug": "brigade",
-    "twitter": "@tacowax",
+    "twitter": "@tacostudios_io",
     "logo": "brigade.png",
     "contracts": [
       "0x8a93AAE6D94680658012B887BfDd981A17661Ef4",
@@ -615,7 +619,8 @@
       "0x7aE881bea5AaA4e8A1dd7cf1B78B92984C3F28D2",
       "0xAA60Afa2FceC38EE762c52135f6Cbb22D8128DD7",
       "0xa025369dfC8280CC7e88451a0fbe33fE7138eD31",
-      "0xCDa30664D0Df20b19cB35a834594fA8A6A001e5c"
+      "0xCDa30664D0Df20b19cB35a834594fA8A6A001e5c",
+      "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3"
     ]
   },
   {
@@ -630,6 +635,8 @@
   {
     "name": "Swapsicle",
     "slug": "swapsicle",
+    "twitter": "@SwapsicleDEX",
+    "logo": "swapsicle.png",
     "contracts": [
       "0xb68b27a1c93A52d698EecA5a759E2E4469432C09",
       "0xBa90FC740a95A6997306255853959Bb284cb748a",
@@ -642,12 +649,21 @@
       "0x37F7B1187B758EA0655506A0a2cCdff523EaD9d5",
       "0x58596657e3d7FF8028Cb9597876e6e8674e61C96",
       "0x0cdde1dead51b156bd62113664d60b354b4df4ab",
-      "0xe130d0dcafbd98f7f4ba357da7cd504212d6f0ce"
+      "0xe130d0dcafbd98f7f4ba357da7cd504212d6f0ce",
+      "0x4479e2b3b5af3c60483c9507929cf6953107485a",
+      "0x12c1faa6195b8a81140deaf9c25b8f15237be829",
+      "0x96f80f63f58449d2ec947fba55ee3db50eee80a2",
+      "0x7528f1d6e9bd417b60a2cce4419dcae098cca4b4",
+      "0x60f6bc9ab2a0b4ff259ab8e36c6440118282fff2",
+      "0x23c8ddf1fc67ca71a1d1a87051a208749adc24b7",
+      "0xc61adf4bfdc42955f7f94b7052c34c0c2a29b8e7"
     ]
   },
   {
     "name": "Robinos",
     "slug": "robinos",
+    "twitter": "@RobinosPredict",
+    "logo": "robinos.svg",
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
@@ -759,6 +775,55 @@
       "0x6c226EeE9fB9459c716AC46c8436D315F800785B",
 	  "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
 	  "0x3f66415fBB71ff8149A1C90FF711BfD9e3D16Ee2"
+    ]
+  },
+  {
+    "name": "Robots.Farm",
+    "slug": "robotsfarm",
+    "twitter": "@robotsfarm",
+    "logo": "robotsfarm.jpg",
+    "contracts": [
+      "0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
+      "0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6"
+    ]
+  },
+  {
+    "name": "LogX Network",
+    "slug": "logx-network",
+    "twitter": "@LogX_trade",
+    "logo": "logx.svg",
+    "contracts": [
+      "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
+      "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
+ ]
+  },
+{
+    "name": "Bebop",
+    "slug": "bebop",
+    "twitter": "@bebop_dex",
+    "logo": "bebop.svg",
+    "contracts": [
+      "0xbbbbbBB520d69a9775E85b458C58c648259FAD5F",
+      "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
+      "0xfE96910cF84318d1B8a5e2a6962774711467C0be"
+    ]
+  },
+  {
+    "name": "Router",
+    "slug": "router",
+    "twitter": "@routerprotocol",
+    "logo": "router.svg",
+    "contracts": [
+      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
+    ]
+  },
+  {
+    "name": "NomisScore",
+    "slug": "nomis",
+    "twitter": "@0xNomis",
+    "logo": "nomis.svg",
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
     ]
   }
 ]

@@ -20,6 +20,7 @@ const (
 	ConftTokenSold           adapter = "ConftTokenSold"
 	DripsLock                adapter = "DripsLock"
 	SymmetricLock            adapter = "SymmetricLock"
+	RobinosPrediction        adapter = "RobinosPrediction"
 )
 
 func adapterz() []adapter {
@@ -37,5 +38,6 @@ func adapterz() []adapter {
 		ConftTokenSold,
 		DripsLock,
 		SymmetricLock,
+		RobinosPrediction,
 	}
 }
