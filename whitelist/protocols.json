@@ -801,5 +801,14 @@
     "contracts": [
       "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
     ]
+  },
+  {
+    "name": "NomisScore",
+    "slug": "nomis",
+    "twitter": "@0xNomis",
+    "logo": "nomis.svg",
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
   }
 ]
