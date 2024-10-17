@@ -11,6 +11,8 @@
   {
     "name": "Magpie Protocol",
     "slug": "magpie-protocol",
+    "twitter": "@magpieprotocol",
+    "logo": "magpie.svg",
     "contracts": [
       "0x956df8424b556f0076e8abf5481605f5a791cc7f"
     ]
@@ -25,7 +27,7 @@
   {
     "name": "DZap",
     "slug": "dzap",
-    "logo": "dzap.svg",
+    "logo": "dzap.png",
     "twitter": "@dzap_io",
     "contracts": [
       "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
@@ -409,7 +411,9 @@
     "twitter": "@Owlto_Finance",
     "logo": "owlto.png",
     "contracts": [
-      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284"
+      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284",
+      "0xC626845BF4E6a5802Ef774dA0B3DfC6707F015F7",
+      "0x4cAC0cda8c1A9C5f71c4bFc7FE9d3e5740fa7ba9"
     ]
   },
   {
@@ -769,6 +773,26 @@
     "contracts": [
       "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
       "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
+ ]
+  },
+{
+    "name": "Bebop",
+    "slug": "bebop",
+    "twitter": "@bebop_dex",
+    "logo": "bebop.svg",
+    "contracts": [
+      "0xbbbbbBB520d69a9775E85b458C58c648259FAD5F",
+      "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
+      "0xfE96910cF84318d1B8a5e2a6962774711467C0be"
+    ]
+  },
+  {
+    "name": "Router",
+    "slug": "router",
+    "twitter": "@routerprotocol",
+    "logo": "router.svg",
+    "contracts": [
+      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
     ]
   }
 ]

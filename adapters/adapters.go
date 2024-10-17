@@ -59,6 +59,17 @@ type LogIndexer[T any] interface {
 	Index(context.Context, ...types.Log) ([]T, error)
 }
 
+type Prediction struct {
+	User          common.Address
+	TokenAmount   *big.Int
+	TokenDecimals uint8
+	Token         common.Address
+	EventCode     string
+	BlockTime     uint64
+	BlockNumber   uint64
+	TxHash        common.Hash
+}
+
 type BlockProcessor[T any] interface {
 	Process(context.Context, ...*types.Block) ([]T, error)
 }
