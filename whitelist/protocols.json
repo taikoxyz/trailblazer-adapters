@@ -766,6 +766,16 @@
     ]
   },
   {
+    "name": "LogX Network",
+    "slug": "logx-network",
+    "twitter": "@LogX_trade",
+    "logo": "logx.svg",
+    "contracts": [
+      "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
+      "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
+ ]
+  },
+{
     "name": "Bebop",
     "slug": "bebop",
     "twitter": "@bebop_dex",
