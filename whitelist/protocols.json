@@ -360,7 +360,11 @@
     "twitter": "@LooperLands",
     "logo": "looperlands.svg",
     "contracts": [
-      "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"
+      "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424",
+      "0x563Be8E43692bDC27525afF630fDaE22D5A83530",
+      "0x6f2D2EFC2773923f0d7De4eac1F845C34A094690",
+      "0xE8e9B020B72352d55410a147aB49f53ff479A40c",
+      "0x56b0D8d04de22f2539945258ddB288C123026775"
     ]
   },
   {
@@ -543,7 +547,8 @@
     "slug": "bullishs",
     "logo": "bullishs.png",
     "contracts": [
-      "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6"
+      "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6",
+      "0xAd2803cDBfFc8bae61eeC0A1CF849877f0E742Bd"
     ]
   },
   {
@@ -825,6 +830,54 @@
     "logo": "nomis.svg",
     "contracts": [
       "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
+  },
+  {
+    "name": "21Blackjack",
+    "slug": "21bj",
+    "logo": "21bj.png",
+    "contracts": [
+      "0x8C5720982b54874F53F2514BbD2382ADce98a0ca",
+      "0x78adDA11Bfc437DeC4a39318FF7e52Cf00DC062c"
+    ]
+  },
+  {
+    "name": "EVMWarfare",
+    "slug": "evmwarfare",
+    "logo": "evmwarfare.png",
+    "contracts": [
+      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
+    ]
+  },
+  {
+    "name": "Swords & Dungeons",
+    "slug": "swordsanddungeons",
+    "logo": "swordsanddungeons.png",
+    "twitter": "@SwordsnDungeons",
+    "contracts": [
+      "0xac67aB5D44d5A7DbB55b8D9d1893889B7DaE3a36",
+      "0xc8b15Aa9BD24961E2ee4f3C67aEA4EafcB071108",
+      "0xEF9bF561ccbCBeDA1A71341A2162e5e6fF28c929"
+    ]
+  },
+  {
+    "name": "Ultiverse",
+    "slug": "ultiverse",
+    "logo": "ultiverse.png",
+    "twitter": "@UltiverseDAO",
+    "contracts": [
+      "0xa30c146A816931f6134dD8676B9dE8E77496954d",
+      "0xE3b5500039F401e48627e8025b37d4871cF34f36",
+      "0x06F9914838903162515aFa67D5b99Ada0F9791cc"
+    ]
+  },
+  {
+    "name": "ZypherNetwork",
+    "slug": "zyphernetwork",
+    "logo": "zyphergames.png",
+    "twitter": "@Zypher_Network",
+    "contracts": [
+      "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
     ]
   }
 ]
