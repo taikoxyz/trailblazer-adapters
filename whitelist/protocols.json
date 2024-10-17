@@ -635,6 +635,8 @@
   {
     "name": "Swapsicle",
     "slug": "swapsicle",
+    "twitter": "@SwapsicleDEX",
+    "logo": "swapsicle.png",
     "contracts": [
       "0xb68b27a1c93A52d698EecA5a759E2E4469432C09",
       "0xBa90FC740a95A6997306255853959Bb284cb748a",
@@ -660,6 +662,8 @@
   {
     "name": "Robinos",
     "slug": "robinos",
+    "twitter": "@RobinosPredict",
+    "logo": "robinos.svg",
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
