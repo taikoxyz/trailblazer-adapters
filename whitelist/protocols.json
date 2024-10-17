@@ -767,6 +767,17 @@
     ]
   },
   {
+    "name": "CyberCrew DEATHMATCH",
+    "slug": "CCDeathMatch",
+    "twitter": "@CC_Deathmatch",
+    "logo": "CC_Deathmatch.png",
+    "contracts": [
+      "0x6c226EeE9fB9459c716AC46c8436D315F800785B",
+	  "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
+	  "0x3f66415fBB71ff8149A1C90FF711BfD9e3D16Ee2"
+    ]
+  },
+  {
     "name": "Robots.Farm",
     "slug": "robotsfarm",
     "twitter": "@robotsfarm",
