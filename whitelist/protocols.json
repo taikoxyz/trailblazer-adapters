@@ -411,7 +411,9 @@
     "twitter": "@Owlto_Finance",
     "logo": "owlto.png",
     "contracts": [
-      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284"
+      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284",
+      "0xC626845BF4E6a5802Ef774dA0B3DfC6707F015F7",
+      "0x4cAC0cda8c1A9C5f71c4bFc7FE9d3e5740fa7ba9"
     ]
   },
   {
