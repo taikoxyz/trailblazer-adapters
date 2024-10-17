@@ -556,6 +556,7 @@
   {
     "name": "Meridian Lend",
     "slug": "meridian-lend",
+    "logo": "meridian_finance.png",
     "contracts": [
       "0x8Cf3E0e7aE4eB82237d0931388EA72D5649D76e0",
       "0x9Fe3659aFf8CDaf4cd009ef7a63DaB23b3CA15C7",
@@ -773,8 +774,8 @@
     "logo": "CC_Deathmatch.png",
     "contracts": [
       "0x6c226EeE9fB9459c716AC46c8436D315F800785B",
-	  "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
-	  "0x3f66415fBB71ff8149A1C90FF711BfD9e3D16Ee2"
+      "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
+      "0x3f66415fBB71ff8149A1C90FF711BfD9e3D16Ee2"
     ]
   },
   {
@@ -795,9 +796,9 @@
     "contracts": [
       "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
       "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
- ]
+    ]
   },
-{
+  {
     "name": "Bebop",
     "slug": "bebop",
     "twitter": "@bebop_dex",
