@@ -61,15 +61,6 @@
     ]
   },
   {
-    "name": "Bunnyfi",
-    "slug": "bunnyfi",
-    "twitter": "@bunnyfilabs",
-    "logo": "bunnyfi.svg",
-    "contracts": [
-      "0x0000000000D310F8802cC91F198d14bC2303230B"
-    ]
-  },
-  {
     "name": "Kodo Exchange",
     "slug": "kodo-exchange",
     "twitter": "@kodohq",
