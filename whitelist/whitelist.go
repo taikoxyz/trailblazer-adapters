@@ -357,15 +357,16 @@ var (
     ]
   },
   {
-    "name": "PoPP Social Summer",
-    "slug": "popp-social-summer",
+    "name": "PoP Planet",
+    "slug": "popp",
     "contracts": [
       "0x01412AAba531Cc6ef630CE5059120999f824CDAF",
       "0xdF7fDfceDa6e42438876ffCFB3B641E209C706ef",
       "0x387960A80375bA5FC19a73aC8d1353a9e2954862",
       "0xCE02C65C69c01480e9cea29eC355809F0Cb358d1",
       "0x7FfCf1231d05DC66E40d0B73AC9ed152638a63Ad",
-      "0xe383e64e02aed6e1ab75a62fed76a353e9e3345a"
+      "0xe383e64e02aed6e1ab75a62fed76a353e9e3345a",
+      "0x4ac8A3c16de4E612886eFAac2B4f6624d364ca61",
     ]
   }
 ]`
