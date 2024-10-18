@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - develop
 
 jobs:
   build:
@@ -12,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v5
       with:
-        go-version: '^1.16'
+        go-version-file: 'go.mod'
 
     - name: Install dependencies
       run: go mod download

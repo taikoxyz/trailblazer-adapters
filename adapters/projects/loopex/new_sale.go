@@ -14,15 +14,13 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/sale"
 )
 
-var (
-	logNewSaleSigHash = crypto.Keccak256Hash([]byte("NewSale(address,uint256,address,uint256,address,uint256,uint256)"))
+const (
+	// https://taikoscan.io/address/0x8733764434c3a3C2b2Fa3A5033CA49FDdDF976C0
+	NewSaleAddress string = "0x8733764434c3a3C2b2Fa3A5033CA49FDdDF976C0"
+
+	logNewSaleSignature string = "NewSale(address,uint256,address,uint256,address,uint256,uint256)"
 )
 
-type NewSaleIndexer struct {
-	TargetAddresses []common.Address
-}
-
-// NewSaleEvent represents the NewSale event structure
 type NewSaleEvent struct {
 	Seller    common.Address `json:"seller"`
 	TokenId   *big.Int       `json:"tokenId"`
@@ -33,56 +31,62 @@ type NewSaleEvent struct {
 	Timestamp *big.Int       `json:"timestamp"`
 }
 
-func NewNewSaleIndexer() *NewSaleIndexer {
-	return &NewSaleIndexer{TargetAddresses: []common.Address{
-		common.HexToAddress("0x8733764434c3a3C2b2Fa3A5033CA49FDdDF976C0"),
-	}}
+type NewSaleIndexer struct {
+	client    *ethclient.Client
+	addresses []common.Address
 }
+
+func NewNewSaleIndexer(client *ethclient.Client, addresses []common.Address) *NewSaleIndexer {
+	return &NewSaleIndexer{
+		client:    client,
+		addresses: addresses,
+	}
+}
+
+var _ adapters.LogIndexer[adapters.Whitelist] = &NewSaleIndexer{}
 
 func (indexer *NewSaleIndexer) Addresses() []common.Address {
-	return indexer.TargetAddresses
+	return indexer.addresses
 }
 
-func (indexer *NewSaleIndexer) IndexLogs(ctx context.Context, chainID *big.Int, client *ethclient.Client, logs []types.Log) ([]adapters.Whitelist, error) {
-	var result []adapters.Whitelist
-	for _, vLog := range logs {
-		if !indexer.isRelevantLog(vLog.Topics[0]) {
+func (indexer *NewSaleIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Whitelist, error) {
+	var whitelist []adapters.Whitelist
+
+	for _, l := range logs {
+		if !indexer.isNewSaleLog(l) {
 			continue
 		}
-		transferData, err := indexer.ProcessLog(ctx, chainID, client, vLog)
+
+		var newSaleEvent NewSaleEvent
+
+		newSaleABI, err := abi.JSON(strings.NewReader(sale.ABI))
 		if err != nil {
 			return nil, err
 		}
-		result = append(result, *transferData)
+
+		err = newSaleABI.UnpackIntoInterface(&newSaleEvent, "NewSale", l.Data)
+		if err != nil {
+			return nil, err
+		}
+
+		block, err := indexer.client.BlockByNumber(ctx, big.NewInt(int64(l.BlockNumber)))
+		if err != nil {
+			return nil, err
+		}
+
+		w := &adapters.Whitelist{
+			User:        newSaleEvent.Buyer,
+			Time:        block.Time(),
+			BlockNumber: block.NumberU64(),
+			TxHash:      l.TxHash,
+		}
+
+		whitelist = append(whitelist, *w)
 	}
-	return result, nil
+
+	return whitelist, nil
 }
 
-func (indexer *NewSaleIndexer) isRelevantLog(topic common.Hash) bool {
-	return topic.Hex() == logNewSaleSigHash.Hex()
-}
-
-func (indexer *NewSaleIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
-	var newSaleEvent NewSaleEvent
-
-	newSaleABI, err := abi.JSON(strings.NewReader(sale.ABI))
-	if err != nil {
-		return nil, err
-	}
-
-	err = newSaleABI.UnpackIntoInterface(&newSaleEvent, "NewSale", vLog.Data)
-	if err != nil {
-		return nil, err
-	}
-
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
-	if err != nil {
-		return nil, err
-	}
-
-	return &adapters.Whitelist{
-		User:        newSaleEvent.Buyer,
-		Time:        block.Time(),
-		BlockNumber: block.Number().Uint64(),
-	}, nil
+func (indexer *NewSaleIndexer) isNewSaleLog(l types.Log) bool {
+	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logNewSaleSignature)).Hex()
 }
