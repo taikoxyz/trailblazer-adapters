@@ -879,5 +879,16 @@
     "contracts": [
       "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
     ]
+  },
+  {
+    "name": "IceCreamSwap",
+    "slug": "icecreamswap",
+    "logo": "icecream.png",
+    "twitter": "@icecream_swap",
+    "contracts": [
+      "0x16A3247Db4588176c24C6A5F6d3fd2C174122DF5",
+      "0xC87De04e2EC1F4282dFF2933A2D58199f688fC3d",
+      "0xE578184bC88EB48485Bba23a37B5509578d2aE38"
+    ]
   }
 ]
