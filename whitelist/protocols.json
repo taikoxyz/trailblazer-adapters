@@ -895,4 +895,14 @@
       "0xE578184bC88EB48485Bba23a37B5509578d2aE38"
     ]
   }
+{
+    "name": "Crypto Clinic Votes",
+    "slug": "ccv",
+    "contracts": [
+        "0x6bf5dAFF19bd497fDb1d5666550bC15f68f24a5E"
+    ],
+    "twitter": "https://x.com/cryptoclinictv",
+    "logo": "/img/crypto_clinic_logo.png"
+}
+
 ]
