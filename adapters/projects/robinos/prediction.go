@@ -19,7 +19,24 @@ const (
 	LogRewardDistributedSignature = "RewardDistributed(string,uint256[],address[])"
 )
 
-var SelectedMultiplierEvents = []string{"Prediction - $TAIKO price on Oct 6", "Prediction - $TAIKO price on Oct 20", "Serie A 24/25 - Juventus v. Lazio", "EPL 24/25 - Liverpool v. Chelsea", "EPL 24/25 - Man Utd v. Brentford"}
+var SelectedMultiplierEvents = []string{
+	"Prediction - $TAIKO price on Oct 6",
+	"Prediction - $TAIKO price on Oct 20",
+	"Serie A 24/25 - Juventus v. Lazio",
+	"EPL 24/25 - Liverpool v. Chelsea",
+	"EPL 24/25 - Man Utd v. Brentford",
+	"UEFA Champions League 24/25 - RB Leipzig v. Liverpool",
+	"UEFA Champions League 24/25 - Barcelona v. Bayern Munich",
+	"UEFA Champions League 24/25 - Real Madrid v. Borussia Dortmund",
+	"UEFA Champions League 24/25 - PSG v. PSV",
+	"UEFA Champions League 24/25 - Juventus v. VfB Stuttgart",
+	"UEFA Champions League 24/25 - Aston Villa v. Bologna",
+	"UEFA Champions League 24/25 - AC Milan v. Club Brugge",
+	"Prediction - $TAIKO price on Oct 27",
+	"La Liga 24/25 - Real Madrid v. Barcelona",
+	"Serie A 24/25 - Inter Milan v. Juventus",
+	"EPL 24/25 - Arsenal v. Liverpool",
+}
 
 type PredictionIndexer struct {
 	client    *ethclient.Client
