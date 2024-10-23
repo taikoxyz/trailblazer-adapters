@@ -885,5 +885,15 @@
       "0xD989E929517B0e5eD0c8EfE7607Fa167B697cBa8",
       "0xe38326Ae727e3fA6669249063Ce7b8ea1754e756"
     ]
+  },
+  {
+    "name": "Solv Protocol",
+    "slug": "solv-protocol",
+    "twitter": "@SolvProtocol",
+    "logo": "solv.png",
+    "contracts": [
+      "0x541FD749419CA806a8bc7da8ac23D346f2dF8B77",
+      "0xCC0966D8418d412c599A6421b760a847eB169A8c"
+    ]
   }
 ]
