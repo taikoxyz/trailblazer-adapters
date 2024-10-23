@@ -896,4 +896,13 @@
       "0xCC0966D8418d412c599A6421b760a847eB169A8c"
     ]
   }
+  {
+    "name": "Crypto Clinic",
+    "slug": "Crypto-Clinic",
+    "twitter": "@cryptoclinictv",
+    "logo": "CryptoClinic.png",
+    "contracts": [
+      "0x9B997Df34b9dcea8C14f18ADb6B9989175C5157d"
+    ]
+  }
 ]
