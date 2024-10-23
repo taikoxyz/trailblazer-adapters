@@ -4,43 +4,33 @@
     "slug": "nfts-2-me",
     "twitter": "@NFTs2Me",
     "logo": "nfts2me.png",
-    "contracts": [
-      "0x00000000001594C61dD8a6804da9AB58eD2483ce"
-    ]
+    "contracts": ["0x00000000001594C61dD8a6804da9AB58eD2483ce"]
   },
   {
     "name": "Magpie Protocol",
     "slug": "magpie-protocol",
     "twitter": "@magpieprotocol",
     "logo": "magpie.svg",
-    "contracts": [
-      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
-    ]
+    "contracts": ["0x956df8424b556f0076e8abf5481605f5a791cc7f"]
   },
   {
     "name": "Aspecta",
     "slug": "aspecta",
-    "contracts": [
-      "0x3636814Ab8d82854949d5794c428B8329115755D"
-    ]
+    "contracts": ["0x3636814Ab8d82854949d5794c428B8329115755D"]
   },
   {
     "name": "DZap",
     "slug": "dzap",
     "logo": "dzap.png",
     "twitter": "@dzap_io",
-    "contracts": [
-      "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
-    ]
+    "contracts": ["0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"]
   },
   {
     "name": "Eisen Finance",
     "slug": "eisen",
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
-    "contracts": [
-      "0xFA0e9251503DaE51670d10288e6962d63191731d"
-    ]
+    "contracts": ["0xFA0e9251503DaE51670d10288e6962d63191731d"]
   },
   {
     "name": "Rubic",
@@ -197,9 +187,7 @@
     "slug": "zns",
     "twitter": "@ZNSConnect",
     "logo": "zns.svg",
-    "contracts": [
-      "0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"
-    ]
+    "contracts": ["0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"]
   },
   {
     "name": "RubyScore",
@@ -244,9 +232,7 @@
     "slug": "rhino-fi",
     "twitter": "@RhinoFi",
     "logo": "rhinofi.png",
-    "contracts": [
-      "0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"
-    ]
+    "contracts": ["0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"]
   },
   {
     "name": "DTX.TRADE",
@@ -300,9 +286,7 @@
     "slug": "retrobridge",
     "twitter": "@Retro_Bridge",
     "logo": "retrobridge.jpg",
-    "contracts": [
-      "0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"
-    ]
+    "contracts": ["0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"]
   },
   {
     "name": "0xAstra",
@@ -400,9 +384,7 @@
     "slug": "stupid-monkeys",
     "twitter": "@StupidMonkeysRH",
     "logo": "stupidmonkeys.png",
-    "contracts": [
-      "0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"
-    ]
+    "contracts": ["0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"]
   },
   {
     "name": "Owlto Finance",
@@ -461,9 +443,7 @@
     "slug": "minibridge",
     "twitter": "@Chaineye_tools",
     "logo": "minibridge.jpeg",
-    "contracts": [
-      "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
-    ]
+    "contracts": ["0x00000000000007736e2F9aA5630B8c812E1F3fc9"]
   },
   {
     "name": "Izumi Finance",
@@ -549,9 +529,7 @@
   {
     "name": "REVOX Lense",
     "slug": "revox-lense",
-    "contracts": [
-      "0x2c80179883217370F777e76c067Eea91D8283C5C"
-    ]
+    "contracts": ["0x2c80179883217370F777e76c067Eea91D8283C5C"]
   },
   {
     "name": "Meridian Lend",
@@ -665,9 +643,7 @@
     "slug": "robinos",
     "twitter": "@RobinosPredict",
     "logo": "robinos.svg",
-    "contracts": [
-      "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
-    ]
+    "contracts": ["0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"]
   },
   {
     "name": "TakoTako",
@@ -692,27 +668,21 @@
     "slug": "1delta",
     "twitter": "@1deltaDAO",
     "logo": "1delta.svg",
-    "contracts": [
-      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
-    ]
+    "contracts": ["0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"]
   },
   {
     "name": "OmniHub",
     "slug": "omnihub",
     "twitter": "@omni_hub",
     "logo": "omnihub.jpg",
-    "contracts": [
-      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
-    ]
+    "contracts": ["0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"]
   },
   {
     "name": "Chainspot",
     "slug": "chainspot",
     "twitter": "@ChainspotIO",
     "logo": "chainspot.svg",
-    "contracts": [
-      "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
-    ]
+    "contracts": ["0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"]
   },
   {
     "name": "Panko",
@@ -772,9 +742,7 @@
     "slug": "taikodrips",
     "twitter": "@taikodrips",
     "logo": "taikodrips.png",
-    "contracts": [
-      "0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"
-    ]
+    "contracts": ["0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"]
   },
   {
     "name": "CyberCrew DEATHMATCH",
@@ -823,18 +791,14 @@
     "slug": "router",
     "twitter": "@routerprotocol",
     "logo": "router.svg",
-    "contracts": [
-      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
-    ]
+    "contracts": ["0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"]
   },
   {
     "name": "NomisScore",
     "slug": "nomis",
     "twitter": "@0xNomis",
     "logo": "nomis.svg",
-    "contracts": [
-      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
-    ]
+    "contracts": ["0x128B7290CdFA241E77337e0e42100bf6237a783C"]
   },
   {
     "name": "21Blackjack",
@@ -849,9 +813,7 @@
     "name": "EVMWarfare",
     "slug": "evmwarfare",
     "logo": "evmwarfare.png",
-    "contracts": [
-      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
-    ]
+    "contracts": ["0xA9E8e13BA0309486b2F710B8201B534D26633a89"]
   },
   {
     "name": "Swords & Dungeons",
@@ -880,9 +842,7 @@
     "slug": "zyphernetwork",
     "logo": "zyphergames.png",
     "twitter": "@Zypher_Network",
-    "contracts": [
-      "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
-    ]
+    "contracts": ["0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"]
   },
   {
     "name": "IceCreamSwap",
@@ -893,6 +853,37 @@
       "0x16A3247Db4588176c24C6A5F6d3fd2C174122DF5",
       "0xC87De04e2EC1F4282dFF2933A2D58199f688fC3d",
       "0xE578184bC88EB48485Bba23a37B5509578d2aE38"
+    ]
+  },
+  {
+    "name": "Jumper Exchange",
+    "slug": "jumper-exchange",
+    "twitter": "@JumperExchange",
+    "logo": "jumperexchange.png",
+    "contracts": [
+      "0x429Da7043882C2A962bC4EA7b33440C3B9a033D7",
+      "0x01ABD3Dec5268802272af46FE6Ac4c2fCF0Eff10",
+      "0x815e97BE9122Fa64259277b1509E316Fc45D4b34",
+      "0xD1DB5abDA5918ca4aFb8982a49378D4A2Dfe5D5c",
+      "0xa09f97e14C8351D16558b18891938aC873787652",
+      "0x8A779ed5c6838e236f934Eb392D5aBdbF22404dD",
+      "0x0C710c59f1a656333B5AfBAC64A8f60B52C30af4",
+      "0x42C1418917AE5505b5B3C79bdc1d1ba30177Ea06",
+      "0x5B73eFA1929c80D92C85512153392B799B022D18",
+      "0x147e65652FDaC507d24DE522a02C76c006A24aB9",
+      "0x386bbbE35DF5E7bec5fff8aC4E74A6D7c5fDa482",
+      "0xFf0dDC136bD881F3B8Eea805654Dd0D0d3bd800C",
+      "0x3A9A5dBa8FE1C4Da98187cE4755701BCA182f63b",
+      "0x113E97921874646413572F2C43562463c378b6f5",
+      "0xD59F68bBdECA334A05db2BCe5B6711d22f92fE7a",
+      "0x6bC43F95C5234aA749D18403753d60B91f972d3c",
+      "0xeCBa38d0bAc1cA1CD5A30347370e4D539d44FAA1",
+      "0xDd8A081efC90DFFD79940948a1528C51793C4B03",
+      "0xcaA342e4f781d63EF41E220D7622B97E66BAEcF3",
+      "0xff2F39692A90262b8Ed4DFD92799bB450425773F",
+      "0x6CA57d9846f9a1fd48368762b743a047eC4f81A6",
+      "0xD989E929517B0e5eD0c8EfE7607Fa167B697cBa8",
+      "0xe38326Ae727e3fA6669249063Ce7b8ea1754e756"
     ]
   }
 ]
