@@ -922,5 +922,14 @@
       "0x0ef58D7eAde4628b1446D5CA3A3863D4D2BEbC8C",
       "0x1406952bB5CC7AC9f2905FE71169bbcc14774E75"
     ]
+ },
+  {
+    "name": "Layer3",
+    "slug": "layer3",
+    "twitter": "@layer3xyz",
+    "logo": "layer3.png",
+    "contracts": [
+      "0x1195Cf65f83B3A5768F3C496D3A05AD6412c64B7"
+    ]
   }
 ]
