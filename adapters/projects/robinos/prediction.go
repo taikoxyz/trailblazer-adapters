@@ -33,9 +33,7 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - Aston Villa v. Bologna",
 	"UEFA Champions League 24/25 - AC Milan v. Club Brugge",
 	"Prediction - $TAIKO price on Oct 27",
-	"La Liga 24/25 - Real Madrid v. Barcelona",
-	"Serie A 24/25 - Inter Milan v. Juventus",
-	"EPL 24/25 - Arsenal v. Liverpool",
+	"USA Elections 2024 - Trump v. Harris",
 }
 
 type PredictionIndexer struct {
