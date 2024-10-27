@@ -736,7 +736,8 @@
     "logo": "loopring_logo.png",
     "contracts": [
       "0xbD787F374198d29E2F8Fa228c778FE39e1a5d3a9",
-      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC"
+      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC",
+      "0xaD32A362645Ac9139CFb5Ba3A2A46fC4c378812B"
     ]
   },
   {
