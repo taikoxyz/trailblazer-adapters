@@ -924,3 +924,13 @@
     ]
   }
 ]
+,
+  {
+    "name": "crypto Clinic Dapp",
+    "slug": "crypto-Clinic-Dapp",
+    "twitter": "@Scryptoclinictv",
+    "logo": "CryptoClinicDApp.png",
+    "contracts": [
+      "0xD07A76E931bcBffd56C7b9F92d759032e1306942"
+    ]
+  }
