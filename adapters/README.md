@@ -4,9 +4,11 @@
 
 ### 1. Add your project under `adapters/projects`
 
+After the details of the indexer has been confirmed with the team, add your project's indexer in the `adapters/projects` folder.
+
 ### 2. Write an indexer in the new folder
 
-An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./projects/okx/order_fulfilled.go)
+An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./projects/okx/order_fulfilled.go) along with its accompanying test file.
 
 ### 3. Test out the adapter by adding it to the cli
 
