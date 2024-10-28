@@ -22,6 +22,7 @@ func ZeroAddress() common.Address {
 	return common.HexToAddress("0x0000000000000000000000000000000000000000")
 }
 
+// Whitelist contains information for general whitelisted protocols
 type Whitelist struct {
 	User        common.Address
 	Time        uint64
@@ -29,6 +30,8 @@ type Whitelist struct {
 	TxHash      common.Hash
 }
 
+// LPTransfer is used for LP transfers.
+// For examples, see Izumi and Ritsu.
 type LPTransfer struct {
 	From           common.Address
 	To             common.Address
@@ -43,6 +46,8 @@ type LPTransfer struct {
 	TxHash         common.Hash
 }
 
+// Lock is used for token locking campaign.
+// For examples, see Drips and Symmetric.
 type Lock struct {
 	User          common.Address
 	TokenAmount   *big.Int
@@ -54,11 +59,8 @@ type Lock struct {
 	TxHash        common.Hash
 }
 
-type LogIndexer[T any] interface {
-	Addresses() []common.Address
-	Index(context.Context, ...types.Log) ([]T, error)
-}
-
+// Prdiction is used for prediction campaign.
+// For examples, see Robinos.
 type Prediction struct {
 	User          common.Address
 	TokenAmount   *big.Int
@@ -70,6 +72,17 @@ type Prediction struct {
 	TxHash        common.Hash
 }
 
+// LogIndexer is the generic interface for indexing logs into types above.
+// By indexing, it parses information of logs.
+type LogIndexer[T any] interface {
+	// Addresses returns indexed contract addresses.
+	Addresses() []common.Address
+	// Index transforms given logs into types above.
+	Index(context.Context, ...types.Log) ([]T, error)
+}
+
+// BlockProcessor is the generic interface for indexing block information.
+// By block processing, it parses information of blocks.
 type BlockProcessor[T any] interface {
 	Process(context.Context, ...*types.Block) ([]T, error)
 }
