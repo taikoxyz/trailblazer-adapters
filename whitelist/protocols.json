@@ -607,6 +607,8 @@
   {
     "name": "OpenALCHI",
     "slug": "openalchi",
+    "twitter": "@@TOpenAlchi",
+    "logo": "openalchi.png",
     "contracts": [
       "0x9a92338b1CFfdf34b4Cc0192A8882F523b853e44",
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
