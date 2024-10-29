@@ -25,6 +25,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/ritsu"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/symmetric"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/robinos"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/loopring"
 	transactionsender "github.com/taikoxyz/trailblazer-adapters/adapters/transaction_sender"
 )
 
@@ -185,6 +186,12 @@ func executeCommand(p prompt) error {
 			client,
 			[]common.Address{common.HexToAddress(robinos.RobinosAddress)},
 			robinos.SelectedMultiplierEvents,
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case LoopringLock:
+		indexer := loopring.NewLockIndexer(
+			client,
+			[]common.Address{common.HexToAddress(loopring.LockAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 
