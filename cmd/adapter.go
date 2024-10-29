@@ -21,7 +21,7 @@ const (
 	DripsLock                adapter = "DripsLock"
 	SymmetricLock            adapter = "SymmetricLock"
 	RobinosPrediction        adapter = "RobinosPrediction"
-	LoopringLock			 adapter = "LoopringLock"
+	LoopringLock             adapter = "LoopringLock"
 )
 
 func adapterz() []adapter {
