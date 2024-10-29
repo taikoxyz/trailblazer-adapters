@@ -672,7 +672,10 @@
     "slug": "1delta",
     "twitter": "@1deltaDAO",
     "logo": "1delta.svg",
-    "contracts": ["0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"]
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2",
+      "0xe38488b1eD1b4faC36C6D27879569aa282E46443"
+    ]
   },
   {
     "name": "OmniHub",
