@@ -22,9 +22,6 @@ const (
 var SelectedMultiplierEvents = []string{
 	"Prediction - $TAIKO price on Oct 6",
 	"Prediction - $TAIKO price on Oct 20",
-	"Serie A 24/25 - Juventus v. Lazio",
-	"EPL 24/25 - Liverpool v. Chelsea",
-	"EPL 24/25 - Man Utd v. Brentford",
 	"UEFA Champions League 24/25 - RB Leipzig v. Liverpool",
 	"UEFA Champions League 24/25 - Barcelona v. Bayern Munich",
 	"UEFA Champions League 24/25 - Real Madrid v. Borussia Dortmund",
@@ -34,9 +31,6 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - AC Milan v. Club Brugge",
 	"Prediction - $TAIKO price on Oct 27",
 	"USA Elections 2024 - Trump v. Harris",
-	"Serie A 24/25 - AC Milan v. Napoli",
-	"La Liga 24/25 - Valencia v. Real Madrid",
-	"EPL 24/25 - Man Utd v. Chelsea",
 	"Prediction - $TAIKO price on Nov 3",
 }
 
