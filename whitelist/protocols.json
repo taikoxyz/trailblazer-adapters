@@ -930,7 +930,7 @@
     "name": "Unagiswap",
     "slug": "unagiswap",
     "twitter": "@Unagi_Swap",
-    "logo": "unagiswap.png",
+    "logo": "unagiswap.svg",
     "contracts": [
       "0x1271CAba4bf23f8Fb31F97448605d65EE302CA51",
       "0x562723560131C47417dfcD6BB1A089E4D7C7943C",
