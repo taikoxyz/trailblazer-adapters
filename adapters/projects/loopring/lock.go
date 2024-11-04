@@ -48,11 +48,11 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 		}
 
 		var depositWithDurationEvent struct {
-			From           common.Address
-			To             common.Address
-			Token          common.Address
-			Amount         *big.Int
-			Duration       *big.Int
+			From     common.Address
+			To       common.Address
+			Token    common.Address
+			Amount   *big.Int
+			Duration *big.Int
 		}
 
 		loopringABI, err := abi.JSON(strings.NewReader(loopring.LoopringABI))
