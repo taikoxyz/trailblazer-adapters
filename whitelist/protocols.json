@@ -1024,5 +1024,16 @@
       "0xF8fba603cc382F038c60C347411e2a0C18867842",
       "0xb56F2a15c3540C5D5F4ddB58650fDC7972027A51"
     ]
+  },
+  {
+    "name": "Avalon Finance",
+    "slug": "avalon-finance",
+    "twitter": "@avalonfinance_",
+    "logo": "avalonfinance.svg",
+    "contracts": [
+      "0x9dd29AA2BD662E6b569524ba00C55be39e7B00fB",
+      "0xb961661F5Ca019e232661Bd26686288a6E21d928",
+      "0x64Eaf7cDE96277ed9253b8268DFC85eB2EB0D147"
+    ]
   }
 ]
