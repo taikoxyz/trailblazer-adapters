@@ -31,7 +31,6 @@ Create a pull request (PR) on GitHub to merge your changes into the main branch.
 
 Wait for the PR to be reviewed by the maintainers. Once approved, your changes will be merged, and the new protocol will be added to the whitelist.
 
-
 ## Adding a new Adapter
 
 ### 1. Add your Project under `adapters/projects`

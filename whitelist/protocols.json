@@ -4,33 +4,43 @@
     "slug": "nfts-2-me",
     "twitter": "@NFTs2Me",
     "logo": "nfts2me.png",
-    "contracts": ["0x00000000001594C61dD8a6804da9AB58eD2483ce"]
+    "contracts": [
+      "0x00000000001594C61dD8a6804da9AB58eD2483ce"
+    ]
   },
   {
     "name": "Magpie Protocol",
     "slug": "magpie-protocol",
     "twitter": "@magpieprotocol",
     "logo": "magpie.svg",
-    "contracts": ["0x956df8424b556f0076e8abf5481605f5a791cc7f"]
+    "contracts": [
+      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
+    ]
   },
   {
     "name": "Aspecta",
     "slug": "aspecta",
-    "contracts": ["0x3636814Ab8d82854949d5794c428B8329115755D"]
+    "contracts": [
+      "0x3636814Ab8d82854949d5794c428B8329115755D"
+    ]
   },
   {
     "name": "DZap",
     "slug": "dzap",
     "logo": "dzap.png",
     "twitter": "@dzap_io",
-    "contracts": ["0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"]
+    "contracts": [
+      "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
+    ]
   },
   {
     "name": "Eisen Finance",
     "slug": "eisen",
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
-    "contracts": ["0xFA0e9251503DaE51670d10288e6962d63191731d"]
+    "contracts": [
+      "0xFA0e9251503DaE51670d10288e6962d63191731d"
+    ]
   },
   {
     "name": "Rubic",
@@ -189,7 +199,9 @@
     "slug": "zns",
     "twitter": "@ZNSConnect",
     "logo": "zns.svg",
-    "contracts": ["0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"]
+    "contracts": [
+      "0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"
+    ]
   },
   {
     "name": "RubyScore",
@@ -234,7 +246,9 @@
     "slug": "rhino-fi",
     "twitter": "@RhinoFi",
     "logo": "rhinofi.png",
-    "contracts": ["0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"]
+    "contracts": [
+      "0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"
+    ]
   },
   {
     "name": "DTX.TRADE",
@@ -288,7 +302,9 @@
     "slug": "retrobridge",
     "twitter": "@Retro_Bridge",
     "logo": "retrobridge.jpg",
-    "contracts": ["0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"]
+    "contracts": [
+      "0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"
+    ]
   },
   {
     "name": "0xAstra",
@@ -386,7 +402,9 @@
     "slug": "stupid-monkeys",
     "twitter": "@StupidMonkeysRH",
     "logo": "stupidmonkeys.png",
-    "contracts": ["0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"]
+    "contracts": [
+      "0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"
+    ]
   },
   {
     "name": "Owlto Finance",
@@ -445,7 +463,9 @@
     "slug": "minibridge",
     "twitter": "@Chaineye_tools",
     "logo": "minibridge.jpeg",
-    "contracts": ["0x00000000000007736e2F9aA5630B8c812E1F3fc9"]
+    "contracts": [
+      "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
+    ]
   },
   {
     "name": "Izumi Finance",
@@ -531,7 +551,9 @@
   {
     "name": "REVOX Lense",
     "slug": "revox-lense",
-    "contracts": ["0x2c80179883217370F777e76c067Eea91D8283C5C"]
+    "contracts": [
+      "0x2c80179883217370F777e76c067Eea91D8283C5C"
+    ]
   },
   {
     "name": "Meridian Lend",
@@ -647,7 +669,9 @@
     "slug": "robinos",
     "twitter": "@RobinosPredict",
     "logo": "robinos.svg",
-    "contracts": ["0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"]
+    "contracts": [
+      "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
+    ]
   },
   {
     "name": "TakoTako",
@@ -672,21 +696,27 @@
     "slug": "1delta",
     "twitter": "@1deltaDAO",
     "logo": "1delta.svg",
-    "contracts": ["0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"]
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
+    ]
   },
   {
     "name": "OmniHub",
     "slug": "omnihub",
     "twitter": "@omni_hub",
     "logo": "omnihub.jpg",
-    "contracts": ["0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"]
+    "contracts": [
+      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
+    ]
   },
   {
     "name": "Chainspot",
     "slug": "chainspot",
     "twitter": "@ChainspotIO",
     "logo": "chainspot.svg",
-    "contracts": ["0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"]
+    "contracts": [
+      "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
+    ]
   },
   {
     "name": "Panko",
@@ -747,7 +777,9 @@
     "slug": "taikodrips",
     "twitter": "@taikodrips",
     "logo": "taikodrips.png",
-    "contracts": ["0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"]
+    "contracts": [
+      "0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"
+    ]
   },
   {
     "name": "CyberCrew DEATHMATCH",
@@ -796,14 +828,18 @@
     "slug": "router",
     "twitter": "@routerprotocol",
     "logo": "router.svg",
-    "contracts": ["0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"]
+    "contracts": [
+      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
+    ]
   },
   {
     "name": "NomisScore",
     "slug": "nomis",
     "twitter": "@0xNomis",
     "logo": "nomis.svg",
-    "contracts": ["0x128B7290CdFA241E77337e0e42100bf6237a783C"]
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
   },
   {
     "name": "21Blackjack",
@@ -818,7 +854,9 @@
     "name": "EVMWarfare",
     "slug": "evmwarfare",
     "logo": "evmwarfare.png",
-    "contracts": ["0xA9E8e13BA0309486b2F710B8201B534D26633a89"]
+    "contracts": [
+      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
+    ]
   },
   {
     "name": "Swords & Dungeons",
@@ -847,7 +885,9 @@
     "slug": "zyphernetwork",
     "logo": "zyphergames.png",
     "twitter": "@Zypher_Network",
-    "contracts": ["0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"]
+    "contracts": [
+      "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
+    ]
   },
   {
     "name": "IceCreamSwap",
