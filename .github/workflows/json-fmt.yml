@@ -1,0 +1,34 @@
+name: Check JSON Formatting
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  json-fmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Find and check JSON formatting
+        run: |
+          unformatted_files=()
+          for file in $(find ./whitelist -name "*.json"); do
+            if [ "$(jq . "$file" | diff - "$file")" ]; then
+              unformatted_files+=("$file")
+            fi
+          done
+          
+          if [ ${#unformatted_files[@]} -gt 0 ]; then
+            echo "The following JSON files are not formatted correctly:"
+            printf '%s\n' "${unformatted_files[@]}"
+            exit 1
+          else
+            echo "All JSON files are properly formatted."
+          fi
