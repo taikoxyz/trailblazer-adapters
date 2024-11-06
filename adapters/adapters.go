@@ -59,6 +59,17 @@ type Lock struct {
 	TxHash        common.Hash
 }
 
+// Position is used for logx trading campaign
+type Position struct {
+	User          common.Address
+	TokenAmount   *big.Int
+	TokenDecimals uint8
+	Token         common.Address
+	BlockTime     uint64
+	BlockNumber   uint64
+	TxHash        common.Hash
+}
+
 // Prdiction is used for prediction campaign.
 // For examples, see Robinos.
 type Prediction struct {
