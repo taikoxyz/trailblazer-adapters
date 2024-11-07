@@ -12,7 +12,7 @@ jobs:
       - name: Check Required Approvals
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GROUP_1: "nickytaiko,JMcryptospain,Pigitaiko" 
+          GROUP_1: "nickytaiko,JMcryptospain,Pigitaiko,swarna1101,JBScaled" 
           GROUP_2: "bennettyong,myronrotter,KorbinianK,bearni95" 
         run: |
           GROUP_1_REQUIRED=0
