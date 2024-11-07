@@ -1,0 +1,44 @@
+name: Enforce Group-Based Approvals
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, review_requested]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  enforce_approvals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Required Approvals
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROUP_1: "nickytaiko,JMcryptospain,Pigitaiko" 
+          GROUP_2: "bennettyong,myronrotter,KorbinianK,bearni95" 
+        run: |
+          GROUP_1_REQUIRED=0
+          GROUP_2_REQUIRED=0
+          PR_NUMBER=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
+
+          # Fetch pull request reviews
+          REVIEWS=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER/reviews" | jq -r '.[] | select(.state == "APPROVED") | .user.login')
+
+          # Check approvals against each group
+          IFS=',' read -ra GROUP1 <<< "$GROUP_1"
+          IFS=',' read -ra GROUP2 <<< "$GROUP_2"
+
+          for APPROVER in $REVIEWS; do
+            if [[ " ${GROUP1[@]} " =~ " $APPROVER " ]]; then
+              GROUP_1_REQUIRED=1
+            elif [[ " ${GROUP2[@]} " =~ " $APPROVER " ]]; then
+              GROUP_2_REQUIRED=1
+            fi
+          done
+
+          # Validate if both groups have approved
+          if [[ $GROUP_1_REQUIRED -eq 1 && $GROUP_2_REQUIRED -eq 1 ]]; then
+            echo "Required approvals from both groups present."
+          else
+            echo "Approval from both groups is required."
+            exit 1
+          fi
