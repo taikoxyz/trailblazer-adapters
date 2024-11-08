@@ -1,7 +1,5 @@
 name: Enforce Group-Based Approvals
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, review_requested]
   pull_request_review:
     types: [submitted]
 
