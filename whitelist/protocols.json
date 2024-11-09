@@ -1037,3 +1037,10 @@
     ]
   }
 ]
+{
+    "name": "dailycheckin",
+    "slug": "dailycheckin",
+    "contracts": [
+        "0xB4cc31bFdc8909bf301523265166F3F5ED57eC55"
+    ]
+}
