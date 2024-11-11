@@ -1035,5 +1035,12 @@
       "0xb961661F5Ca019e232661Bd26686288a6E21d928",
       "0x64Eaf7cDE96277ed9253b8268DFC85eB2EB0D147"
     ]
+  },
+  {
+    "name": "Polaris Finance",
+    "slug": "polaris-finance",
+    "twitter": "@polarisfinance_",
+    "logo": "polaris.jpeg",
+    "contracts": ["0x723F40720836a03f1F20441FbDa3D109fc99640F"]
   }
 ]
