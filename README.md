@@ -39,7 +39,7 @@ After the details of the indexer has been confirmed with the team, add your proj
 
 ### 2. Write your Indexer
 
-An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./projects/okx/order_fulfilled.go) along with its accompanying test file.
+An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./adapters/projects/okx/order_fulfilled.go) along with its accompanying test file.
 
 ### 3. Manually Test your Adapter by adding it to the CLI
 
