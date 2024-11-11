@@ -1038,7 +1038,7 @@
   }
 ]
 {
-    "name": "DailyCheckin",
+    "name": "DailyCheckin to reward",
     "slug": "Dailycheckin",
     "contracts": [
         "0xB4cc31bFdc8909bf301523265166F3F5ED57eC55 "
