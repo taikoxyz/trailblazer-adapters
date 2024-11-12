@@ -41,6 +41,8 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - Sporting v. Man City",
 	"UEFA Champions League 24/25 - Real Madrid v. AC Milan",
 	"UEFA Champions League 24/25 - Liverpool v. Bayer Leverkusen",
+	"Prediction - $TAIKO price on Nov 17 B",
+	"Prediction - $TAIKO price on Nov 17 A",
 }
 
 type PredictionIndexer struct {
