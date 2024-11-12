@@ -773,6 +773,24 @@
     ]
   },
   {
+    "name": "Gamma",
+    "slug": "Visor",
+    "twitter": "@GammaStrategies",
+    "logo": "gammalogo.jpg",
+    "contracts": [
+      "0x38f61169d8bcc08ce303401a13332259f557b35f",
+      "0x5accda2325ccfe8660522c7d5c3a885cdcf04501",
+      "0x1e86a593e55215957c4755f1be19a229af3286f6",
+      "0xC27DDd78FC49875Fe6F844B72bbf31DFBB099881",
+      "0x661d1534214CA4bbA95d6273C4f2C69D8f083926",
+      "0xB7EF853F99D3B99ee4e2C9Ea8B6a518c37271EA6",
+      "0x6d257b17be32d4e7ebfebc3a337bf9c231da5aa7",
+      "0x4476433bc06210ba265d95736ebc630544d397d9",
+      "0x6e9d701fb6478ed5972a37886c2ba6c82a4cbb4c",
+      "0x3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae"
+    ]
+  },
+  {
     "name": "Taiko Drips",
     "slug": "taikodrips",
     "twitter": "@taikodrips",
