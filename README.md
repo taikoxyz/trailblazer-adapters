@@ -39,16 +39,20 @@ After the details of the indexer has been confirmed with the team, add your proj
 
 ### 2. Write your Indexer
 
-An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./projects/okx/order_fulfilled.go) along with its accompanying test file.
+An example adapter for tracking OrderFulfilled Event on the OKX marketplace can be seen [here](./adapters/projects/okx/order_fulfilled.go) along with its accompanying test file.
 
 ### 3. Manually Test your Adapter by adding it to the CLI
 
 First, add a new adapter in `cmd/adapter.go`. Second, add adapter to switch case of `cmd/cmd.go`'s function `executeCommand`. Test out the CLI with `go run .` from project root.
 
-### 4. Create a Pull Request
+### 4. Add a Test to your Indexer
+
+Add atleast one test case to your project's adapter. For an example, see [here](./adapters/projects/okx/order_fulfilled_test.go).
+
+### 5. Create a Pull Request
 
 Create a pull request (PR) on GitHub to merge your changes into the main branch. Provide a clear description of the changes and the protocol added.
 
-### 5. Review and Merge
+### 6. Review and Merge
 
 Wait for the PR to be reviewed by the maintainers. Once approved, your changes will be merged, and the protocol info will be added to trailblazers.

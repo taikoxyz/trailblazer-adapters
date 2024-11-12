@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  go-famt:
+  go-fmt:
     runs-on: ubuntu-latest
 
     steps:
