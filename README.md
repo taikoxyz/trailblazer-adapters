@@ -47,7 +47,7 @@ First, add a new adapter in `cmd/adapter.go`. Second, add adapter to switch case
 
 ### 4. Add a Test to your Indexer
 
-Add atleast one test case to your project's adapter. For an example, see [here](./adapters/projects/okx/order_fulfilled_test.go).
+Add at least one test case to your project's adapter. For an example, see [here](./adapters/projects/okx/order_fulfilled_test.go).
 
 ### 5. Create a Pull Request
 
