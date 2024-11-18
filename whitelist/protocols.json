@@ -1065,5 +1065,14 @@
     "contracts": [
       "0x723F40720836a03f1F20441FbDa3D109fc99640F"
     ]
+  },
+  {
+    "name": "ImaginAIryNFTs",
+    "slug": "imaginairynfts",
+    "contracts": [
+        "0xb99E5534d42500eB1d5820fBA3Bb8416cCB76396"
+    ],
+    "twitter": "@ImaginAIryNFTs",
+    "logo": "imaginairy.jpg",
   }
 ]
