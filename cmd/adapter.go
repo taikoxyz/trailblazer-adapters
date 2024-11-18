@@ -22,6 +22,7 @@ const (
 	SymmetricLock            adapter = "SymmetricLock"
 	RobinosPrediction        adapter = "RobinosPrediction"
 	LoopringLock             adapter = "LoopringLock"
+	PolarisLP                adapter = "PolarisLP"
 )
 
 func adapterz() []adapter {
@@ -41,5 +42,6 @@ func adapterz() []adapter {
 		SymmetricLock,
 		RobinosPrediction,
 		LoopringLock,
+		PolarisLP,
 	}
 }
