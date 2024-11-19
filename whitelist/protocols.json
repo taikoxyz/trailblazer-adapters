@@ -1065,5 +1065,14 @@
     "contracts": [
       "0x723F40720836a03f1F20441FbDa3D109fc99640F"
     ]
+  },
+  {
+    "name": "Materia Prima",
+    "slug": "materia-prima",
+    "twitter": "@MateriaPrimaRPG",
+    "logo": "materiaprima.png",
+    "contracts": [
+      "0x5AF01242da2d86FdF635744156c0a3B8d83Ab165"
+    ]
   }
 ]
