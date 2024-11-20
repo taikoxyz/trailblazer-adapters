@@ -1065,5 +1065,14 @@
     "contracts": [
       "0x723F40720836a03f1F20441FbDa3D109fc99640F"
     ]
+  },
+  {
+    "name": "Bedrock uniBTC",
+    "slug": "uniBTC",
+    "twitter": "@Bedrock_DeFi",
+    "logo": "uniBTC.svg",
+    "contracts": [
+      "0x93919784c523f39cacaa98ee0a9d96c3f32b593e"
+    ]
   }
 ]
