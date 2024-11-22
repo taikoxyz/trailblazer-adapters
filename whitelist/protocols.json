@@ -1067,6 +1067,15 @@
     ]
   },
   {
+    "name": "Bedrock uniBTC",
+    "slug": "uniBTC",
+    "twitter": "@Bedrock_DeFi",
+    "logo": "uniBTC.svg",
+    "contracts": [
+      "0x93919784c523f39cacaa98ee0a9d96c3f32b593e"
+    ]
+  },
+  {
     "name": "Materia Prima",
     "slug": "materia-prima",
     "twitter": "@MateriaPrimaRPG",
