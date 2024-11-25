@@ -19,7 +19,34 @@ const (
 	LogRewardDistributedSignature = "RewardDistributed(string,uint256[],address[])"
 )
 
-var SelectedMultiplierEvents = []string{"Prediction - $TAIKO price on Oct 6", "Prediction - $TAIKO price on Oct 20", "Serie A 24/25 - Juventus v. Lazio", "EPL 24/25 - Liverpool v. Chelsea", "EPL 24/25 - Man Utd v. Brentford"}
+var SelectedMultiplierEvents = []string{
+	"Prediction - $TAIKO price on Oct 6",
+	"Prediction - $TAIKO price on Oct 20",
+	"UEFA Champions League 24/25 - RB Leipzig v. Liverpool",
+	"UEFA Champions League 24/25 - Barcelona v. Bayern Munich",
+	"UEFA Champions League 24/25 - Real Madrid v. Borussia Dortmund",
+	"UEFA Champions League 24/25 - PSG v. PSV",
+	"UEFA Champions League 24/25 - Juventus v. VfB Stuttgart",
+	"UEFA Champions League 24/25 - Aston Villa v. Bologna",
+	"UEFA Champions League 24/25 - AC Milan v. Club Brugge",
+	"Prediction - $TAIKO price on Oct 27",
+	"USA Elections 2024 - Trump v. Harris",
+	"Prediction - $TAIKO price on Nov 3",
+	"Prediction - $TAIKO price on Nov 10",
+	"UEFA Champions League 24/25 - Lille v. Juventus",
+	"UEFA Champions League 24/25 - Bayern v. Benfica",
+	"UEFA Champions League 24/25 - PSG v. Atletico Madrid",
+	"UEFA Champions League 24/25 - Inter Milan v. Arsenal",
+	"UEFA Champions League 24/25 - Club Brugge v. Aston Villa",
+	"UEFA Champions League 24/25 - Sporting v. Man City",
+	"UEFA Champions League 24/25 - Real Madrid v. AC Milan",
+	"UEFA Champions League 24/25 - Liverpool v. Bayer Leverkusen",
+	"Prediction - $TAIKO price on Nov 17 B",
+	"Prediction - $TAIKO price on Nov 17 A",
+	"Prediction - $BTC price on Nov 24",
+	"Prediction - $ETH price on Nov 24",
+	"Prediction - $TAIKO price on Nov 24",
+}
 
 type PredictionIndexer struct {
 	client    *ethclient.Client

@@ -14,6 +14,7 @@
       "0x901a646B4D287D1Bf2d76C363621A46D306484c4",
       "0xE44FaDF6dD00Fb2094895a7625919824A4ACf00E",
       "0x43ce07A3bbe355961E2EAFaEFa61a7aEd1adF609"
+      "0x00000000001594C61dD8a6804da9AB58eD2483ce"
     ]
   },
   {
@@ -21,26 +22,34 @@
     "slug": "magpie-protocol",
     "twitter": "@magpieprotocol",
     "logo": "magpie.svg",
-    "contracts": ["0x956df8424b556f0076e8abf5481605f5a791cc7f"]
+    "contracts": [
+      "0x956df8424b556f0076e8abf5481605f5a791cc7f"
+    ]
   },
   {
     "name": "Aspecta",
     "slug": "aspecta",
-    "contracts": ["0x3636814Ab8d82854949d5794c428B8329115755D"]
+    "contracts": [
+      "0x3636814Ab8d82854949d5794c428B8329115755D"
+    ]
   },
   {
     "name": "DZap",
     "slug": "dzap",
     "logo": "dzap.png",
     "twitter": "@dzap_io",
-    "contracts": ["0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"]
+    "contracts": [
+      "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
+    ]
   },
   {
     "name": "Eisen Finance",
     "slug": "eisen",
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
-    "contracts": ["0xFA0e9251503DaE51670d10288e6962d63191731d"]
+    "contracts": [
+      "0xFA0e9251503DaE51670d10288e6962d63191731d"
+    ]
   },
   {
     "name": "Rubic",
@@ -110,7 +119,9 @@
       "0xD648fC018BAD9783d38Ce7fd02362B945A9cb95a",
       "0xd4079984e382c3964f9ae74500e66e493badd5a1",
       "0x42f8DD464122694Ad869bacCEcf8C39f7DA0aD7b",
-      "0x09a85fd6e06EFf3fBE5BBF005271b27a83b1d6e4"
+      "0x09a85fd6e06EFf3fBE5BBF005271b27a83b1d6e4",
+      "0xc1B75e39e7DF7326F778D6D6F63b7A219D42a870",
+      "0xc535a08812Dc257311Ea93826E85b4e39a6b830e"
     ]
   },
   {
@@ -197,7 +208,9 @@
     "slug": "zns",
     "twitter": "@ZNSConnect",
     "logo": "zns.svg",
-    "contracts": ["0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"]
+    "contracts": [
+      "0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"
+    ]
   },
   {
     "name": "RubyScore",
@@ -242,7 +255,9 @@
     "slug": "rhino-fi",
     "twitter": "@RhinoFi",
     "logo": "rhinofi.png",
-    "contracts": ["0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"]
+    "contracts": [
+      "0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"
+    ]
   },
   {
     "name": "DTX.TRADE",
@@ -296,7 +311,9 @@
     "slug": "retrobridge",
     "twitter": "@Retro_Bridge",
     "logo": "retrobridge.jpg",
-    "contracts": ["0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"]
+    "contracts": [
+      "0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"
+    ]
   },
   {
     "name": "0xAstra",
@@ -394,7 +411,9 @@
     "slug": "stupid-monkeys",
     "twitter": "@StupidMonkeysRH",
     "logo": "stupidmonkeys.png",
-    "contracts": ["0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"]
+    "contracts": [
+      "0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"
+    ]
   },
   {
     "name": "Owlto Finance",
@@ -453,10 +472,12 @@
     "slug": "minibridge",
     "twitter": "@Chaineye_tools",
     "logo": "minibridge.jpeg",
-    "contracts": ["0x00000000000007736e2F9aA5630B8c812E1F3fc9"]
+    "contracts": [
+      "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
+    ]
   },
   {
-    "name": "Izumi Finance",
+    "name": "iZUMi Finance",
     "slug": "izumi-iziswap",
     "twitter": "@izumi_Finance",
     "logo": "izumi_finance.png",
@@ -539,7 +560,9 @@
   {
     "name": "REVOX Lense",
     "slug": "revox-lense",
-    "contracts": ["0x2c80179883217370F777e76c067Eea91D8283C5C"]
+    "contracts": [
+      "0x2c80179883217370F777e76c067Eea91D8283C5C"
+    ]
   },
   {
     "name": "Meridian Lend",
@@ -615,6 +638,8 @@
   {
     "name": "OpenALCHI",
     "slug": "openalchi",
+    "twitter": "@TOpenAlchi",
+    "logo": "openalchi.png",
     "contracts": [
       "0x9a92338b1CFfdf34b4Cc0192A8882F523b853e44",
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
@@ -653,7 +678,9 @@
     "slug": "robinos",
     "twitter": "@RobinosPredict",
     "logo": "robinos.svg",
-    "contracts": ["0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"]
+    "contracts": [
+      "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
+    ]
   },
   {
     "name": "TakoTako",
@@ -670,7 +697,10 @@
       "0xbbFa45a92d9d071554B59D2d29174584D9b06bc3",
       "0x0f0244337f1215E6D8e13Af1b5ae639244d8a6f6",
       "0xA35f53a71FA6cd7AC9Df7F7814ecBc49dF255A38",
-      "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e"
+      "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e",
+      "0xf7fb2df9280eb0a76427dc3b34761db8b1441a49",
+      "0x418d47e8283bc7867a6e42a2f62425f8798f060e",
+      "0xA6325b88bF0c69679c93F9750b1CB62ff63333eE"
     ]
   },
   {
@@ -678,21 +708,27 @@
     "slug": "1delta",
     "twitter": "@1deltaDAO",
     "logo": "1delta.svg",
-    "contracts": ["0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"]
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
+    ]
   },
   {
     "name": "OmniHub",
     "slug": "omnihub",
     "twitter": "@omni_hub",
     "logo": "omnihub.jpg",
-    "contracts": ["0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"]
+    "contracts": [
+      "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
+    ]
   },
   {
     "name": "Chainspot",
     "slug": "chainspot",
     "twitter": "@ChainspotIO",
     "logo": "chainspot.svg",
-    "contracts": ["0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"]
+    "contracts": [
+      "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
+    ]
   },
   {
     "name": "Panko",
@@ -744,7 +780,26 @@
     "logo": "loopring_logo.png",
     "contracts": [
       "0xbD787F374198d29E2F8Fa228c778FE39e1a5d3a9",
-      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC"
+      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC",
+      "0xaD32A362645Ac9139CFb5Ba3A2A46fC4c378812B"
+    ]
+  },
+  {
+    "name": "Gamma",
+    "slug": "Visor",
+    "twitter": "@GammaStrategies",
+    "logo": "gammalogo.jpg",
+    "contracts": [
+      "0x38f61169d8bcc08ce303401a13332259f557b35f",
+      "0x5accda2325ccfe8660522c7d5c3a885cdcf04501",
+      "0x1e86a593e55215957c4755f1be19a229af3286f6",
+      "0xC27DDd78FC49875Fe6F844B72bbf31DFBB099881",
+      "0x661d1534214CA4bbA95d6273C4f2C69D8f083926",
+      "0xB7EF853F99D3B99ee4e2C9Ea8B6a518c37271EA6",
+      "0x6d257b17be32d4e7ebfebc3a337bf9c231da5aa7",
+      "0x4476433bc06210ba265d95736ebc630544d397d9",
+      "0x6e9d701fb6478ed5972a37886c2ba6c82a4cbb4c",
+      "0x3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae"
     ]
   },
   {
@@ -752,7 +807,9 @@
     "slug": "taikodrips",
     "twitter": "@taikodrips",
     "logo": "taikodrips.png",
-    "contracts": ["0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"]
+    "contracts": [
+      "0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"
+    ]
   },
   {
     "name": "CyberCrew DEATHMATCH",
@@ -801,14 +858,18 @@
     "slug": "router",
     "twitter": "@routerprotocol",
     "logo": "router.svg",
-    "contracts": ["0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"]
+    "contracts": [
+      "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
+    ]
   },
   {
     "name": "NomisScore",
     "slug": "nomis",
     "twitter": "@0xNomis",
     "logo": "nomis.svg",
-    "contracts": ["0x128B7290CdFA241E77337e0e42100bf6237a783C"]
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
   },
   {
     "name": "21Blackjack",
@@ -823,7 +884,9 @@
     "name": "EVMWarfare",
     "slug": "evmwarfare",
     "logo": "evmwarfare.png",
-    "contracts": ["0xA9E8e13BA0309486b2F710B8201B534D26633a89"]
+    "contracts": [
+      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
+    ]
   },
   {
     "name": "Swords & Dungeons",
@@ -852,7 +915,9 @@
     "slug": "zyphernetwork",
     "logo": "zyphergames.png",
     "twitter": "@Zypher_Network",
-    "contracts": ["0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"]
+    "contracts": [
+      "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
+    ]
   },
   {
     "name": "IceCreamSwap",
@@ -904,6 +969,168 @@
     "contracts": [
       "0x541FD749419CA806a8bc7da8ac23D346f2dF8B77",
       "0xCC0966D8418d412c599A6421b760a847eB169A8c"
+    ]
+  },
+  {
+    "name": "Deri Protocol",
+    "slug": "deri-protocol",
+    "twitter": "@DeriProtocol",
+    "logo": "deri.png",
+    "contracts": [
+      "0xd4E08C940dDeC162c2D8f3034c75c3e08f1f6032",
+      "0x710c41eC0CbEed67105346dE6cD1314602a322B0",
+      "0xF7B181daE62dBc29c007A454FD0B56ccEa3fFb38",
+      "0x93e6e4d43F34c1bF9385ECBB0fCE912537Ecf56a",
+      "0xB5EFf2A863c9B42d823919368a467f26A2648559",
+      "0x497e8b8357C62EC0688E5e2872eC3002BE775867",
+      "0xB22C5A9e69B3e46978cecaA70c54f0063B90D2f6",
+      "0x235834296a747904765cc565338E71DaEdAc3Ba2",
+      "0x2156d038b686f4A2ea0C81aA4Dd65C62a9a43EA0",
+      "0x740e33Ea864A1EE3D6C0a76f281Ba1940859BF62",
+      "0x4Bcfc08eCD0908916d8726beF8c544e6f87666aa",
+      "0x51393080C546623d04CcAcf86428664856C7AC76",
+      "0x6350eA16423f02520A9887CA63080Eac93a37D0D",
+      "0x42Dd5168Eda433d9C7523AD11Ea15264343b1862",
+      "0xB15CdDE7103B19881aFBDBa07A363C604052640D",
+      "0x0ef58D7eAde4628b1446D5CA3A3863D4D2BEbC8C",
+      "0x1406952bB5CC7AC9f2905FE71169bbcc14774E75"
+    ]
+  },
+  {
+    "name": "Unagiswap",
+    "slug": "unagiswap",
+    "twitter": "@Unagi_Swap",
+    "logo": "unagiswap.svg",
+    "contracts": [
+      "0x1271CAba4bf23f8Fb31F97448605d65EE302CA51",
+      "0x562723560131C47417dfcD6BB1A089E4D7C7943C",
+      "0xa51894664a773981c6c112c43ce576f315d5b1b6",
+      "0xEf1F9B93c4F4E31260b316DC5740adcE54209479",
+      "0x388371233439cF57bB8C9f2e4835954841cfCb15",
+      "0xa672BeB656f3cEAF33222bc4805aac71142344FD",
+      "0x814473c0F2A32c57b98585157B78EA02A41f70Fb",
+      "0x0c76F95a2952DC171B26b152f2b30cA8968e79D5",
+      "0x94B66F3156353a12A6004d098A16F2fCfF9E8348",
+      "0x187210CE04F5B3179F0e483FCf292c34BA7568Dd",
+      "0xC60Ac5B8bDd9DBD1830E3f43252B7b0d50DFEea3",
+      "0x25B2F29DF47F4e66Cac54bA71dE3562F51b5ceEC",
+      "0xf7A57DeadcFa3030Ddbf9E1ad371DB3148BC7cB6",
+      "0x9CA028580667064A8741cEeA03aeb89cF537c5eE",
+      "0x5580704224CE8090fc685FeeF0E35Fa6f86d8381",
+      "0x063778f207fBa0682215168C3fa4e69BFc787e8D",
+      "0x6375abe2A675776E695d4dea01849a2816055FA6",
+      "0xC68E75CA7b4315Ab7F81194f3B27627eB63c2Af0",
+      "0xC863c5b575f47942d4B704c14900Cee7721f7774",
+      "0x8e4dB74c24e012DD2192943c12acF8B63f3B5A6E",
+      "0x893EcB7D0982D5d182cfD318EF3eFb76020065f1",
+      "0x5B829f90eCd51E803917C1E25EC9A718f32ecB46",
+      "0x3b73a6610db514e14b432c72Eb49723dAe9c1C10",
+      "0x4e5Ad9061d33621aF33Bad7d4dfF45Eb83Bc6a46",
+      "0xc90958D0466c7f1337d5D0B8947F812f636D3c63",
+      "0x2629E610dB4AC081c108cCDf8b19ED39D702df43",
+      "0x7fB45a8AcA7DD30a136569B5E3eb7E1F1f0235a0",
+      "0x1909B6842964030aF3897bdf8ba760bD91439463",
+      "0x6694eebf40924e04c952EA8F1626d19E7a656Bb7",
+      "0xd0de7cA3298fff085E2cb82F8a861a0254256BA0",
+      "0x2235bB894b7600F1a370fc595Ee5477999A30441",
+      "0x297A4885a7da4AaeF340FABEd119e7a6E3f2BCe8",
+      "0xc6F5e5Ff8AbBe6A94A879A1E378c101E2A6bb9e6",
+      "0x8Ebbfe204E7EdA4be46b9d09c5dfa8b3e1500462",
+      "0x5e8807fd1C80F7A43362CeBEFcB2Becedfc731Dc",
+      "0x3Cdf6B62D042179FAa21745b074a688BB4979FB7",
+      "0xC7EaBEc77Be175432DC20c0056Cce4c2C78B84F3",
+      "0xfcd8EF54A4dA96dE6B2DDF67C6265C7405a3A9c6",
+      "0x928e9762B5223d5A2ac1F5b13E8A61907aCaa9Bd",
+      "0x7386F6F2375a38FBD1F4dA1d3eb39cd8dD8d1b40",
+      "0x38886EDE1Fc92886F9a11C37a1f5e75474858eaa",
+      "0x1dFd36964e21a2eb633991f0B95b4241c20e1db3",
+      "0xcBF3378D432CB181aae32a6A80AA94CF8e00f534",
+      "0xE59d098c36916397Cc14AB42Bb0F00093BDA9f04",
+      "0x3a64Ec3606FF7310E8fAd6FcC008e39705fB496d",
+      "0xD0CF7dfbF09CAfaB8AEf00e0Ce19a4638004a364",
+      "0x2Da0855f04919D402Af88D0D04AbB38177FE47fa",
+      "0x228259F82AE485aB25b69d9a028D86B4621bfE2A",
+      "0x15871da6878150750781f82aEb6f2dC93eB265b3",
+      "0xF8fba603cc382F038c60C347411e2a0C18867842",
+      "0xb56F2a15c3540C5D5F4ddB58650fDC7972027A51"
+    ]
+  },
+  {
+    "name": "Avalon Finance",
+    "slug": "avalon-finance",
+    "twitter": "@avalonfinance_",
+    "logo": "avalonfinance.svg",
+    "contracts": [
+      "0x9dd29AA2BD662E6b569524ba00C55be39e7B00fB",
+      "0xb961661F5Ca019e232661Bd26686288a6E21d928",
+      "0x64Eaf7cDE96277ed9253b8268DFC85eB2EB0D147"
+    ]
+  },
+  {
+    "name": "Polaris Finance",
+    "slug": "polaris-finance",
+    "twitter": "@polarisfinance_",
+    "logo": "polaris.jpeg",
+    "contracts": [
+      "0x723F40720836a03f1F20441FbDa3D109fc99640F"
+    ]
+  },
+  {
+    "name": "Bedrock uniBTC",
+    "slug": "uniBTC",
+    "twitter": "@Bedrock_DeFi",
+    "logo": "uniBTC.svg",
+    "contracts": [
+      "0x93919784c523f39cacaa98ee0a9d96c3f32b593e"
+    ]
+  },
+  {
+    "name": "Materia Prima",
+    "slug": "materia-prima",
+    "twitter": "@MateriaPrimaRPG",
+    "logo": "materiaprima.png",
+    "contracts": [
+      "0x5AF01242da2d86FdF635744156c0a3B8d83Ab165",
+      "0xa04E0913C7DA88D611D20e21c9A7B3bC05d6Bb49"
+    ]
+  },
+  {
+    "name": "Steer Protocol",
+    "slug": "steer-protocol",
+    "twitter": "@steerprotocol",
+    "logo": "steer.svg",
+    "contracts": [
+      "0x317EEDB54711681056f37e10d5DE0B55455b476f",
+      "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83",
+      "0x1A7e75715d157736103eC429Ff7079994D907472",
+      "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77",
+      "0xC1Ecd10398A6D7036CceE1f50551ff169715081c",
+      "0xD40699A642172DeD33BCFe4E3F84D54610C757Cd",
+      "0x09eb271b444d1db7163c8555919dE85b20Be7D1d",
+      "0x1A7e75715d157736103eC429Ff7079994D907472",
+      "0xAa4448AeF5f5967693751BFB67197946BB6D1dC0",
+      "0x7c464A0AB1f5ebf3E2dCccfec7EF41D02ED7a2f4",
+      "0xcE965b256E8735911b5e569ABA4508fd27AfDe1E",
+      "0x925C4454820b2b88c2f70F2621E6890b451266Dd",
+      "0x4655196cBeC85A507450F8D8252E38BeDbF0e2D5",
+      "0xF4de4180829272ae5f69AcAcf820f4F7d547513b",
+      "0xF4de4180829272ae5f69AcAcf820f4F7d547513b",
+      "0x116Dba5DcE9CcDA828218b7eB46406810632014C",
+      "0x64F9A121Ccbb8956249Ed52C4f63d0f759da53Ce",
+      "0xD40699A642172DeD33BCFe4E3F84D54610C757Cd",
+      "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83",
+      "0x99eca0E5Db125900E3a0389F6D3503837e99F59b",
+      "0xd964811233b8A0185D3C93664df82136C80d1bb2",
+      "0x254d37F5eD7E96fc2d242CB06B17FAe1EE9E1ADA",
+      "0x31e4ee367d4f2685BAfcAb9566e9C87E60D48983",
+      "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77",
+      "0xd5532a58E4ABB6485FF4e7BCf5bED278e32A516e",
+      "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5",
+      "0x317EEDB54711681056f37e10d5DE0B55455b476f",
+      "0xAa4448AeF5f5967693751BFB67197946BB6D1dC0",
+      "0x254d37F5eD7E96fc2d242CB06B17FAe1EE9E1ADA",
+      "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc",
+      "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
     ]
   }
 ]
