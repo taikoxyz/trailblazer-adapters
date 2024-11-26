@@ -862,6 +862,15 @@
     ]
   },
   {
+    "name": "Layer3",
+    "slug": "layer3",
+    "twitter": "@layer3xyz",
+    "logo": "layer3.png",
+    "contracts": [
+      "0x1195Cf65f83B3A5768F3C496D3A05AD6412c64B7"
+    ]
+  },
+  {
     "name": "NomisScore",
     "slug": "nomis",
     "twitter": "@0xNomis",
