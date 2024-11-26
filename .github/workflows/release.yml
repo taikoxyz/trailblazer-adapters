@@ -26,7 +26,7 @@ jobs:
       - name: Get the current tag
         id: get_tag
         run: |
-          TAG=$(git ls-remote --tags --sort=committerdate | grep -o 'v.*' | sort -r | head -1)
+          TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "Current tag: $TAG"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 

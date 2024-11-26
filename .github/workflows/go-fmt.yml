@@ -1,0 +1,30 @@
+name: Go Fmt
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  go-fmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+
+      - name: Run gofmt
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "Unformatted files found:"
+            echo "$unformatted"
+            exit 1
+          else
+            echo "All Go files are properly formatted."
+          fi

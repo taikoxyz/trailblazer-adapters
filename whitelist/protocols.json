@@ -5,7 +5,15 @@
     "twitter": "@NFTs2Me",
     "logo": "nfts2me.png",
     "contracts": [
-      "0x00000000001594C61dD8a6804da9AB58eD2483ce"
+      "0x00000000001594C61dD8a6804da9AB58eD2483ce",
+      "0x00000000009a1E02f00E280dcfA4C81c55724212",
+      "0x0c611ffa74b2a06a5478383858ed5669d0e19b2f",
+      "0x846911be2ece252a0096f0b70e4abe89b652eb66",
+      "0x0f46eabb8a479df2250b26f008ccafe8064fb5e7",
+      "0xe071D7974F882933C9A40fFe8F56Bb76dF61563F",
+      "0x901a646B4D287D1Bf2d76C363621A46D306484c4",
+      "0xE44FaDF6dD00Fb2094895a7625919824A4ACf00E",
+      "0x43ce07A3bbe355961E2EAFaEFa61a7aEd1adF609"
     ]
   },
   {
@@ -61,15 +69,6 @@
     ]
   },
   {
-    "name": "Bunnyfi",
-    "slug": "bunnyfi",
-    "twitter": "@bunnyfilabs",
-    "logo": "bunnyfi.svg",
-    "contracts": [
-      "0x0000000000D310F8802cC91F198d14bC2303230B"
-    ]
-  },
-  {
     "name": "Kodo Exchange",
     "slug": "kodo-exchange",
     "twitter": "@kodohq",
@@ -115,7 +114,13 @@
       "0xa96dede9dd8a821a862b515b317a309cad60e670",
       "0xabd7c118d8d77f13880339de3d237a9acde39b76",
       "0xd82cc6a9a602732faf5c803e017d9c66bfc43b71",
-      "0x678e2f54d5a13881faa3cb899311e797c386aa1e"
+      "0x678e2f54d5a13881faa3cb899311e797c386aa1e",
+      "0xD648fC018BAD9783d38Ce7fd02362B945A9cb95a",
+      "0xd4079984e382c3964f9ae74500e66e493badd5a1",
+      "0x42f8DD464122694Ad869bacCEcf8C39f7DA0aD7b",
+      "0x09a85fd6e06EFf3fBE5BBF005271b27a83b1d6e4",
+      "0xc1B75e39e7DF7326F778D6D6F63b7A219D42a870",
+      "0xc535a08812Dc257311Ea93826E85b4e39a6b830e"
     ]
   },
   {
@@ -360,7 +365,11 @@
     "twitter": "@LooperLands",
     "logo": "looperlands.svg",
     "contracts": [
-      "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424"
+      "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424",
+      "0x563Be8E43692bDC27525afF630fDaE22D5A83530",
+      "0x6f2D2EFC2773923f0d7De4eac1F845C34A094690",
+      "0xE8e9B020B72352d55410a147aB49f53ff479A40c",
+      "0x56b0D8d04de22f2539945258ddB288C123026775"
     ]
   },
   {
@@ -411,7 +420,9 @@
     "twitter": "@Owlto_Finance",
     "logo": "owlto.png",
     "contracts": [
-      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284"
+      "0x5e809A85Aa182A9921EDD10a4163745bb3e36284",
+      "0xC626845BF4E6a5802Ef774dA0B3DfC6707F015F7",
+      "0x4cAC0cda8c1A9C5f71c4bFc7FE9d3e5740fa7ba9"
     ]
   },
   {
@@ -465,7 +476,7 @@
     ]
   },
   {
-    "name": "Izumi Finance",
+    "name": "iZUMi Finance",
     "slug": "izumi-iziswap",
     "twitter": "@izumi_Finance",
     "logo": "izumi_finance.png",
@@ -541,7 +552,8 @@
     "slug": "bullishs",
     "logo": "bullishs.png",
     "contracts": [
-      "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6"
+      "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6",
+      "0xAd2803cDBfFc8bae61eeC0A1CF849877f0E742Bd"
     ]
   },
   {
@@ -554,6 +566,7 @@
   {
     "name": "Meridian Lend",
     "slug": "meridian-lend",
+    "logo": "meridian_finance.png",
     "contracts": [
       "0x8Cf3E0e7aE4eB82237d0931388EA72D5649D76e0",
       "0x9Fe3659aFf8CDaf4cd009ef7a63DaB23b3CA15C7",
@@ -624,6 +637,8 @@
   {
     "name": "OpenALCHI",
     "slug": "openalchi",
+    "twitter": "@TOpenAlchi",
+    "logo": "openalchi.png",
     "contracts": [
       "0x9a92338b1CFfdf34b4Cc0192A8882F523b853e44",
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
@@ -633,6 +648,8 @@
   {
     "name": "Swapsicle",
     "slug": "swapsicle",
+    "twitter": "@SwapsicleDEX",
+    "logo": "swapsicle.png",
     "contracts": [
       "0xb68b27a1c93A52d698EecA5a759E2E4469432C09",
       "0xBa90FC740a95A6997306255853959Bb284cb748a",
@@ -645,12 +662,21 @@
       "0x37F7B1187B758EA0655506A0a2cCdff523EaD9d5",
       "0x58596657e3d7FF8028Cb9597876e6e8674e61C96",
       "0x0cdde1dead51b156bd62113664d60b354b4df4ab",
-      "0xe130d0dcafbd98f7f4ba357da7cd504212d6f0ce"
+      "0xe130d0dcafbd98f7f4ba357da7cd504212d6f0ce",
+      "0x4479e2b3b5af3c60483c9507929cf6953107485a",
+      "0x12c1faa6195b8a81140deaf9c25b8f15237be829",
+      "0x96f80f63f58449d2ec947fba55ee3db50eee80a2",
+      "0x7528f1d6e9bd417b60a2cce4419dcae098cca4b4",
+      "0x60f6bc9ab2a0b4ff259ab8e36c6440118282fff2",
+      "0x23c8ddf1fc67ca71a1d1a87051a208749adc24b7",
+      "0xc61adf4bfdc42955f7f94b7052c34c0c2a29b8e7"
     ]
   },
   {
     "name": "Robinos",
     "slug": "robinos",
+    "twitter": "@RobinosPredict",
+    "logo": "robinos.svg",
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
@@ -670,7 +696,19 @@
       "0xbbFa45a92d9d071554B59D2d29174584D9b06bc3",
       "0x0f0244337f1215E6D8e13Af1b5ae639244d8a6f6",
       "0xA35f53a71FA6cd7AC9Df7F7814ecBc49dF255A38",
-      "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e"
+      "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e",
+      "0xf7fb2df9280eb0a76427dc3b34761db8b1441a49",
+      "0x418d47e8283bc7867a6e42a2f62425f8798f060e",
+      "0xA6325b88bF0c69679c93F9750b1CB62ff63333eE"
+    ]
+  },
+  {
+    "name": "1delta",
+    "slug": "1delta",
+    "twitter": "@1deltaDAO",
+    "logo": "1delta.svg",
+    "contracts": [
+      "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
     ]
   },
   {
@@ -741,7 +779,26 @@
     "logo": "loopring_logo.png",
     "contracts": [
       "0xbD787F374198d29E2F8Fa228c778FE39e1a5d3a9",
-      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC"
+      "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC",
+      "0xaD32A362645Ac9139CFb5Ba3A2A46fC4c378812B"
+    ]
+  },
+  {
+    "name": "Gamma",
+    "slug": "Visor",
+    "twitter": "@GammaStrategies",
+    "logo": "gammalogo.jpg",
+    "contracts": [
+      "0x38f61169d8bcc08ce303401a13332259f557b35f",
+      "0x5accda2325ccfe8660522c7d5c3a885cdcf04501",
+      "0x1e86a593e55215957c4755f1be19a229af3286f6",
+      "0xC27DDd78FC49875Fe6F844B72bbf31DFBB099881",
+      "0x661d1534214CA4bbA95d6273C4f2C69D8f083926",
+      "0xB7EF853F99D3B99ee4e2C9Ea8B6a518c37271EA6",
+      "0x6d257b17be32d4e7ebfebc3a337bf9c231da5aa7",
+      "0x4476433bc06210ba265d95736ebc630544d397d9",
+      "0x6e9d701fb6478ed5972a37886c2ba6c82a4cbb4c",
+      "0x3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae"
     ]
   },
   {
@@ -754,6 +811,17 @@
     ]
   },
   {
+    "name": "CyberCrew DEATHMATCH",
+    "slug": "CCDeathMatch",
+    "twitter": "@CC_Deathmatch",
+    "logo": "CC_Deathmatch.png",
+    "contracts": [
+      "0x6c226EeE9fB9459c716AC46c8436D315F800785B",
+      "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
+      "0x3f66415fBB71ff8149A1C90FF711BfD9e3D16Ee2"
+    ]
+  },
+  {
     "name": "Robots.Farm",
     "slug": "robotsfarm",
     "twitter": "@robotsfarm",
@@ -761,6 +829,16 @@
     "contracts": [
       "0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
       "0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6"
+    ]
+  },
+  {
+    "name": "LogX Network",
+    "slug": "logx-network",
+    "twitter": "@LogX_trade",
+    "logo": "logx.svg",
+    "contracts": [
+      "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
+      "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
     ]
   },
   {
@@ -782,7 +860,7 @@
     "contracts": [
       "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
     ]
- },
+  },
   {
     "name": "Layer3",
     "slug": "layer3",
@@ -790,6 +868,276 @@
     "logo": "layer3.png",
     "contracts": [
       "0x1195Cf65f83B3A5768F3C496D3A05AD6412c64B7"
+  },
+  {
+    "name": "NomisScore",
+    "slug": "nomis",
+    "twitter": "@0xNomis",
+    "logo": "nomis.svg",
+    "contracts": [
+      "0x128B7290CdFA241E77337e0e42100bf6237a783C"
+    ]
+  },
+  {
+    "name": "21Blackjack",
+    "slug": "21bj",
+    "logo": "21bj.png",
+    "contracts": [
+      "0x8C5720982b54874F53F2514BbD2382ADce98a0ca",
+      "0x78adDA11Bfc437DeC4a39318FF7e52Cf00DC062c"
+    ]
+  },
+  {
+    "name": "EVMWarfare",
+    "slug": "evmwarfare",
+    "logo": "evmwarfare.png",
+    "contracts": [
+      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
+    ]
+  },
+  {
+    "name": "Swords & Dungeons",
+    "slug": "swordsanddungeons",
+    "logo": "swordsanddungeons.png",
+    "twitter": "@SwordsnDungeons",
+    "contracts": [
+      "0xac67aB5D44d5A7DbB55b8D9d1893889B7DaE3a36",
+      "0xc8b15Aa9BD24961E2ee4f3C67aEA4EafcB071108",
+      "0xEF9bF561ccbCBeDA1A71341A2162e5e6fF28c929"
+    ]
+  },
+  {
+    "name": "Ultiverse",
+    "slug": "ultiverse",
+    "logo": "ultiverse.png",
+    "twitter": "@UltiverseDAO",
+    "contracts": [
+      "0xa30c146A816931f6134dD8676B9dE8E77496954d",
+      "0xE3b5500039F401e48627e8025b37d4871cF34f36",
+      "0x06F9914838903162515aFa67D5b99Ada0F9791cc"
+    ]
+  },
+  {
+    "name": "ZypherNetwork",
+    "slug": "zyphernetwork",
+    "logo": "zyphergames.png",
+    "twitter": "@Zypher_Network",
+    "contracts": [
+      "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
+    ]
+  },
+  {
+    "name": "IceCreamSwap",
+    "slug": "icecreamswap",
+    "logo": "icecream.png",
+    "twitter": "@icecream_swap",
+    "contracts": [
+      "0x16A3247Db4588176c24C6A5F6d3fd2C174122DF5",
+      "0xC87De04e2EC1F4282dFF2933A2D58199f688fC3d",
+      "0xE578184bC88EB48485Bba23a37B5509578d2aE38"
+    ]
+  },
+  {
+    "name": "Jumper Exchange",
+    "slug": "jumper-exchange",
+    "twitter": "@JumperExchange",
+    "logo": "jumperexchange.png",
+    "contracts": [
+      "0x429Da7043882C2A962bC4EA7b33440C3B9a033D7",
+      "0x01ABD3Dec5268802272af46FE6Ac4c2fCF0Eff10",
+      "0x815e97BE9122Fa64259277b1509E316Fc45D4b34",
+      "0xD1DB5abDA5918ca4aFb8982a49378D4A2Dfe5D5c",
+      "0xa09f97e14C8351D16558b18891938aC873787652",
+      "0x8A779ed5c6838e236f934Eb392D5aBdbF22404dD",
+      "0x0C710c59f1a656333B5AfBAC64A8f60B52C30af4",
+      "0x42C1418917AE5505b5B3C79bdc1d1ba30177Ea06",
+      "0x5B73eFA1929c80D92C85512153392B799B022D18",
+      "0x147e65652FDaC507d24DE522a02C76c006A24aB9",
+      "0x386bbbE35DF5E7bec5fff8aC4E74A6D7c5fDa482",
+      "0xFf0dDC136bD881F3B8Eea805654Dd0D0d3bd800C",
+      "0x3A9A5dBa8FE1C4Da98187cE4755701BCA182f63b",
+      "0x113E97921874646413572F2C43562463c378b6f5",
+      "0xD59F68bBdECA334A05db2BCe5B6711d22f92fE7a",
+      "0x6bC43F95C5234aA749D18403753d60B91f972d3c",
+      "0xeCBa38d0bAc1cA1CD5A30347370e4D539d44FAA1",
+      "0xDd8A081efC90DFFD79940948a1528C51793C4B03",
+      "0xcaA342e4f781d63EF41E220D7622B97E66BAEcF3",
+      "0xff2F39692A90262b8Ed4DFD92799bB450425773F",
+      "0x6CA57d9846f9a1fd48368762b743a047eC4f81A6",
+      "0xD989E929517B0e5eD0c8EfE7607Fa167B697cBa8",
+      "0xe38326Ae727e3fA6669249063Ce7b8ea1754e756"
+    ]
+  },
+  {
+    "name": "Solv Protocol",
+    "slug": "solv-protocol",
+    "twitter": "@SolvProtocol",
+    "logo": "solv.png",
+    "contracts": [
+      "0x541FD749419CA806a8bc7da8ac23D346f2dF8B77",
+      "0xCC0966D8418d412c599A6421b760a847eB169A8c"
+    ]
+  },
+  {
+    "name": "Deri Protocol",
+    "slug": "deri-protocol",
+    "twitter": "@DeriProtocol",
+    "logo": "deri.png",
+    "contracts": [
+      "0xd4E08C940dDeC162c2D8f3034c75c3e08f1f6032",
+      "0x710c41eC0CbEed67105346dE6cD1314602a322B0",
+      "0xF7B181daE62dBc29c007A454FD0B56ccEa3fFb38",
+      "0x93e6e4d43F34c1bF9385ECBB0fCE912537Ecf56a",
+      "0xB5EFf2A863c9B42d823919368a467f26A2648559",
+      "0x497e8b8357C62EC0688E5e2872eC3002BE775867",
+      "0xB22C5A9e69B3e46978cecaA70c54f0063B90D2f6",
+      "0x235834296a747904765cc565338E71DaEdAc3Ba2",
+      "0x2156d038b686f4A2ea0C81aA4Dd65C62a9a43EA0",
+      "0x740e33Ea864A1EE3D6C0a76f281Ba1940859BF62",
+      "0x4Bcfc08eCD0908916d8726beF8c544e6f87666aa",
+      "0x51393080C546623d04CcAcf86428664856C7AC76",
+      "0x6350eA16423f02520A9887CA63080Eac93a37D0D",
+      "0x42Dd5168Eda433d9C7523AD11Ea15264343b1862",
+      "0xB15CdDE7103B19881aFBDBa07A363C604052640D",
+      "0x0ef58D7eAde4628b1446D5CA3A3863D4D2BEbC8C",
+      "0x1406952bB5CC7AC9f2905FE71169bbcc14774E75"
+    ]
+  },
+  {
+    "name": "Unagiswap",
+    "slug": "unagiswap",
+    "twitter": "@Unagi_Swap",
+    "logo": "unagiswap.svg",
+    "contracts": [
+      "0x1271CAba4bf23f8Fb31F97448605d65EE302CA51",
+      "0x562723560131C47417dfcD6BB1A089E4D7C7943C",
+      "0xa51894664a773981c6c112c43ce576f315d5b1b6",
+      "0xEf1F9B93c4F4E31260b316DC5740adcE54209479",
+      "0x388371233439cF57bB8C9f2e4835954841cfCb15",
+      "0xa672BeB656f3cEAF33222bc4805aac71142344FD",
+      "0x814473c0F2A32c57b98585157B78EA02A41f70Fb",
+      "0x0c76F95a2952DC171B26b152f2b30cA8968e79D5",
+      "0x94B66F3156353a12A6004d098A16F2fCfF9E8348",
+      "0x187210CE04F5B3179F0e483FCf292c34BA7568Dd",
+      "0xC60Ac5B8bDd9DBD1830E3f43252B7b0d50DFEea3",
+      "0x25B2F29DF47F4e66Cac54bA71dE3562F51b5ceEC",
+      "0xf7A57DeadcFa3030Ddbf9E1ad371DB3148BC7cB6",
+      "0x9CA028580667064A8741cEeA03aeb89cF537c5eE",
+      "0x5580704224CE8090fc685FeeF0E35Fa6f86d8381",
+      "0x063778f207fBa0682215168C3fa4e69BFc787e8D",
+      "0x6375abe2A675776E695d4dea01849a2816055FA6",
+      "0xC68E75CA7b4315Ab7F81194f3B27627eB63c2Af0",
+      "0xC863c5b575f47942d4B704c14900Cee7721f7774",
+      "0x8e4dB74c24e012DD2192943c12acF8B63f3B5A6E",
+      "0x893EcB7D0982D5d182cfD318EF3eFb76020065f1",
+      "0x5B829f90eCd51E803917C1E25EC9A718f32ecB46",
+      "0x3b73a6610db514e14b432c72Eb49723dAe9c1C10",
+      "0x4e5Ad9061d33621aF33Bad7d4dfF45Eb83Bc6a46",
+      "0xc90958D0466c7f1337d5D0B8947F812f636D3c63",
+      "0x2629E610dB4AC081c108cCDf8b19ED39D702df43",
+      "0x7fB45a8AcA7DD30a136569B5E3eb7E1F1f0235a0",
+      "0x1909B6842964030aF3897bdf8ba760bD91439463",
+      "0x6694eebf40924e04c952EA8F1626d19E7a656Bb7",
+      "0xd0de7cA3298fff085E2cb82F8a861a0254256BA0",
+      "0x2235bB894b7600F1a370fc595Ee5477999A30441",
+      "0x297A4885a7da4AaeF340FABEd119e7a6E3f2BCe8",
+      "0xc6F5e5Ff8AbBe6A94A879A1E378c101E2A6bb9e6",
+      "0x8Ebbfe204E7EdA4be46b9d09c5dfa8b3e1500462",
+      "0x5e8807fd1C80F7A43362CeBEFcB2Becedfc731Dc",
+      "0x3Cdf6B62D042179FAa21745b074a688BB4979FB7",
+      "0xC7EaBEc77Be175432DC20c0056Cce4c2C78B84F3",
+      "0xfcd8EF54A4dA96dE6B2DDF67C6265C7405a3A9c6",
+      "0x928e9762B5223d5A2ac1F5b13E8A61907aCaa9Bd",
+      "0x7386F6F2375a38FBD1F4dA1d3eb39cd8dD8d1b40",
+      "0x38886EDE1Fc92886F9a11C37a1f5e75474858eaa",
+      "0x1dFd36964e21a2eb633991f0B95b4241c20e1db3",
+      "0xcBF3378D432CB181aae32a6A80AA94CF8e00f534",
+      "0xE59d098c36916397Cc14AB42Bb0F00093BDA9f04",
+      "0x3a64Ec3606FF7310E8fAd6FcC008e39705fB496d",
+      "0xD0CF7dfbF09CAfaB8AEf00e0Ce19a4638004a364",
+      "0x2Da0855f04919D402Af88D0D04AbB38177FE47fa",
+      "0x228259F82AE485aB25b69d9a028D86B4621bfE2A",
+      "0x15871da6878150750781f82aEb6f2dC93eB265b3",
+      "0xF8fba603cc382F038c60C347411e2a0C18867842",
+      "0xb56F2a15c3540C5D5F4ddB58650fDC7972027A51"
+    ]
+  },
+  {
+    "name": "Avalon Finance",
+    "slug": "avalon-finance",
+    "twitter": "@avalonfinance_",
+    "logo": "avalonfinance.svg",
+    "contracts": [
+      "0x9dd29AA2BD662E6b569524ba00C55be39e7B00fB",
+      "0xb961661F5Ca019e232661Bd26686288a6E21d928",
+      "0x64Eaf7cDE96277ed9253b8268DFC85eB2EB0D147"
+    ]
+  },
+  {
+    "name": "Polaris Finance",
+    "slug": "polaris-finance",
+    "twitter": "@polarisfinance_",
+    "logo": "polaris.jpeg",
+    "contracts": [
+      "0x723F40720836a03f1F20441FbDa3D109fc99640F"
+    ]
+  },
+  {
+    "name": "Bedrock uniBTC",
+    "slug": "uniBTC",
+    "twitter": "@Bedrock_DeFi",
+    "logo": "uniBTC.svg",
+    "contracts": [
+      "0x93919784c523f39cacaa98ee0a9d96c3f32b593e"
+    ]
+  },
+  {
+    "name": "Materia Prima",
+    "slug": "materia-prima",
+    "twitter": "@MateriaPrimaRPG",
+    "logo": "materiaprima.png",
+    "contracts": [
+      "0x5AF01242da2d86FdF635744156c0a3B8d83Ab165",
+      "0xa04E0913C7DA88D611D20e21c9A7B3bC05d6Bb49"
+    ]
+  },
+  {
+    "name": "Steer Protocol",
+    "slug": "steer-protocol",
+    "twitter": "@steerprotocol",
+    "logo": "steer.svg",
+    "contracts": [
+      "0x317EEDB54711681056f37e10d5DE0B55455b476f",
+      "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83",
+      "0x1A7e75715d157736103eC429Ff7079994D907472",
+      "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77",
+      "0xC1Ecd10398A6D7036CceE1f50551ff169715081c",
+      "0xD40699A642172DeD33BCFe4E3F84D54610C757Cd",
+      "0x09eb271b444d1db7163c8555919dE85b20Be7D1d",
+      "0x1A7e75715d157736103eC429Ff7079994D907472",
+      "0xAa4448AeF5f5967693751BFB67197946BB6D1dC0",
+      "0x7c464A0AB1f5ebf3E2dCccfec7EF41D02ED7a2f4",
+      "0xcE965b256E8735911b5e569ABA4508fd27AfDe1E",
+      "0x925C4454820b2b88c2f70F2621E6890b451266Dd",
+      "0x4655196cBeC85A507450F8D8252E38BeDbF0e2D5",
+      "0xF4de4180829272ae5f69AcAcf820f4F7d547513b",
+      "0xF4de4180829272ae5f69AcAcf820f4F7d547513b",
+      "0x116Dba5DcE9CcDA828218b7eB46406810632014C",
+      "0x64F9A121Ccbb8956249Ed52C4f63d0f759da53Ce",
+      "0xD40699A642172DeD33BCFe4E3F84D54610C757Cd",
+      "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83",
+      "0x99eca0E5Db125900E3a0389F6D3503837e99F59b",
+      "0xd964811233b8A0185D3C93664df82136C80d1bb2",
+      "0x254d37F5eD7E96fc2d242CB06B17FAe1EE9E1ADA",
+      "0x31e4ee367d4f2685BAfcAb9566e9C87E60D48983",
+      "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77",
+      "0xd5532a58E4ABB6485FF4e7BCf5bED278e32A516e",
+      "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5",
+      "0x317EEDB54711681056f37e10d5DE0B55455b476f",
+      "0xAa4448AeF5f5967693751BFB67197946BB6D1dC0",
+      "0x254d37F5eD7E96fc2d242CB06B17FAe1EE9E1ADA",
+      "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc",
+      "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
     ]
   }
 ]
