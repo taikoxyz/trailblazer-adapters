@@ -889,11 +889,13 @@
     ]
   },
   {
-    "name": "EVMWarfare",
-    "slug": "evmwarfare",
-    "logo": "evmwarfare.png",
+    "name": "Rupture Labs",
+    "slug": "Rlabs",
+    "twitter": "@rupturelabs",
+    "logo": "rupturelabs.png",
     "contracts": [
-      "0xA9E8e13BA0309486b2F710B8201B534D26633a89"
+      "0x16C5ff9C18314dC977ABc8E12f7915Be541ca6F3",
+      "0xE72482b7f1476d4043c814867D75F74BD436343B"
     ]
   },
   {
