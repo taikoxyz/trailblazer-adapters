@@ -1145,5 +1145,14 @@
       "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc",
       "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
     ]
+  },
+  {
+    "name": "ImaginAIryNFTs",
+    "slug": "imaginairynfts",
+    "twitter": "@ImaginAIryNFTs",
+    "logo": "avalonfinance.svg",
+    "contracts": [
+      "0xb99E5534d42500eB1d5820fBA3Bb8416cCB76396"
+    ]
   }
 ]
