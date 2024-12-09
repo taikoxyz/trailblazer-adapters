@@ -49,6 +49,13 @@ var SelectedMultiplierEvents = []string{
 	"Prediction - $BTC price on Dec 8",
 	"Prediction - $ETH price on Dec 8",
 	"Prediction - $TAIKO price on Dec 8",
+	"UEFA Champions League 24/25 - Juventus v. Man City",
+	"UEFA Champions League 24/25 - Borussia Dortmund v. Barcelona",
+	"UEFA Champions League 24/25 - RB Leipzig v. Aston Villa",
+	"UEFA Champions League 24/25 - Girona v. Liverpool",
+	"Prediction - $BTC price on Dec 15",
+	"Prediction - $ETH price on Dec 15",
+	"Prediction - $TAIKO price on Dec 15",
 }
 
 type PredictionIndexer struct {
