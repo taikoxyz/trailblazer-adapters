@@ -895,7 +895,8 @@
     "logo": "rupturelabs.png",
     "contracts": [
       "0x16C5ff9C18314dC977ABc8E12f7915Be541ca6F3",
-      "0xE72482b7f1476d4043c814867D75F74BD436343B"
+      "0xE72482b7f1476d4043c814867D75F74BD436343B",
+      "0xDF9bA52c7EeDC51eaD40a3aC85a62c698625c02B"
     ]
   },
   {
