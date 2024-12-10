@@ -1159,6 +1159,15 @@
     ]
   },
   {
+    "name": "ImaginAIryNFTs",
+    "slug": "imaginairynfts",
+    "twitter": "@ImaginAIryNFTs",
+    "logo": "imaginairy.png",
+    "contracts": [
+      "0xb99E5534d42500eB1d5820fBA3Bb8416cCB76396"
+    ]
+  },
+  {
     "name": "Astrotrove",
     "slug": "Astrotrove",
     "twitter": "@AstroTrove",
