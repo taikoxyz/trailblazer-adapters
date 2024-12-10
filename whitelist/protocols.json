@@ -1146,5 +1146,15 @@
       "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc",
       "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
     ]
+  },
+  {
+    "name": "Astrotrove",
+    "slug": "Astrotrove",
+    "twitter": "@AstroTrove",
+    "logo": "Astrotrove-logo.jpg",
+    "contracts": [
+      "0x29ceb80A6369D1f1E74e958474795A66954E323f",
+      "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6"
+    ]
   }
 ]
