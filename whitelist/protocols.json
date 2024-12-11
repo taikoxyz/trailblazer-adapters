@@ -169,17 +169,6 @@
     ]
   },
   {
-    "name": "HenjinDEX",
-    "slug": "henjin",
-    "twitter": "@HenjinDex",
-    "logo": "henjin_dex.png",
-    "contracts": [
-      "0x07Bc9a408B385C7Aa8De2783795759512fE24356",
-      "0xcFf128C67bCDc5a7c7D3F24c638e59AA0d4e112b",
-      "0xaF0C5CBbCEfB685BF3200684d2aE19B8eA6186ca"
-    ]
-  },
-  {
     "name": "Oku Trade",
     "slug": "oku",
     "twitter": "@okutrade",
@@ -233,20 +222,6 @@
       "0xee73323912a4e3772b74ed0ca1595a152b0ef282",
       "0x41d3d33156ae7c62c094aae2995003ae63f587b3",
       "0xd7aa9ba6caac7b0436c91396f22ca5a7f31664fc"
-    ]
-  },
-  {
-    "name": "Hana Finance",
-    "slug": "hana-finance",
-    "twitter": "@Hana_Finance",
-    "logo": "hana_finance.png",
-    "contracts": [
-      "0xB9eD09af341a59c05c8AaE584172e8dCc1E828b6",
-      "0x4aB85Bf9EA548410023b25a13031E91B4c4f3b91",
-      "0x5C9bC967E338F48535c3DF7f80F2DB0A366D36b2",
-      "0xacd2E13C933aE1EF97698f00D14117BB70C77Ef1",
-      "0x0247606c3d3f62213bbc9d7373318369e6860eb1",
-      "0xf1777EAD4098F574c68E59905588f3C9875251ed"
     ]
   },
   {
