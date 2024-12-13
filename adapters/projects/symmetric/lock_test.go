@@ -15,7 +15,7 @@ import (
 
 func TestLockIndexer(t *testing.T) {
 	taikoRPC := "https://rpc.taiko.xyz"
-	blocknumber := int64(445262)
+	blocknumber := int64(667176)
 
 	ctx := context.Background()
 
@@ -30,14 +30,14 @@ func TestLockIndexer(t *testing.T) {
 	locks, err := indexer.Index(ctx, logs...)
 	assert.NoError(t, err)
 	assert.Len(t, locks, 2)
-	txHash := common.HexToHash("0x27058b3cfbd15e3466cdd1b86ab387a473f2ca01c0697eb6b47ae7b33fdf97b0")
-	user := common.HexToAddress("0x7255Db0d1C1B93Fb756157074fa0613Aa6878F31")
-	time := 1728397319
-	duration := 4959481
+	txHash := common.HexToHash("0x6de4309af3be9f566195c9c33f3ac6d46e7084856988f5695b5ec3d080511882")
+	user := common.HexToAddress("0xFb4D6288D1c51292dC9899f5F876A2Cf1f9fef43")
+	time := 1734021131
+	duration := 8407669
 	expectedLocks := []adapters.Lock{
 		{
 			User:          user,
-			TokenAmount:   big.NewInt(45884668717994),
+			TokenAmount:   big.NewInt(413346247810476),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.WETHAddress),
 			Duration:      uint64(duration),
@@ -47,7 +47,7 @@ func TestLockIndexer(t *testing.T) {
 		},
 		{
 			User:          user,
-			TokenAmount:   big.NewInt(287649277362130342),
+			TokenAmount:   big.NewInt(2926854880867952131),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			Duration:      uint64(duration),

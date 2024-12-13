@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	LockAddress         = "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3"
+	LockAddress         = "0x9A287E33d7c5Dd701f47731BeCe88bb0Ee1e06fC"
 	logDepositSignature = "Deposit(address,uint256,uint256,int128,uint256)"
 )
 
