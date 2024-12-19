@@ -169,17 +169,6 @@
     ]
   },
   {
-    "name": "HenjinDEX",
-    "slug": "henjin",
-    "twitter": "@HenjinDex",
-    "logo": "henjin_dex.png",
-    "contracts": [
-      "0x07Bc9a408B385C7Aa8De2783795759512fE24356",
-      "0xcFf128C67bCDc5a7c7D3F24c638e59AA0d4e112b",
-      "0xaF0C5CBbCEfB685BF3200684d2aE19B8eA6186ca"
-    ]
-  },
-  {
     "name": "Oku Trade",
     "slug": "oku",
     "twitter": "@okutrade",
@@ -233,20 +222,6 @@
       "0xee73323912a4e3772b74ed0ca1595a152b0ef282",
       "0x41d3d33156ae7c62c094aae2995003ae63f587b3",
       "0xd7aa9ba6caac7b0436c91396f22ca5a7f31664fc"
-    ]
-  },
-  {
-    "name": "Hana Finance",
-    "slug": "hana-finance",
-    "twitter": "@Hana_Finance",
-    "logo": "hana_finance.png",
-    "contracts": [
-      "0xB9eD09af341a59c05c8AaE584172e8dCc1E828b6",
-      "0x4aB85Bf9EA548410023b25a13031E91B4c4f3b91",
-      "0x5C9bC967E338F48535c3DF7f80F2DB0A366D36b2",
-      "0xacd2E13C933aE1EF97698f00D14117BB70C77Ef1",
-      "0x0247606c3d3f62213bbc9d7373318369e6860eb1",
-      "0xf1777EAD4098F574c68E59905588f3C9875251ed"
     ]
   },
   {
@@ -324,7 +299,17 @@
       "0x34723B92aE9708BA33843120A86035D049dA7dfA",
       "0x445ab115F67b1EA7Fa4B5956DeB03796D6CB8e13",
       "0xd0989635D363Bd85ecCE495fe78dF43A9067867D",
-      "0xF3f9c67CDd87De0597d607B5fC206299eB64fffa"
+      "0xF3f9c67CDd87De0597d607B5fC206299eB64fffa",
+      "0x33E5d35D463Ad0890C0c38C4063208C1A6Eda5A5",
+      "0x38d76C4c38677B88E5B9cD3B8DC5d66A7Ace43c5",
+      "0x1324F1279C66E212d207660AF5e941044101c76B",
+      "0xf3bC5CC8d531CB1efE145B06778C9619507691B0",
+      "0xE45BEF6D76EC1d8D050c2a27497EB2c510cFf9fB",
+      "0x53085B157E44b1c3B3a0Feab6a9C8aC9B6e4973d",
+      "0x023b6a9ED06dA1567Edf4AB454662f8d8C07289c",
+      "0xAf001CA82272A3fAa28147a8559e3a6F7e3756d1",
+      "0x50073c03F44852f18A7B35e1a6588F835790e747",
+      "0x06Ebf295e0a0C399985fA00568519b6Ff05D8bBE"
     ]
   },
   {
@@ -631,7 +616,8 @@
       "0xAA60Afa2FceC38EE762c52135f6Cbb22D8128DD7",
       "0xa025369dfC8280CC7e88451a0fbe33fE7138eD31",
       "0xCDa30664D0Df20b19cB35a834594fA8A6A001e5c",
-      "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3"
+      "0xc0A740cDd1C647d9c77367E47f0D0c253140E6e3",
+      "0x9A287E33d7c5Dd701f47731BeCe88bb0Ee1e06fC"
     ]
   },
   {
@@ -895,7 +881,8 @@
     "logo": "rupturelabs.png",
     "contracts": [
       "0x16C5ff9C18314dC977ABc8E12f7915Be541ca6F3",
-      "0xE72482b7f1476d4043c814867D75F74BD436343B"
+      "0xE72482b7f1476d4043c814867D75F74BD436343B",
+      "0xDF9bA52c7EeDC51eaD40a3aC85a62c698625c02B"
     ]
   },
   {
@@ -937,6 +924,7 @@
     "contracts": [
       "0x16A3247Db4588176c24C6A5F6d3fd2C174122DF5",
       "0xC87De04e2EC1F4282dFF2933A2D58199f688fC3d",
+      "0xb5C7882e37359572FD1cCFAA276e7Fdf70145D42",
       "0xE578184bC88EB48485Bba23a37B5509578d2aE38"
     ]
   },
@@ -1144,6 +1132,25 @@
       "0x254d37F5eD7E96fc2d242CB06B17FAe1EE9E1ADA",
       "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc",
       "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
+    ]
+  },
+  {
+    "name": "ImaginAIryNFTs",
+    "slug": "imaginairynfts",
+    "twitter": "@ImaginAIryNFTs",
+    "logo": "imaginairy.png",
+    "contracts": [
+      "0xb99E5534d42500eB1d5820fBA3Bb8416cCB76396"
+    ]
+  },
+  {
+    "name": "Astrotrove",
+    "slug": "Astrotrove",
+    "twitter": "@AstroTrove",
+    "logo": "Astrotrove-logo.jpg",
+    "contracts": [
+      "0x29ceb80A6369D1f1E74e958474795A66954E323f",
+      "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6"
     ]
   }
 ]
