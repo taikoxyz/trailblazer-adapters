@@ -56,6 +56,9 @@ var SelectedMultiplierEvents = []string{
 	"Prediction - $BTC price on Dec 15",
 	"Prediction - $ETH price on Dec 15",
 	"Prediction - $TAIKO price on Dec 15",
+	"Prediction - $TAIKO price on Dec 22",
+	"Prediction - $BTC price on Dec 22",
+	"Prediction - $ETH price on Dec 22",
 }
 
 type PredictionIndexer struct {
