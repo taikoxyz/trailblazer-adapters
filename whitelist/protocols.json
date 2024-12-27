@@ -1150,7 +1150,8 @@
     "logo": "Astrotrove-logo.jpg",
     "contracts": [
       "0x29ceb80A6369D1f1E74e958474795A66954E323f",
-      "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6"
+      "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6",
+      "0x7d8f7ed629D8698c9dfC9470c55CE5835e39902A"
     ]
   }
 ]
