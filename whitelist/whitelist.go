@@ -8,19 +8,17 @@ import (
 //go:embed protocols.json
 var protocols []byte
 
-type Category string
-
 const (
-	Gaming           Category = "Gaming"
-	Bridge           Category = "Bridge"
-	DEX              Category = "DEX"
-	Lending          Category = "Lending"
-	DeFi             Category = "DeFi"
-	ENS              Category = "ENS"
-	NFT              Category = "NFT"
-	CrossChain       Category = "Cross-chain"
-	Derivatives      Category = "Derivatives"
-	BridgeAggregator Category = "Bridge Aggregator"
+	Gaming           string = "Gaming"
+	Bridge           string = "Bridge"
+	DEX              string = "DEX"
+	Lending          string = "Lending"
+	DeFi             string = "DeFi"
+	ENS              string = "ENS"
+	NFT              string = "NFT"
+	CrossChain       string = "Cross-chain"
+	Derivatives      string = "Derivatives"
+	BridgeAggregator string = "Bridge Aggregator"
 )
 
 type Protocol struct {
@@ -38,7 +36,7 @@ type Protocol struct {
 	// Short description of the protocol
 	Description *string `json:"description,omitempty"`
 	// Category of the protocol
-	Category *Category `json:"category,omitempty"`
+	Category *string `json:"category,omitempty"`
 	// Twitter reference of the protocol
 	Twitter *string `json:"twitter,omitempty"`
 	// Website of the protocol
