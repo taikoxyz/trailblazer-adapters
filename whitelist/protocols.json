@@ -4,6 +4,9 @@
     "slug": "nfts-2-me",
     "twitter": "@NFTs2Me",
     "logo": "nfts2me.png",
+    "description": "NFTs2Me is a multichain user-friendly comprehensive platform to create, deploy and manage your NFT collection and community, 100% free with advanced functionalities.",
+    "website": "https://nfts2me.com/app/",
+    "category": "NFT",
     "contracts": [
       "0x00000000001594C61dD8a6804da9AB58eD2483ce",
       "0x00000000009a1E02f00E280dcfA4C81c55724212",
@@ -21,6 +24,9 @@
     "slug": "magpie-protocol",
     "twitter": "@magpieprotocol",
     "logo": "magpie.svg",
+    "description": "Swap crypto assets efficiently between any chains, without the need to bridge. Magpie is fast, secure and easy-to-use.",
+    "category": "Cross-Chain",
+    "website": "https://www.magpiefi.xyz/",
     "contracts": [
       "0x956df8424b556f0076e8abf5481605f5a791cc7f"
     ]
@@ -54,6 +60,9 @@
     "name": "Rubic",
     "slug": "Rubic",
     "logo": "rubic.png",
+    "description": "The benefits of using Rubic as a DEX and Bridge Aggregator include access to 80+ major blockchains, 220+ DEXs and bridges, one-click swapping of 15,500+ assets.",
+    "category": "Bridge Aggregator",
+    "website": "https://rubic.exchange",
     "contracts": [
       "0xAa4472EC72cF4771dfD38467f161F6DF6cA3FB1a",
       "0xAf14797CcF963B1e3d028a9d51853acE16aedBA1",
@@ -73,6 +82,9 @@
     "slug": "kodo-exchange",
     "twitter": "@kodohq",
     "logo": "kodo.png",
+    "description": "Enjoy trading with minimal fees across a diverse range of stable and volatile pools, designed for optimal efficiency.",
+    "category": "DEX",
+    "website": "https://www.kodo.exchange/",
     "contracts": [
       "0x7E034Ef620D2fb403e8bB6a1130670110287A7a1",
       "0x7e91F29F8a213c8311712A8FC8c61219fb9477CB",
@@ -138,6 +150,8 @@
     "slug": "stargate",
     "twitter": "@stargatefinance",
     "logo": "stargate.jpg",
+    "website": "https://stargate.finance/",
+    "category": "DEX",
     "contracts": [
       "0x0dB9afb4C33be43a0a0e396Fd1383B4ea97aB10a",
       "0xCd4302D950e7e6606b6910Cd232758b5ad423311",
@@ -154,6 +168,9 @@
     "slug": "crack-stack",
     "twitter": "@crackandstack",
     "logo": "crackandstack.svg",
+    "description": "Top-down multiplayer game. Enter the Ethereum mines, set traps, mine ores, escape the goblins and escape with your loot.",
+    "website": "https://crackandstack.com/",
+    "category": "Gaming",
     "contracts": [
       "0x7ddB8A975778a434dE03dd666F11Ce962DCdD290",
       "0x2c301eBfB0bb42Af519377578099b63E921515B7",
@@ -173,6 +190,9 @@
     "slug": "oku",
     "twitter": "@okutrade",
     "logo": "oku.jpg",
+    "description": "Oku Trade is a non-custodial DEX trading platform and bridge aggregator offering the best rates and analytics across 16 EVM chains.",
+    "website": "https://oku.trade/",
+    "category": "Bridge",
     "contracts": [
       "0x75FC67473A91335B5b8F8821277262a13B38c9b3",
       "0x346239972d1fa486FC4a521031BC81bFB7D6e8a4",
@@ -196,6 +216,9 @@
     "slug": "zns",
     "twitter": "@ZNSConnect",
     "logo": "zns.svg",
+    "description": "ZNS Connect decentralized ID platform powered by decentralized addresses with unique domain names on Taiko.",
+    "website": "https://www.znsconnect.io/",
+    "category": "ENS",
     "contracts": [
       "0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5"
     ]
@@ -229,6 +252,9 @@
     "slug": "rhino-fi",
     "twitter": "@RhinoFi",
     "logo": "rhinofi.png",
+    "description": "Buy, trade and invest across all of your favourite blockchains from a single layer 2 wallet.",
+    "category": "Bridge",
+    "website": "https://app.rhino.fi/bridge",
     "contracts": [
       "0x1Df2De291F909baA50C1456C87C71Edf9Fb199D5"
     ]
@@ -238,6 +264,9 @@
     "slug": "dtx",
     "twitter": "@0xdtx",
     "logo": "dtx-trade.png",
+    "description": "DTX is a decentralized trading and liquidity protocol deployed across multiple chains, crafted by seasoned traders for the community.",
+    "website": "https://dtx.trade/trade",
+    "category": "DEX",
     "contracts": [
       "0xa814273254C1F73fF79f4D5b5d41279dCbb83f9E",
       "0xCFC8D41f93FCF867f5C2D8435DF84c71672728f6",
@@ -294,6 +323,9 @@
     "slug": "0xastra",
     "twitter": "@0xAstra_xyz",
     "logo": "0xastra.svg",
+    "description": "0xAstra is an onchain SLG game, where you harness cross-chain resources with bridge technology to build and defend your cosmic homeland. Strategize, expand, and dominate in this interstellar conquest.",
+    "website": "https://0xastra.xyz/",
+    "category": "Gaming",
     "contracts": [
       "0x90CE48ED68C6FCAe6F13b445F1573f003cF1804d",
       "0x34723B92aE9708BA33843120A86035D049dA7dfA",
@@ -317,6 +349,9 @@
     "slug": "ritsu",
     "twitter": "@ritsuprotocol",
     "logo": "ritsu-protocol.png",
+    "description": "A based decentralized exchange #DEX on Taiko @taikoxyz Swap and earn with hyper efficiency and seamless experience.",
+    "website": "https://ritsu.xyz",
+    "category": "DEX",
     "contracts": [
       "0x7160570BB153Edd0Ea1775EC2b2Ac9b65F1aB61B",
       "0x12AF3Ec993EC5d5bD789b3e989c9E95A2F6c586D",
@@ -362,6 +397,9 @@
     "slug": "xy-finance",
     "twitter": "@xyfinance",
     "logo": "xy_finance.svg",
+    "description": "XY Finance is a leading cross-chain bridge aggregator that operates on 17+ EVM chains including zkSync, Linea, Arbitrum & Optimism",
+    "category": "Cross-chain",
+    "website": "https://xy.finance/",
     "contracts": [
       "0x73Ce60416035B8D7019f6399778c14ccf5C9c7A1",
       "0xedC061306A79257f15108200C5B82ACc874C239d"
@@ -372,6 +410,9 @@
     "slug": "kiloex",
     "twitter": "@KiloEex_perp",
     "logo": "kiloex.png",
+    "description": "Decentralized exchange blending speed and simplicity. Enjoy lightning-fast trades, real-time market insights, and an intuitive interface for traders, alongside secure, LP-friendly solutions for liquidity providers.",
+    "website": "https://app.kiloex.io/trade",
+    "category": "DeFi",
     "contracts": [
       "0xd6e87aCd56F3dcb028A906D957be5f65Fe0CFB93",
       "0x735D00A9368164B9dcB2e008d5Cd15b367649aD5",
@@ -415,6 +456,9 @@
     "slug": "co-nft",
     "twitter": "@ConftApp",
     "logo": "conft.jpg",
+    "description": "A Multi-Chain Web3 Utility Hub offering comprehensive services such as Web3 Name Service, NFT Aggregator, Launchpad, Bridges, and Swaps.",
+    "website": "https://conft.app/",
+    "category": "NFT",
     "contracts": [
       "0x3AC934F275172a7fa0C0dD4545305bd5EF82a6F8",
       "0x9059cA87Ddc891b91e731C57D21809F1A4adC8D9",
@@ -465,6 +509,9 @@
     "slug": "izumi-iziswap",
     "twitter": "@izumi_Finance",
     "logo": "izumi_finance.png",
+    "description": "Liquidity Redefined - A multi-chain DeFi protocol providing One-Stop Liquidity as a Service (LaaS).",
+    "website": "https://izumi.finance/trade/swap",
+    "category": "DEX",
     "contracts": [
       "0x8c7d3063579BdB0b90997e18A770eaE32E1eBb08",
       "0x4d4673745AAC664eFB9758fdd571F40d78a87bfe",
@@ -485,6 +532,9 @@
     "slug": "brigade",
     "twitter": "@tacostudios_io",
     "logo": "brigade.png",
+    "description": "Brigade is a play-to-earn game that you can start completely free. It is the perfect opportunity to immerse yourself in the Taco Studios world.",
+    "website": "https://brigadegame.io/",
+    "category": "Gaming",
     "contracts": [
       "0x8a93AAE6D94680658012B887BfDd981A17661Ef4",
       "0x409395BC4b50A9BbD45a943A8B0D6236E0F83540",
@@ -502,6 +552,9 @@
     "slug": "okx-nft-market",
     "twitter": "@okxweb3",
     "logo": "okx.png",
+    "description": "OKX NFT marketplace is a decentralized NFT exchange to create, collect and trade extraordinary NFTs on Taiko",
+    "website": "https://www.okx.com/web3/marketplace/nft",
+    "category": "NFT",
     "contracts": [
       "0xa7FD99748cE527eAdC0bDAc60cba8a4eF4090f7c",
       "0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC"
@@ -512,6 +565,9 @@
     "slug": "world-of-dypians",
     "twitter": "@worldofdypians",
     "logo": "dypians.png",
+    "description": "Experience unique gameplay and explore a world without end in a quest to form your destiny. The opportunities are endless ensuring infinite playability.",
+    "website": "https://www.worldofdypians.com/",
+    "category": "Gaming",
     "contracts": [
       "0xaf33f679be47733bD3aBb5b0b977B6ba3eD8d01E",
       "0x620655Ee8320bA51cf4cc06bf6a7C14022271764",
@@ -536,6 +592,9 @@
     "name": "Bullishs",
     "slug": "bullishs",
     "logo": "bullishs.png",
+    "description": "Bullishs is the first seamless transaction tech in Omni Layer2 cross-rollup game.",
+    "website": "https://bullishs.io/",
+    "category": "Gaming",
     "contracts": [
       "0x340C885AC77E4a1d3E9e8f6EedfA7269CB374cb6",
       "0xAd2803cDBfFc8bae61eeC0A1CF849877f0E742Bd"
@@ -552,6 +611,9 @@
     "name": "Meridian Lend",
     "slug": "meridian-lend",
     "logo": "meridian_finance.png",
+    "description": "A non-custodial, decentralised financial trading platform that offers interest-free stable coin borrowing, leverage trading and zero slippage swaps all in one place.",
+    "website": "https://www.meridianfinance.net/",
+    "category": "Lending",
     "contracts": [
       "0x8Cf3E0e7aE4eB82237d0931388EA72D5649D76e0",
       "0x9Fe3659aFf8CDaf4cd009ef7a63DaB23b3CA15C7",
@@ -591,6 +653,9 @@
     "name": "Swing",
     "slug": "swing",
     "logo": "swing.jpeg",
+    "description": "Access all of DeFi liquidity through a single entry point. Swing securely connects many protocols and chains today and is built to connect thousands.",
+    "category": "Cross-chain",
+    "website": "https://swing.xyz/",
     "contracts": [
       "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB",
       "0x90f1Ef9D2cDe204C8494Cf73130771B350070B53",
@@ -672,6 +737,9 @@
     "slug": "takotako",
     "twitter": "@TAKOTAKOxyz",
     "logo": "takotako.png",
+    "description": "TAKOTAKO emphasizes on real yield by offering competitive rates and sharing almost half of its revenue with users.",
+    "category": "DEX",
+    "website": "https://takotako.xyz",
     "contracts": [
       "0x79a741EBFE9c323CF63180c405c050cdD98c21d8",
       "0x72C6bDf69952b6bc8aCc18c178d9E03EAc5eaD50",
@@ -702,6 +770,9 @@
     "slug": "omnihub",
     "twitter": "@omni_hub",
     "logo": "omnihub.jpg",
+    "description": "OmniHub NFT launchpad invites you to explore the boundless realms of creativity. Create your own collection in just a few clicks. This is where the future of art is born.",
+    "website": "https://omnihub.xyz/",
+    "category": "NFT",
     "contracts": [
       "0xb0B4B761C9e9Bf5A9194a42e944A4A6646B83919"
     ]
@@ -812,6 +883,9 @@
     "slug": "robotsfarm",
     "twitter": "@robotsfarm",
     "logo": "robotsfarm.jpg",
+    "description": "Robot.farms is a gamified trading platform that seamlessly merges decentralized finance with a captivating gaming experience.",
+    "website": "https://robots.farm/",
+    "category": "Gaming",
     "contracts": [
       "0xED2cC316E81d574330E60aE9593a8dd34b9a4C41",
       "0x972fd05EdA4031Ea59Cb213180eBd23524F6DBA6"
@@ -822,6 +896,9 @@
     "slug": "logx-network",
     "twitter": "@LogX_trade",
     "logo": "logx.svg",
+    "description": "LogX uses charts that are powered By TradingView. A comprehensive trading and investment platform, offering an exceptional charting solution.",
+    "category": "Derivatives",
+    "website": "https://app.logx.network/trade/BTC",
     "contracts": [
       "0x650e8941E4d90b70576fDF1b05dbDc962DA2cab8",
       "0x1d9B044393804CCFa2da3127470C9F65D4E0E5E6"
@@ -879,6 +956,9 @@
     "slug": "Rlabs",
     "twitter": "@rupturelabs",
     "logo": "rupturelabs.png",
+    "description": "At Rupture Labs, we are building the future next generation web3 gaming ecosystem experience with EVM Warfare & fun to play Telegram-based games catering both competitive gamers and casual web3 audience.",
+    "website": "https://rupturelabs.xyz/",
+    "category": "Gaming",
     "contracts": [
       "0x16C5ff9C18314dC977ABc8E12f7915Be541ca6F3",
       "0xE72482b7f1476d4043c814867D75F74BD436343B",
@@ -890,6 +970,9 @@
     "slug": "swordsanddungeons",
     "logo": "swordsanddungeons.png",
     "twitter": "@SwordsnDungeons",
+    "description": "Swords and Dungeons is the first multi-chain MMORPG. It is a vast world with rich gameplay, NFTs, and dynamic economic models.",
+    "website": "https://swnd.io/",
+    "category": "Gaming",
     "contracts": [
       "0xac67aB5D44d5A7DbB55b8D9d1893889B7DaE3a36",
       "0xc8b15Aa9BD24961E2ee4f3C67aEA4EafcB071108",
@@ -901,6 +984,9 @@
     "slug": "ultiverse",
     "logo": "ultiverse.png",
     "twitter": "@UltiverseDAO",
+    "description": "Explore Ultiverse with Ulti-Pilot, powered by Bodhi AI. Create agents, explore daily, and earn rewards. Free access now.",
+    "website": "https://pilot.ultiverse.io/",
+    "category": "Gaming",
     "contracts": [
       "0xa30c146A816931f6134dD8676B9dE8E77496954d",
       "0xE3b5500039F401e48627e8025b37d4871cF34f36",
@@ -912,6 +998,9 @@
     "slug": "zyphernetwork",
     "logo": "zyphergames.png",
     "twitter": "@Zypher_Network",
+    "description": "Immerse in z2048, a strategic on-chain game blending classic 2048 with fair, scalable gameplay via Zypher’s UZKGE.",
+    "website": "https://zypher.game/2048/",
+    "category": "Gaming",
     "contracts": [
       "0xd4629d312CdC663D062F3Fbc322534A9Df0151bC"
     ]
@@ -921,6 +1010,9 @@
     "slug": "icecreamswap",
     "logo": "icecream.png",
     "twitter": "@icecream_swap",
+    "category": "DEX",
+    "description": "IceCreamSwap allows direct bridging between many chains with its audited and battle tested smart contracts.",
+    "website": "https://icecreamswap.com/",
     "contracts": [
       "0x16A3247Db4588176c24C6A5F6d3fd2C174122DF5",
       "0xC87De04e2EC1F4282dFF2933A2D58199f688fC3d",
@@ -974,6 +1066,9 @@
     "slug": "deri-protocol",
     "twitter": "@DeriProtocol",
     "logo": "deri.png",
+    "description": "Trade futures, options, powers, and other derivatives on the best multi-chain platform in DeFi.",
+    "category": "Derivatives",
+    "website": "https://deri.io/#/index",
     "contracts": [
       "0xd4E08C940dDeC162c2D8f3034c75c3e08f1f6032",
       "0x710c41eC0CbEed67105346dE6cD1314602a322B0",
@@ -1091,6 +1186,9 @@
     "slug": "materia-prima",
     "twitter": "@MateriaPrimaRPG",
     "logo": "materiaprima.png",
+    "description": "Collect, craft and battle! We are a RPG set within the mystical world of Alka Sowa. Master the arts of alchemy, craft powerful items and create life in form of homunculi. Forge mighty alliances within the alchemist guild and fight against your opponents in PvE and PvP battles.",
+    "website": "https://materiaprimanft.com",
+    "category": "Gaming",
     "contracts": [
       "0x5AF01242da2d86FdF635744156c0a3B8d83Ab165",
       "0xa04E0913C7DA88D611D20e21c9A7B3bC05d6Bb49"
@@ -1153,5 +1251,53 @@
       "0x29ceb80A6369D1f1E74e958474795A66954E323f",
       "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6"
     ]
+  },
+  {
+    "name": "DotTaiko (SpaceID)",
+    "slug": "dottaiko",
+    "description": "DotTaiko is the web3 domain naming service built for the Taiko blockchain community.",
+    "website": "https://dottaiko.me/",
+    "category": "ENS",
+    "contracts": []
+  },
+  {
+    "name": "PoP Planet",
+    "slug": "popplanet",
+    "description": "Connect with millions through an AI & Social Plugin, crafted to reshape the social narrative of the digital age. Join the Influence-to-Earn Platform and transform your online interactions into opportunities.",
+    "website": "https://socialsummer.ai/",
+    "category": "ENS",
+    "contracts": []
+  },
+  {
+    "name": "Mintpad.co",
+    "slug": "mintpadco",
+    "description": "The easiest way to launch an NFT on Taiko!",
+    "website": "https://www.mintpad.co/",
+    "category": "NFT",
+    "contracts": []
+  },
+  {
+    "name": "Loopex",
+    "slug": "loopex",
+    "description": "A next-gen community-first NFT marketplace.",
+    "website": "https://taiko.loopexchange.io/",
+    "category": "NFT",
+    "contracts": []
+  },
+  {
+    "name": "Tanuki",
+    "slug": "tanuki",
+    "description": "TanukiX is purpose-built to support the backbone assets of the Taiko ecosystem: Stablecoins and RWAs.",
+    "category": "DEX",
+    "website": "https://www.tanukix.com/",
+    "contracts": []
+  },
+  {
+    "name": "Meson",
+    "slug": "meson",
+    "description": "Meson provides minute-fast swaps with almost-zero fee & slippage across all major blockchains.",
+    "category": "Cross-chain",
+    "website": "https://meson.fi",
+    "contracts": []
   }
 ]
