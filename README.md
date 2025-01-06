@@ -8,7 +8,11 @@ Open [`protocols.json`](./whitelist/protocols.json) and add a new protocol entry
 
 ### 2. Example Protocol Entry
 
-A new protocol entry needs atleast a name, slug and its contract addresses. Optionally, add twitter and logo reference. Logo must be stored under `./img`. Ensure your slug is consistent with your project's slug used in Defillama if you are integrated.
+A new protocol entry needs at least a name and a slug to be recognized. When competing in a trailblazers dApp competition or when you want to be listed in the general dApp leaderboard, also add your contracts' addresses.
+
+If you further want to be listed on the [trailblazers ecosystem](https://trailblazers.taiko.xyz/ecosystem) page, add a short description, ecosystem category, twitter, website and logo reference. For existing ecosystem categories, see [`whitelist.go`](./whitelist/whitelist.go)
+
+The logo must be stored under `./img`. Ensure your slug is consistent with your project's slug used in Defillama if you are integrated.
 
 ```json
 {
@@ -20,6 +24,9 @@ A new protocol entry needs atleast a name, slug and its contract addresses. Opti
     ],
     "twitter": "@optional-protocol-twitter",
     "logo": "optional-protocol-logo.jpg",
+    "description": "An optional short description",
+    "wesbite": "optional-website.xyz",
+    "category": "optional-ecosystem-category"
 }
 ```
 
