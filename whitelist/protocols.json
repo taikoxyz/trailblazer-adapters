@@ -1,5 +1,24 @@
 [
   {
+    "name": "LayerBank",
+    "slug": "layerbank",
+    "contracts": [
+        "0x803a61d82BaD2743bE35Be5dC6DEA0CccE82C056",
+        "0x93DF9b0040F9D58d46e775421839c6CAEe0d2314",
+        "0x335917b510b24A953D5b22A5A5EFFc52892a63ec",
+        "0xBf6803995EFF860C5d880D36AdE9884791F2C38b",
+        "0xC58c6B4f1ded2056030Ad40f658Ccb5067f3ddc7",
+        "0x70248E4d4AF563Be753D1CefFBD8eb131972EED0",
+        "0xBf8F31D37397493CF73dbE5B66750BD607a9a2DA",
+        "0x247DFa2D84680A494965cDBB6005017D1f3CCF9C"
+    ],
+    "twitter": "@LayerBankFi",
+    "logo": "layerbank.png",
+    "description": "The universal liquidity hub and on-chain money market designed to be compatible with all networks.",
+    "wesbite": "layerbank.finance",
+    "category": "Lending"
+  },
+  {
     "name": "NFTs2Me",
     "slug": "nfts-2-me",
     "twitter": "@NFTs2Me",
