@@ -1318,5 +1318,17 @@
     "category": "Cross-chain",
     "website": "https://meson.fi",
     "contracts": []
+  },
+  {
+    "name": "COPUMP",
+    "slug": "copump",
+    "twitter": "@ConftApp",
+    "logo": "copump.png",
+    "description": "The next-gen meme token launchpad empowering creators to launch their tokens seamlessly across multiple blockchains",
+    "website": "https://copump.xyz/",
+    "category": "DEX",
+    "contracts": [
+      "0x95e483Ce4acf1F24B6cBD8B369E0735a3e56f5BB"
+    ]
   }
 ]
