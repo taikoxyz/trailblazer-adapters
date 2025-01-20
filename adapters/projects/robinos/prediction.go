@@ -65,6 +65,17 @@ var SelectedMultiplierEvents = []string{
 	"Prediction - $TAIKO price on Jan 19 to be over $1.50",
 	"Prediction - $BTC price on Jan 19 to be over $94,500",
 	"Prediction - $ETH price on Jan 19 to be over $3,200",
+	"Prediction - $TAIKO price on Jan 26 to be over $1.30",
+	"Prediction - $BTC price on Jan 26 to be over $101,000",
+	"Prediction - $ETH price on Jan 26 to be over $3,200",
+	"UEFA Champions League 24/25 - Sparta Prague v. Inter Milan",
+	"UEFA Champions League 24/25 - PSG v. Man City",
+	"UEFA Champions League 24/25 - Arsenal v. Dinamo Zagreb",
+	"UEFA Champions League 24/25 - AC Milan v. Girona",
+	"UEFA Champions League 24/25 - Liverpool v. Lille",
+	"UEFA Champions League 24/25 - Club Brugge v. Juventus",
+	"UEFA Champions League 24/25 - Benfica v. Barcelona",
+	"UEFA Champions League 24/25 - Monaco v. Aston Villa",
 }
 
 type PredictionIndexer struct {
