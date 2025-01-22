@@ -1334,11 +1334,13 @@
   {
     "name": "Intraverse",
     "slug": "intraverse",
-    "contracts": ["0x485C4B2354CbdBBE1f06440D9B20B2FE66078d04"],
+    "contracts": [
+      "0x485C4B2354CbdBBE1f06440D9B20B2FE66078d04"
+    ],
     "twitter": "@intraverse_game",
     "logo": "intraverse.jpg",
     "description": "The craziest Kart Race on Taiko powered by Intraverse",
-    "wesbite": "https://play.intraverse.io/",
+    "website": "https://play.intraverse.io/",
     "category": "Gaming"
   }
 ]
