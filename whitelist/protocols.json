@@ -15,7 +15,7 @@
     "twitter": "@LayerBankFi",
     "logo": "layerbank.png",
     "description": "The universal liquidity hub and on-chain money market designed to be compatible with all networks.",
-    "wesbite": "layerbank.finance",
+    "wesbite": "https://layerbank.finance/",
     "category": "Lending"
   },
   {
@@ -62,6 +62,9 @@
     "slug": "dzap",
     "logo": "dzap.png",
     "twitter": "@dzap_io",
+    "description": "DEX aggregator with DCA functionality",
+    "category": "DEX",
+    "website": "https://dzap.io/",
     "contracts": [
       "0xF708e11A7C94abdE8f6217B13e6fE39C8b9cC0a6"
     ]
@@ -71,6 +74,9 @@
     "slug": "eisen",
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
+    "description": "DEX aggregator",
+    "category": "DEX",
+    "website": "https://eisenfinance.com/",
     "contracts": [
       "0xFA0e9251503DaE51670d10288e6962d63191731d"
     ]
@@ -78,6 +84,7 @@
   {
     "name": "Rubic",
     "slug": "Rubic",
+    "twitter": "@CryptoRubic",
     "logo": "rubic.png",
     "description": "The benefits of using Rubic as a DEX and Bridge Aggregator include access to 80+ major blockchains, 220+ DEXs and bridges, one-click swapping of 15,500+ assets.",
     "category": "Bridge Aggregator",
@@ -124,6 +131,9 @@
     "slug": "micro-3",
     "twitter": "@micro3io",
     "logo": "micro3.jpg",
+    "description": "Mint-To-Earn platform",
+    "category": "SocialFi",
+    "website": "https://micro3.io/",
     "contracts": [
       "0xdCe78c98A0a5aBE3f0A342b32BfE43D203794DeE",
       "0x7b0A5F84181425C58a61659BE9952a04a9a9A833",
@@ -159,6 +169,9 @@
     "slug": "comet-protocol",
     "twitter": "@Comet_Protocol",
     "logo": "comet.svg",
+    "description": "Aggregator for all Layer 1s.",
+    "category": "Bridge Aggregator",
+    "website": "https://cometbridge.app/",
     "contracts": [
       "0xB50Ac92D6d8748AC42721c25A3e2C84637385A6b",
       "0x0fbCf4a62036E96C4F6770B38a9B536Aa14d1846"
@@ -169,8 +182,9 @@
     "slug": "stargate",
     "twitter": "@stargatefinance",
     "logo": "stargate.jpg",
+    "description": "A bridging solution",
     "website": "https://stargate.finance/",
-    "category": "DEX",
+    "category": "Bridge",
     "contracts": [
       "0x0dB9afb4C33be43a0a0e396Fd1383B4ea97aB10a",
       "0xCd4302D950e7e6606b6910Cd232758b5ad423311",
@@ -247,6 +261,9 @@
     "slug": "ruby-score",
     "twitter": "@rubyscore_io",
     "logo": "rubyscore.svg",
+    "description": "Analytics and wallet ranking",
+    "category": "Analytics",
+    "website": "https://rubyscore.io/",
     "contracts": [
       "0xDC3D8318Fbaec2de49281843f5bba22e78338146",
       "0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB",
@@ -258,6 +275,9 @@
     "slug": "orbiter",
     "twitter": "@Orbiter_Finance",
     "logo": "orbiter.png",
+    "description": "A bridging solution",
+    "category": "Bridge",
+    "website": "https://orbiter.finance/",
     "contracts": [
       "0x80c67432656d59144ceff962e8faf8926599bcf8",
       "0xe4edb277e41dc89ab076a1f049f4a3efa700bce8",
@@ -333,6 +353,9 @@
     "slug": "retrobridge",
     "twitter": "@Retro_Bridge",
     "logo": "retrobridge.jpg",
+    "description": "A bridging solution",
+    "category": "Bridge",
+    "website": "https://retrobridge.io/",
     "contracts": [
       "0x009905bf008CcA637185EEaFE8F51BB56dD2ACa7"
     ]
@@ -403,6 +426,9 @@
     "slug": "taiko-town",
     "twitter": "@LooperLands",
     "logo": "looperlands.svg",
+    "description": "Creator built pixelverse",
+    "category": "Gaming",
+    "website": "https://looperlands.io/",
     "contracts": [
       "0xEe01C4b0538849bF1c66bDFB458a7de11B1d7424",
       "0x563Be8E43692bDC27525afF630fDaE22D5A83530",
@@ -416,7 +442,7 @@
     "slug": "xy-finance",
     "twitter": "@xyfinance",
     "logo": "xy_finance.svg",
-    "description": "XY Finance is a leading cross-chain bridge aggregator that operates on 17+ EVM chains including zkSync, Linea, Arbitrum & Optimism",
+    "description": "XY Finance is a leading cross-chain bridge aggregator that operates on 17+ EVM chains including zkSync, Linea, Arbitrum & Optimism.",
     "category": "Cross-chain",
     "website": "https://xy.finance/",
     "contracts": [
@@ -443,18 +469,13 @@
     ]
   },
   {
-    "name": "Tokemon.fun",
-    "slug": "tokemon",
-    "contracts": [
-      "0x91b551666C8e8d7de29990901d0a7dCEc81127b9",
-      "0xbAd4bae9574fCd967D1D0e775E9932eAEd789e17"
-    ]
-  },
-  {
     "name": "Stupid Monkeys",
     "slug": "stupid-monkeys",
     "twitter": "@StupidMonkeysRH",
     "logo": "stupidmonkeys.png",
+    "description": "RPG game",
+    "category": "Gaming",
+    "website": "https://www.stupidmonkeys.co/",
     "contracts": [
       "0xCA99F9DbF4A13D4de05B41a68041dcE7929cb5e0"
     ]
@@ -464,6 +485,9 @@
     "slug": "owlto-finance",
     "twitter": "@Owlto_Finance",
     "logo": "owlto.png",
+    "description": "Cross-chain swap",
+    "category": "Cross-Chain",
+    "website": "https://owlje.com/",
     "contracts": [
       "0x5e809A85Aa182A9921EDD10a4163745bb3e36284",
       "0xC626845BF4E6a5802Ef774dA0B3DfC6707F015F7",
@@ -490,6 +514,9 @@
     "slug": "symbiosis-finance",
     "twitter": "@symbiosis_fi",
     "logo": "symbiosis.svg",
+    "description": "Cross-chain swap",
+    "category": "Cross-Chain",
+    "website": "https://symbiosis.finance/",
     "contracts": [
       "0xda8057acB94905eb6025120cB2c38415Fd81BfEB",
       "0x5Aa5f7f84eD0E5db0a4a85C3947eA16B53352FD4",
@@ -502,6 +529,9 @@
     "slug": "pheasant",
     "twitter": "@PheasantNetwork",
     "logo": "pheasant.png",
+    "description": "Optimistic bridge",
+    "category": "Bridge",
+    "website": "https://pheasant.network/",
     "contracts": [
       "0x0890f8A7b193A3eEE810DE3AdcFAd181b9ce294E",
       "0x84F90083e4aA00B5FD4DAaaEEc75bdF8978EDCD2",
@@ -519,6 +549,9 @@
     "slug": "minibridge",
     "twitter": "@Chaineye_tools",
     "logo": "minibridge.jpeg",
+    "description": "Fastest bridge for small cross-chain solutions",
+    "category": "Bridge",
+    "website": "https://minibridge.chaineye.tools/",
     "contracts": [
       "0x00000000000007736e2F9aA5630B8c812E1F3fc9"
     ]
@@ -584,7 +617,7 @@
     "slug": "world-of-dypians",
     "twitter": "@worldofdypians",
     "logo": "dypians.png",
-    "description": "Experience unique gameplay and explore a world without end in a quest to form your destiny. The opportunities are endless ensuring infinite playability.",
+    "description": "Experience unique gameplay and explore a world without end in a quest to form your destiny. The opportunities are endless ensuring infinite playability.",
     "website": "https://www.worldofdypians.com/",
     "category": "Gaming",
     "contracts": [
@@ -616,6 +649,7 @@
   {
     "name": "Bullishs",
     "slug": "bullishs",
+    "twitter": "@bullishs_io",
     "logo": "bullishs.png",
     "description": "Bullishs is the first seamless transaction tech in Omni Layer2 cross-rollup game.",
     "website": "https://bullishs.io/",
@@ -628,6 +662,11 @@
   {
     "name": "REVOX Lense",
     "slug": "revox-lense",
+    "twitter": "@readonme3",
+    "logo": "revox.png",
+    "description": "A modular onchain AI network",
+    "category": "AI",
+    "website": "https://www.revox.ai/",
     "contracts": [
       "0x2c80179883217370F777e76c067Eea91D8283C5C"
     ]
@@ -635,6 +674,7 @@
   {
     "name": "Meridian Lend",
     "slug": "meridian-lend",
+    "twitter": "@MeridianFi",
     "logo": "meridian_finance.png",
     "description": "A non-custodial, decentralised financial trading platform that offers interest-free stable coin borrowing, leverage trading and zero slippage swaps all in one place.",
     "website": "https://www.meridianfinance.net/",
@@ -668,6 +708,9 @@
     "slug": "xeno-bunny",
     "twitter": "@XenobunnyX",
     "logo": "xenobunny.jpg",
+    "description": "A web3 strategy game",
+    "category": "Gaming",
+    "website": "https://www.xenobunny.xyz/",
     "contracts": [
       "0x1996E10c64213Fe5E86AC7A7ac03Ec169176E4a7",
       "0xF645df6186AD0DbB088f7ef024C4Be640F1DaCd2",
@@ -677,9 +720,10 @@
   {
     "name": "Swing",
     "slug": "swing",
+    "twitter": "@swing_xyz",
     "logo": "swing.jpeg",
     "description": "Access all of DeFi liquidity through a single entry point. Swing securely connects many protocols and chains today and is built to connect thousands.",
-    "category": "Cross-chain",
+    "category": "DeFi",
     "website": "https://swing.xyz/",
     "contracts": [
       "0x42df81c742CAe6F6D91E136b1AA5C7e14CB394FB",
@@ -692,6 +736,9 @@
     "slug": "symmetric",
     "twitter": "@0xSymmetric",
     "logo": "symmetric.svg",
+    "description": "Balancer fork on Taiko",
+    "category": "DEX",
+    "website": "https://app.symm.fi/#/taiko",
     "contracts": [
       "0xbccc4b4c6530F82FE309c5E845E50b5E9C89f2AD",
       "0x4e4131dC27ed9501ac5fEb76F94572fDAe9f0fD0",
@@ -715,6 +762,9 @@
     "slug": "openalchi",
     "twitter": "@TOpenAlchi",
     "logo": "openalchi.png",
+    "description": "Create and craft game",
+    "category": "Gaming",
+    "website": "https://www.openalchi.xyz/",
     "contracts": [
       "0x9a92338b1CFfdf34b4Cc0192A8882F523b853e44",
       "0xed2147ff41e7B14a9C0c37fc4b7a1Eb7644EFb3C",
@@ -726,6 +776,9 @@
     "slug": "swapsicle",
     "twitter": "@SwapsicleDEX",
     "logo": "swapsicle.png",
+    "description": "Algebra V4 DEX on Taiko",
+    "category": "DEX",
+    "website": "https://www.swapsicle.io/",
     "contracts": [
       "0xb68b27a1c93A52d698EecA5a759E2E4469432C09",
       "0xBa90FC740a95A6997306255853959Bb284cb748a",
@@ -753,6 +806,9 @@
     "slug": "robinos",
     "twitter": "@RobinosPredict",
     "logo": "robinos.svg",
+    "description": "Sports prediction platfrom",
+    "category": "Prediction Market",
+    "website": "https://robinos.finance/",
     "contracts": [
       "0x9EF9c57754eD079D750016b802DcCD45d0AB66f8"
     ]
@@ -763,7 +819,7 @@
     "twitter": "@TAKOTAKOxyz",
     "logo": "takotako.png",
     "description": "TAKOTAKO emphasizes on real yield by offering competitive rates and sharing almost half of its revenue with users.",
-    "category": "DEX",
+    "category": "Lending",
     "website": "https://takotako.xyz",
     "contracts": [
       "0x79a741EBFE9c323CF63180c405c050cdD98c21d8",
@@ -786,6 +842,9 @@
     "slug": "1delta",
     "twitter": "@1deltaDAO",
     "logo": "1delta.svg",
+    "description": "The Front-End of DeFi",
+    "category": "DEX",
+    "website": "https://1delta.io/",
     "contracts": [
       "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2"
     ]
@@ -807,6 +866,9 @@
     "slug": "chainspot",
     "twitter": "@ChainspotIO",
     "logo": "chainspot.svg",
+    "description": "Cross-chain swap",
+    "category": "Cross-Chain",
+    "website": "https://app.chainspot.io/",
     "contracts": [
       "0x3f96aF2AF6f644D5Fd1FC2d5A016CcE991198103"
     ]
@@ -816,6 +878,9 @@
     "slug": "panko",
     "twitter": "@Panko_Swap",
     "logo": "panko.png",
+    "description": "Official franchise of PancakeSwap on Taiko",
+    "category": "DEX",
+    "website": "https://panko.finance/?chain=taiko",
     "contracts": [
       "0x99960D7076297a1E0C86f3cc60FfA5d6f2B507B5",
       "0x7DD105453D0AEf177743F5461d7472cC779e63f7",
@@ -859,6 +924,9 @@
     "slug": "Loopring",
     "twitter": "@loopringorg",
     "logo": "loopring_logo.png",
+    "description": "Zk Rollup Layer 2 for trading and payment",
+    "category": "DEX",
+    "website": "https://loopring.org/#/",
     "contracts": [
       "0xbD787F374198d29E2F8Fa228c778FE39e1a5d3a9",
       "0x3e71a41325e1d6B450307b6535EC48627ac4DaCC",
@@ -870,6 +938,9 @@
     "slug": "Visor",
     "twitter": "@GammaStrategies",
     "logo": "gammalogo.jpg",
+    "description": "A protocol for active liquidity management",
+    "category": "Liquidity Management",
+    "website": "https://www.gamma.xyz/",
     "contracts": [
       "0x38f61169d8bcc08ce303401a13332259f557b35f",
       "0x5accda2325ccfe8660522c7d5c3a885cdcf04501",
@@ -888,6 +959,9 @@
     "slug": "taikodrips",
     "twitter": "@taikodrips",
     "logo": "taikodrips.png",
+    "description": "Lock your Taiko to earn drips",
+    "category": "Staking",
+    "website": "https://taikodrips.xyz/",
     "contracts": [
       "0xf90209C44dBf5Fa3d40ac85a008206b5A8c24899"
     ]
@@ -934,6 +1008,9 @@
     "slug": "bebop",
     "twitter": "@bebop_dex",
     "logo": "bebop.svg",
+    "description": "Intent-based DEX",
+    "category": "DEX",
+    "website": "https://bebop.xyz/trade?network=taiko",
     "contracts": [
       "0xbbbbbBB520d69a9775E85b458C58c648259FAD5F",
       "0xbEbEbEb035351f58602E0C1C8B59ECBfF5d5f47b",
@@ -945,6 +1022,9 @@
     "slug": "router",
     "twitter": "@routerprotocol",
     "logo": "router.svg",
+    "description": "A bridging solution",
+    "category": "Bridge",
+    "website": "https://www.routerprotocol.com/",
     "contracts": [
       "0x7BD616192fB2B364f9d29B2026165281a5f2ff2F"
     ]
@@ -1050,6 +1130,9 @@
     "slug": "jumper-exchange",
     "twitter": "@JumperExchange",
     "logo": "jumperexchange.png",
+    "description": "Cross-chain swap",
+    "category": "Cross-Chain",
+    "website": "https://jumper.exchange/",
     "contracts": [
       "0x429Da7043882C2A962bC4EA7b33440C3B9a033D7",
       "0x01ABD3Dec5268802272af46FE6Ac4c2fCF0Eff10",
@@ -1081,6 +1164,9 @@
     "slug": "solv-protocol",
     "twitter": "@SolvProtocol",
     "logo": "solv.png",
+    "description": "Bitcoin staking",
+    "category": "Staking",
+    "website": "https://solv.finance/",
     "contracts": [
       "0x541FD749419CA806a8bc7da8ac23D346f2dF8B77",
       "0xCC0966D8418d412c599A6421b760a847eB169A8c"
@@ -1119,6 +1205,9 @@
     "slug": "unagiswap",
     "twitter": "@Unagi_Swap",
     "logo": "unagiswap.svg",
+    "description": "Native DEX of Taiko ecosystem",
+    "category": "DEX",
+    "website": "https://unagiswap.xyz/",
     "contracts": [
       "0x1271CAba4bf23f8Fb31F97448605d65EE302CA51",
       "0x562723560131C47417dfcD6BB1A089E4D7C7943C",
@@ -1178,6 +1267,9 @@
     "slug": "avalon-finance",
     "twitter": "@avalonfinance_",
     "logo": "avalonfinance.svg",
+    "description": "Liquidity hub for BTCFi",
+    "category": "Lending",
+    "website": "https://www.avalonfinance.xyz/",
     "contracts": [
       "0x9dd29AA2BD662E6b569524ba00C55be39e7B00fB",
       "0xb961661F5Ca019e232661Bd26686288a6E21d928",
@@ -1192,6 +1284,9 @@
     "slug": "polaris-finance",
     "twitter": "@polarisfinance_",
     "logo": "polaris.jpeg",
+    "description": "Balancer fork on Taiko",
+    "category": "DEX",
+    "website": "https://polarisfinance.io/",
     "contracts": [
       "0x723F40720836a03f1F20441FbDa3D109fc99640F"
     ]
@@ -1201,6 +1296,9 @@
     "slug": "uniBTC",
     "twitter": "@Bedrock_DeFi",
     "logo": "uniBTC.svg",
+    "description": "BTC staking",
+    "category": "Staking",
+    "website": "https://app.bedrock.technology/unibtc",
     "contracts": [
       "0x93919784c523f39cacaa98ee0a9d96c3f32b593e"
     ]
@@ -1223,6 +1321,9 @@
     "slug": "steer-protocol",
     "twitter": "@steerprotocol",
     "logo": "steer.svg",
+    "description": "Liquidity and asset management",
+    "category": "Liquidity Management",
+    "website": "https://steer.finance/",
     "contracts": [
       "0x317EEDB54711681056f37e10d5DE0B55455b476f",
       "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83",
@@ -1280,6 +1381,8 @@
   {
     "name": "DotTaiko (SpaceID)",
     "slug": "dottaiko",
+    "twitter": "@dottaikodomains",
+    "logo": "dottaikodomains.jpg",
     "description": "DotTaiko is the web3 domain naming service built for the Taiko blockchain community.",
     "website": "https://dottaiko.me/",
     "category": "ENS",
@@ -1288,6 +1391,8 @@
   {
     "name": "PoP Planet",
     "slug": "popplanet",
+    "twitter": "@Hi_PoPPOfficial",
+    "logo": "popplanet.jpg",
     "description": "Connect with millions through an AI & Social Plugin, crafted to reshape the social narrative of the digital age. Join the Influence-to-Earn Platform and transform your online interactions into opportunities.",
     "website": "https://socialsummer.ai/",
     "category": "ENS",
@@ -1296,30 +1401,18 @@
   {
     "name": "Mintpad.co",
     "slug": "mintpadco",
+    "twitter": "@mintpadco",
+    "logo": "mintpad.jpg",
     "description": "The easiest way to launch an NFT on Taiko!",
     "website": "https://www.mintpad.co/",
     "category": "NFT",
     "contracts": []
   },
   {
-    "name": "Loopex",
-    "slug": "loopex",
-    "description": "A next-gen community-first NFT marketplace.",
-    "website": "https://taiko.loopexchange.io/",
-    "category": "NFT",
-    "contracts": []
-  },
-  {
-    "name": "Tanuki",
-    "slug": "tanuki",
-    "description": "TanukiX is purpose-built to support the backbone assets of the Taiko ecosystem: Stablecoins and RWAs.",
-    "category": "DEX",
-    "website": "https://www.tanukix.com/",
-    "contracts": []
-  },
-  {
     "name": "Meson",
     "slug": "meson",
+    "twitter": "@mesonfi",
+    "logo": "meson.jpg",
     "description": "Meson provides minute-fast swaps with almost-zero fee & slippage across all major blockchains.",
     "category": "Cross-chain",
     "website": "https://meson.fi",

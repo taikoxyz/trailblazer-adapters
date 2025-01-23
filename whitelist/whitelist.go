@@ -9,16 +9,22 @@ import (
 var protocols []byte
 
 const (
-	Gaming           string = "Gaming"
-	Bridge           string = "Bridge"
-	DEX              string = "DEX"
-	Lending          string = "Lending"
-	DeFi             string = "DeFi"
-	ENS              string = "ENS"
-	NFT              string = "NFT"
-	CrossChain       string = "Cross-chain"
-	Derivatives      string = "Derivatives"
-	BridgeAggregator string = "Bridge Aggregator"
+	Gaming              string = "Gaming"
+	Bridge              string = "Bridge"
+	DEX                 string = "DEX"
+	Lending             string = "Lending"
+	DeFi                string = "DeFi"
+	ENS                 string = "ENS"
+	NFT                 string = "NFT"
+	CrossChain          string = "Cross-chain"
+	Derivatives         string = "Derivatives"
+	BridgeAggregator    string = "Bridge Aggregator"
+	SocialFi            string = "SocialFi"
+	Analytics           string = "Analytics"
+	AI                  string = "AI"
+	PredictionMarket    string = "Prediction Market"
+	LiquidityManagement string = "Liquidity Management"
+	Staking             string = "Staking"
 )
 
 type Protocol struct {
