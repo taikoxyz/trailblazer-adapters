@@ -76,6 +76,15 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - Club Brugge v. Juventus",
 	"UEFA Champions League 24/25 - Benfica v. Barcelona",
 	"UEFA Champions League 24/25 - Monaco v. Aston Villa",
+	"Prediction - $TAIKO price on Feb 2 to be over $1.30",
+	"Prediction - $BTC price on Feb 2 to be over $102,000",
+	"Prediction - $ETH price on Feb 2 to be over $3,200",
+	"UEFA Champions League 24/25 - VfB Stuttgart v. PSG",
+	"UEFA Champions League 24/25 - Man City v. Club Brugge",
+	"UEFA Champions League 24/25 - PSV v. Liverpool",
+	"UEFA Champions League 24/25 - Girona v. Arsenal",
+	"UEFA Champions League 24/25 - Barcelona v. Atalanta",
+	"UEFA Champions League 24/25 - Aston Villa v. Celtic",
 }
 
 type PredictionIndexer struct {
