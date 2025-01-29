@@ -53,6 +53,11 @@
   {
     "name": "Aspecta",
     "slug": "aspecta",
+    "twitter": "@aspecta_id",
+    "logo": "aspecta.jpg",
+    "description": "The AI-powered asset network",
+    "category": "AI",
+    "website": "https://trade.aspecta.ai/",
     "contracts": [
       "0x3636814Ab8d82854949d5794c428B8329115755D"
     ]
@@ -74,7 +79,7 @@
     "slug": "eisen",
     "twitter": "@Eisenlabs",
     "logo": "eisen.png",
-    "description": "DEX aggregator",
+    "description": "Leverage your trading experience using both CEXs and DEXs.",
     "category": "DEX",
     "website": "https://eisenfinance.com/",
     "contracts": [
@@ -969,8 +974,11 @@
   {
     "name": "CyberCrew DEATHMATCH",
     "slug": "CCDeathMatch",
-    "twitter": "@CC_Deathmatch",
+    "twitter": "@CYBERCREWNFT",
     "logo": "CC_Deathmatch.png",
+    "description": "Multiplayer TPS game",
+    "category": "Gaming",
+    "website": "https://hub.xyz/cybercrewnft",
     "contracts": [
       "0x6c226EeE9fB9459c716AC46c8436D315F800785B",
       "0xa14b0D438b561b595D65cD9a22b0b27591e68E03",
@@ -1034,6 +1042,9 @@
     "slug": "layer3",
     "twitter": "@layer3xyz",
     "logo": "layer3.png",
+    "description": "One stop shop layer for ecosystem rewards",
+    "category": "SocialFi",
+    "website": "https://layer3.xyz/",
     "contracts": [
       "0x1195Cf65f83B3A5768F3C496D3A05AD6412c64B7"
     ]
@@ -1043,6 +1054,9 @@
     "slug": "nomis",
     "twitter": "@0xNomis",
     "logo": "nomis.svg",
+    "description": "Reputation layer",
+    "category": "SocialFi",
+    "website": "https://nomis.cc/",
     "contracts": [
       "0x128B7290CdFA241E77337e0e42100bf6237a783C"
     ]
@@ -1050,7 +1064,11 @@
   {
     "name": "21Blackjack",
     "slug": "21bj",
+    "twitter": "@21BJgame",
     "logo": "21bj.png",
+    "description": "Social casino game",
+    "category": "Gaming",
+    "website": "https://www.21bj.io/",
     "contracts": [
       "0x8C5720982b54874F53F2514BbD2382ADce98a0ca",
       "0x78adDA11Bfc437DeC4a39318FF7e52Cf00DC062c"
@@ -1280,18 +1298,6 @@
     ]
   },
   {
-    "name": "Polaris Finance",
-    "slug": "polaris-finance",
-    "twitter": "@polarisfinance_",
-    "logo": "polaris.jpeg",
-    "description": "Balancer fork on Taiko",
-    "category": "DEX",
-    "website": "https://polarisfinance.io/",
-    "contracts": [
-      "0x723F40720836a03f1F20441FbDa3D109fc99640F"
-    ]
-  },
-  {
     "name": "Bedrock uniBTC",
     "slug": "uniBTC",
     "twitter": "@Bedrock_DeFi",
@@ -1359,19 +1365,13 @@
     ]
   },
   {
-    "name": "ImaginAIryNFTs",
-    "slug": "imaginairynfts",
-    "twitter": "@ImaginAIryNFTs",
-    "logo": "imaginairy.png",
-    "contracts": [
-      "0xb99E5534d42500eB1d5820fBA3Bb8416cCB76396"
-    ]
-  },
-  {
     "name": "Astrotrove",
     "slug": "Astrotrove",
     "twitter": "@AstroTrove",
     "logo": "Astrotrove-logo.jpg",
+    "description": "Looting name",
+    "category": "Gaming",
+    "website": "https://webgame.astrotrove.xyz/?chain=taiko",
     "contracts": [
       "0x29ceb80A6369D1f1E74e958474795A66954E323f",
       "0x894b6F122AaE793539ff4626878Fa3E610fAb3d6",
@@ -1382,7 +1382,7 @@
     "name": "DotTaiko (SpaceID)",
     "slug": "dottaiko",
     "twitter": "@dottaikodomains",
-    "logo": "dottaikodomains.jpg",
+    "logo": "dottaiko.svg",
     "description": "DotTaiko is the web3 domain naming service built for the Taiko blockchain community.",
     "website": "https://dottaiko.me/",
     "category": "ENS",
@@ -1394,7 +1394,7 @@
     "twitter": "@Hi_PoPPOfficial",
     "logo": "popplanet.jpg",
     "description": "Connect with millions through an AI & Social Plugin, crafted to reshape the social narrative of the digital age. Join the Influence-to-Earn Platform and transform your online interactions into opportunities.",
-    "website": "https://socialsummer.ai/",
+    "website": "https://popp.club/",
     "category": "ENS",
     "contracts": []
   },
