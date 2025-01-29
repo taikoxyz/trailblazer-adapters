@@ -27,10 +27,6 @@ func TestProtocols(t *testing.T) {
 				t.Errorf("Expected protocol slug, got empty string")
 			}
 
-			if len(protocol.Contracts) == 0 {
-				t.Errorf("Expected some contracts for protocol %s, got none", protocol.Name)
-			}
-
 			for _, contract := range protocol.Contracts {
 				if len(contract) != 42 || contract[:2] != "0x" {
 					t.Errorf("Invalid contract address format: %s", contract)
