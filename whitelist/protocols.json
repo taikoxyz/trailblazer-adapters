@@ -15,7 +15,7 @@
     "twitter": "@LayerBankFi",
     "logo": "layerbank.png",
     "description": "The universal liquidity hub and on-chain money market designed to be compatible with all networks.",
-    "wesbite": "https://layerbank.finance/",
+    "website": "https://layerbank.finance/",
     "category": "Lending"
   },
   {
@@ -1369,7 +1369,7 @@
     "slug": "Astrotrove",
     "twitter": "@AstroTrove",
     "logo": "Astrotrove-logo.jpg",
-    "description": "Looting name",
+    "description": "Looting game",
     "category": "Gaming",
     "website": "https://webgame.astrotrove.xyz/?chain=taiko",
     "contracts": [
