@@ -58,7 +58,7 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
 		from := common.BytesToAddress(l.Topics[1].Bytes()[12:])
 
-		if from != indexer.contract {
+		if from.Hex() != indexer.contract.Hex() {
 			continue
 		}
 
