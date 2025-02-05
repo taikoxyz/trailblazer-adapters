@@ -70,7 +70,7 @@ type Position struct {
 	TxHash        common.Hash
 }
 
-// Prdiction is used for prediction campaign.
+// Prediction is used for prediction campaign.
 // For examples, see Robinos.
 type Prediction struct {
 	User          common.Address
