@@ -59,7 +59,8 @@ type Lock struct {
 	TxHash        common.Hash
 }
 
-// Position is used for logx trading campaign
+// Position is used for airdrop or trading campaign.
+// For examples, see Avalon.
 type Position struct {
 	User          common.Address
 	TokenAmount   *big.Int
@@ -70,7 +71,7 @@ type Position struct {
 	TxHash        common.Hash
 }
 
-// Prdiction is used for prediction campaign.
+// Prediction is used for prediction campaign.
 // For examples, see Robinos.
 type Prediction struct {
 	User          common.Address

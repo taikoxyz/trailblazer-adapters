@@ -23,6 +23,8 @@ const (
 	RobinosPrediction        adapter = "RobinosPrediction"
 	LoopringLock             adapter = "LoopringLock"
 	PolarisLP                adapter = "PolarisLP"
+	DoraHacksVoting          adapter = "DoraHacksVoting"
+	AvalonClaim              adapter = "AvalonClaim"
 )
 
 func adapterz() []adapter {
@@ -43,5 +45,7 @@ func adapterz() []adapter {
 		RobinosPrediction,
 		LoopringLock,
 		PolarisLP,
+		DoraHacksVoting,
+		AvalonClaim,
 	}
 }
