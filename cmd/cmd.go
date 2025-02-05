@@ -13,8 +13,10 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	nftdeployed "github.com/taikoxyz/trailblazer-adapters/adapters/nft_deployed"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/avalon"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/conft"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/domains"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/dorahacks"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/drips"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/gaming"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/izumi"
@@ -199,6 +201,19 @@ func executeCommand(p prompt) error {
 		indexer := polaris.NewLPTransferIndexer(
 			client,
 			[]common.Address{common.HexToAddress(polaris.VaultAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case DoraHacksVoting:
+		indexer := dorahacks.NewVotingIndexer(
+			client,
+			[]common.Address{common.HexToAddress(dorahacks.VotingAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case AvalonClaim:
+		indexer := avalon.NewClaimIndexer(
+			client,
+			common.HexToAddress(avalon.AvalonAirdropAddress),
+			[]common.Address{common.HexToAddress(avalon.AvalonTokenAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 

@@ -59,7 +59,8 @@ type Lock struct {
 	TxHash        common.Hash
 }
 
-// Position is used for logx trading campaign
+// Position is used for airdrop or trading campaign.
+// For examples, see Avalon.
 type Position struct {
 	User          common.Address
 	TokenAmount   *big.Int

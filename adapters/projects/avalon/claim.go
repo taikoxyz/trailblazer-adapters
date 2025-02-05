@@ -16,9 +16,9 @@ import (
 
 const (
 	// TODO: update
-	AvalonAirdropContractAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
-	AvalonTokenAddress           string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
-	AvalonTokenDecimal                  = 18
+	AvalonAirdropAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	AvalonTokenAddress   string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	AvalonTokenDecimal          = 18
 
 	logTransferSignature string = "Transfer(address,address,uint256)"
 )
@@ -44,6 +44,10 @@ func (indexer *ClaimIndexer) Addresses() []common.Address {
 }
 
 func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Position, error) {
+	var transferEvent struct {
+		Value *big.Int
+	}
+
 	var claims []adapters.Position
 
 	for _, l := range logs {
@@ -51,12 +55,8 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 			continue
 		}
 
-		var transferEvent struct {
-			Value *big.Int
-		}
-
-		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
 		from := common.BytesToAddress(l.Topics[1].Bytes()[12:])
+		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
 
 		if from.Hex() != indexer.contract.Hex() {
 			continue
@@ -81,7 +81,7 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 			User:          to,
 			TokenAmount:   transferEvent.Value,
 			TokenDecimals: AvalonTokenDecimal,
-			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
+			Token:         common.HexToAddress(AvalonTokenAddress),
 			BlockTime:     block.Time(),
 			BlockNumber:   block.NumberU64(),
 			TxHash:        l.TxHash,

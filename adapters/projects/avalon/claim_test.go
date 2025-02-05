@@ -22,7 +22,7 @@ func TestClaimIndexer(t *testing.T) {
 	client, err := ethclient.Dial(taikoRPC)
 	require.NoError(t, err)
 
-	indexer := avalon.NewClaimIndexer(client, common.HexToAddress(avalon.AvalonAirdropContractAddress), []common.Address{common.HexToAddress(avalon.AvalonTokenAddress)})
+	indexer := avalon.NewClaimIndexer(client, common.HexToAddress(avalon.AvalonAirdropAddress), []common.Address{common.HexToAddress(avalon.AvalonTokenAddress)})
 
 	logs, err := adapters.GetLogs(ctx, client, indexer.Addresses(), blocknumber)
 	require.NoError(t, err)
