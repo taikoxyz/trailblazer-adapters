@@ -85,6 +85,10 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - Girona v. Arsenal",
 	"UEFA Champions League 24/25 - Barcelona v. Atalanta",
 	"UEFA Champions League 24/25 - Aston Villa v. Celtic",
+	"Prediction - Will $BTC go under $91,000 before Feb 9th",
+	"Prediction - Will $TAIKO be over $1.30 this week?",
+	"Prediction - Will $BTC be over $100,000 this week?",
+	"Prediction - Will $ETH be over $3,000 this week?",
 }
 
 type PredictionIndexer struct {
