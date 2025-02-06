@@ -212,8 +212,7 @@ func executeCommand(p prompt) error {
 	case AvalonClaim:
 		indexer := avalon.NewClaimIndexer(
 			client,
-			common.HexToAddress(avalon.AvalonAirdropAddress),
-			[]common.Address{common.HexToAddress(avalon.AvalonTokenAddress)},
+			[]common.Address{common.HexToAddress(avalon.ClaimAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 

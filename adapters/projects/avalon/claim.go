@@ -15,25 +15,23 @@ import (
 )
 
 const (
-	// TODO: update
-	AvalonAirdropAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
-	AvalonTokenAddress   string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
-	AvalonTokenDecimal          = 18
+	// TODO: update with correct addresses and decimal
+	ClaimAddress    string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	AvlTokenAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	AvlTokenDecimal        = 18
 
-	logTransferSignature string = "Transfer(address,address,uint256)"
+	logClaimedSignature string = "Claimed(address,uint256,uint256)"
 )
 
 type ClaimIndexer struct {
 	client    *ethclient.Client
 	addresses []common.Address
-	contract  common.Address
 }
 
-func NewClaimIndexer(client *ethclient.Client, contract common.Address, addresses []common.Address) *ClaimIndexer {
+func NewClaimIndexer(client *ethclient.Client, addresses []common.Address) *ClaimIndexer {
 	return &ClaimIndexer{
 		client:    client,
 		addresses: addresses,
-		contract:  contract,
 	}
 }
 
@@ -44,30 +42,26 @@ func (indexer *ClaimIndexer) Addresses() []common.Address {
 }
 
 func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]adapters.Position, error) {
-	var transferEvent struct {
-		Value *big.Int
+	var claimedEvent struct {
+		AvlAmount  *big.Int
+		UsdaAmount *big.Int
 	}
 
 	var claims []adapters.Position
 
 	for _, l := range logs {
-		if !indexer.isTransfer(l) {
+		if !indexer.isClaimed(l) {
 			continue
 		}
 
-		from := common.BytesToAddress(l.Topics[1].Bytes()[12:])
-		to := common.BytesToAddress(l.Topics[2].Bytes()[12:])
-
-		if from.Hex() != indexer.contract.Hex() {
-			continue
-		}
+		user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
 
 		erc20ABI, err := abi.JSON(strings.NewReader(erc20.ABI))
 		if err != nil {
 			return nil, err
 		}
 
-		err = erc20ABI.UnpackIntoInterface(&transferEvent, "Transfer", l.Data)
+		err = erc20ABI.UnpackIntoInterface(&claimedEvent, "Claimed", l.Data)
 		if err != nil {
 			return nil, err
 		}
@@ -78,10 +72,10 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 		}
 
 		claim := &adapters.Position{
-			User:          to,
-			TokenAmount:   transferEvent.Value,
-			TokenDecimals: AvalonTokenDecimal,
-			Token:         common.HexToAddress(AvalonTokenAddress),
+			User:          user,
+			TokenAmount:   claimedEvent.AvlAmount,
+			TokenDecimals: AvlTokenDecimal,
+			Token:         common.HexToAddress(AvlTokenAddress),
 			BlockTime:     block.Time(),
 			BlockNumber:   block.NumberU64(),
 			TxHash:        l.TxHash,
@@ -93,6 +87,6 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 	return claims, nil
 }
 
-func (indexer *ClaimIndexer) isTransfer(l types.Log) bool {
-	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logTransferSignature)).Hex()
+func (indexer *ClaimIndexer) isClaimed(l types.Log) bool {
+	return l.Topics[0].Hex() == crypto.Keccak256Hash([]byte(logClaimedSignature)).Hex()
 }
