@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	// TODO: update with correct addresses and decimal
-	ClaimAddress string = "0x46f0a2e45bee8e9ebfdb278ce06caa6af294c349"
+	// https://taikoscan.io/address/0x631da08b6258EfAAe5aAc7Bc69e6a8fF2C79cFd9
+	ClaimAddress string = "0x631da08b6258EfAAe5aAc7Bc69e6a8fF2C79cFd9"
 	// L1: https://etherscan.io/token/0x5c8d0c48810fd37a0a824d074ee290e64f7a8fa2
 	// L2: https://taikoscan.io/token/0xE9cA67e5051e1806546d0a06ee465221c5877feE
 	AvlTokenAddress string = "0xE9cA67e5051e1806546d0a06ee465221c5877feE"
