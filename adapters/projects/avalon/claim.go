@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/erc20"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/avalon_claim"
 )
 
 const (
@@ -58,12 +58,12 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 
 		user := common.BytesToAddress(l.Topics[1].Bytes()[12:])
 
-		erc20ABI, err := abi.JSON(strings.NewReader(erc20.ABI))
+		AvalonClaimABI, err := abi.JSON(strings.NewReader(avalon_claim.ABI))
 		if err != nil {
 			return nil, err
 		}
 
-		err = erc20ABI.UnpackIntoInterface(&claimedEvent, "Claimed", l.Data)
+		err = AvalonClaimABI.UnpackIntoInterface(&claimedEvent, "Claimed", l.Data)
 		if err != nil {
 			return nil, err
 		}
