@@ -14,27 +14,29 @@ import (
 )
 
 func TestClaimIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
-	blocknumber := int64(445053)
+	ethereumRPC := "https://ethereum-rpc.publicnode.com"
+	blocknumber := int64(21743609)
+	testClaimAddress := "0x9c9a26f011a89f920f86fc48e2ed3f0fae71683b"
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(ethereumRPC)
 	require.NoError(t, err)
 
-	indexer := avalon.NewClaimIndexer(client, common.HexToAddress(avalon.AvalonAirdropAddress), []common.Address{common.HexToAddress(avalon.AvalonTokenAddress)})
+	indexer := avalon.NewClaimIndexer(client, []common.Address{common.HexToAddress(testClaimAddress)})
 
 	logs, err := adapters.GetLogs(ctx, client, indexer.Addresses(), blocknumber)
 	require.NoError(t, err)
 
-	locks, err := indexer.Index(ctx, logs...)
+	// https://www.oklink.com/de/eth/tx/0xb3648f17578f1d791696677ababa4d3fda6b46a2a82fad7b6ed2d15d7b817e4d
+	ps, err := indexer.Index(ctx, logs...)
 	assert.NoError(t, err)
-	assert.Len(t, locks, 1)
-	assert.Equal(t, common.HexToAddress("0xC3204E92B0e7731d75Ad667a93c8Da815BD9Ac61"), locks[0].User)
-	assert.Equal(t, big.NewInt(2000000000000000000), locks[0].TokenAmount)
-	assert.Equal(t, adapters.TaikoTokenDecimals, locks[0].TokenDecimals)
-	assert.Equal(t, common.HexToAddress(adapters.TaikoTokenAddress), locks[0].Token)
-	assert.Equal(t, uint64(1728390191), locks[0].BlockTime)
-	assert.Equal(t, uint64(blocknumber), locks[0].BlockNumber)
-	assert.Equal(t, common.HexToHash("0x95f528b52f0a75176543f516014bbba26e003f1c17c9b9413e936240e3f44650"), locks[0].TxHash)
+	assert.Len(t, ps, 1)
+	assert.Equal(t, common.HexToAddress("0x2557ac54165134d7efd5ab94b750e9e04147beb1"), ps[0].User)
+	assert.Equal(t, big.NewInt(4000000000000000000), ps[0].TokenAmount)
+	assert.Equal(t, avalon.AvlTokenDecimal, ps[0].TokenDecimals)
+	assert.Equal(t, common.HexToAddress(avalon.AvlTokenAddress), ps[0].Token)
+	assert.Equal(t, uint64(1738315631), ps[0].BlockTime)
+	assert.Equal(t, uint64(blocknumber), ps[0].BlockNumber)
+	assert.Equal(t, common.HexToHash("0xb3648f17578f1d791696677ababa4d3fda6b46a2a82fad7b6ed2d15d7b817e4d"), ps[0].TxHash)
 }
