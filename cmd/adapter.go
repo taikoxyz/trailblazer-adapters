@@ -25,6 +25,7 @@ const (
 	PolarisLP                adapter = "PolarisLP"
 	DoraHacksVoting          adapter = "DoraHacksVoting"
 	AvalonClaim              adapter = "AvalonClaim"
+	PfpRegister              adapter = "PfpRegister"
 )
 
 func adapterz() []adapter {
@@ -47,5 +48,6 @@ func adapterz() []adapter {
 		PolarisLP,
 		DoraHacksVoting,
 		AvalonClaim,
+		PfpRegister,
 	}
 }

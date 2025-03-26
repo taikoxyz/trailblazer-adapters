@@ -13,6 +13,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	nftdeployed "github.com/taikoxyz/trailblazer-adapters/adapters/nft_deployed"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/pfp"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/avalon"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/conft"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/domains"
@@ -215,7 +216,12 @@ func executeCommand(p prompt) error {
 			[]common.Address{common.HexToAddress(avalon.ClaimAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
-
+	case PfpRegister:
+		indexer := pfp.NewRegisterIndexer(
+			client,
+			[]common.Address{common.HexToAddress(pfp.RegisterAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
 	default:
 		return fmt.Errorf("adapter %s is not supported", p.Adapter)
 	}
