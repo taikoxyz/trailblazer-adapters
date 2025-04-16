@@ -484,11 +484,12 @@
     "slug": "pheasant",
     "twitter": "@PheasantNetwork",
     "logo": "pheasant.png",
-    "description": "Optimistic bridge",
+    "description": "Pheasant Network is an Intent-centric Bridge and Cross-chain Swap.",
     "category": "Bridge",
     "website": "https://pheasant.network/",
     "contracts": [
-      "0xfC9C6B6e0D02EaDE37aC8b6c59e7181726075696"
+      "0xfC9C6B6e0D02EaDE37aC8b6c59e7181726075696",
+      "0x04e28F7244980d3280F3b485D9cDA4b58F6C99B5"
     ]
   },
   {
