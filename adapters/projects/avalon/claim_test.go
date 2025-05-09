@@ -14,29 +14,27 @@ import (
 )
 
 func TestClaimIndexer(t *testing.T) {
-	ethereumRPC := "https://ethereum-rpc.publicnode.com"
-	blocknumber := int64(21743609)
-	testClaimAddress := "0x9c9a26f011a89f920f86fc48e2ed3f0fae71683b"
+	taikoRPC := "https://rpc.taiko.xyz"
+	blocknumber := int64(983938)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(ethereumRPC)
+	client, err := ethclient.Dial(taikoRPC)
 	require.NoError(t, err)
 
-	indexer := avalon.NewClaimIndexer(client, []common.Address{common.HexToAddress(testClaimAddress)})
+	indexer := avalon.NewClaimIndexer(client, []common.Address{common.HexToAddress(avalon.ClaimAddress)})
 
 	logs, err := adapters.GetLogs(ctx, client, indexer.Addresses(), blocknumber)
 	require.NoError(t, err)
 
-	// https://www.oklink.com/de/eth/tx/0xb3648f17578f1d791696677ababa4d3fda6b46a2a82fad7b6ed2d15d7b817e4d
 	ps, err := indexer.Index(ctx, logs...)
-	assert.NoError(t, err)
-	assert.Len(t, ps, 1)
-	assert.Equal(t, common.HexToAddress("0x2557ac54165134d7efd5ab94b750e9e04147beb1"), ps[0].User)
-	assert.Equal(t, big.NewInt(4000000000000000000), ps[0].TokenAmount)
+	require.NoError(t, err)
+	require.Len(t, ps, 1)
+	assert.Equal(t, common.HexToAddress("0x06CDfb6eA4B546887352a83768aFAD9481da1Bff"), ps[0].User)
+	assert.Equal(t, big.NewInt(5000000000000000000), ps[0].TokenAmount)
 	assert.Equal(t, avalon.AvlTokenDecimal, ps[0].TokenDecimals)
 	assert.Equal(t, common.HexToAddress(avalon.AvlTokenAddress), ps[0].Token)
-	assert.Equal(t, uint64(1738315631), ps[0].BlockTime)
+	assert.Equal(t, uint64(1742155139), ps[0].BlockTime)
 	assert.Equal(t, uint64(blocknumber), ps[0].BlockNumber)
-	assert.Equal(t, common.HexToHash("0xb3648f17578f1d791696677ababa4d3fda6b46a2a82fad7b6ed2d15d7b817e4d"), ps[0].TxHash)
+	assert.Equal(t, common.HexToHash("0x711132b470df725db72dd4d277c0a148333aaf7268fec3432427072063247d77"), ps[0].TxHash)
 }

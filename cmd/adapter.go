@@ -26,6 +26,7 @@ const (
 	DoraHacksVoting          adapter = "DoraHacksVoting"
 	AvalonClaim              adapter = "AvalonClaim"
 	PfpRegister              adapter = "PfpRegister"
+	LoopringDeposit          adapter = "LoopringDeposit"
 )
 
 func adapterz() []adapter {

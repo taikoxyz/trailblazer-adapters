@@ -222,6 +222,12 @@ func executeCommand(p prompt) error {
 			[]common.Address{common.HexToAddress(pfp.RegisterAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
+	case LoopringDeposit:
+		indexer := loopring.NewDepositRequestedIndexer(
+			client,
+			[]common.Address{common.HexToAddress(loopring.DepositRequestedAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
 	default:
 		return fmt.Errorf("adapter %s is not supported", p.Adapter)
 	}
