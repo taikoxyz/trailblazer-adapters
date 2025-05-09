@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
-	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/loopring"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/contracts/loopring_lock"
 )
 
 const (
@@ -55,7 +55,7 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 			Duration *big.Int
 		}
 
-		loopringABI, err := abi.JSON(strings.NewReader(loopring.LoopringABI))
+		loopringABI, err := abi.JSON(strings.NewReader(loopring_lock.LoopringLockABI))
 		if err != nil {
 			return nil, err
 		}
