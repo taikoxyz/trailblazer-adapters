@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch: # Allow the action to be triggered manually
 
+permissions:
+  contents: write  # Required for GITHUB_TOKEN to create releases
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -56,5 +59,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.bump_version.outputs.new_tag }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
