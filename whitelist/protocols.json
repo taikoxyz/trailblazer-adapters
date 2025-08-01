@@ -1423,5 +1423,17 @@
       "0x9eD7561cC3703Ff8e7A5da14a97689b03161B8b0",
       "0x826cA05DE4e6b1CF32B06408A8c0f5862E8BE9c5"
     ]
+  },
+  {
+    "name": "GemsTown",
+    "slug": "gemstown",
+    "twitter": "@gemstowngame",
+    "logo": "gemstown.png",
+    "description": "First-ever competitive Match-3. Test your skills against real players. Enter the world of skill, strategy, and and farm $GEMS.",
+    "website": "https://gems.town/",
+    "category": "Gaming",
+    "contracts": [
+      "0xCF8927Edb1adf21cf2309DE9A988933Eb99139Fc"
+    ]
   }
 ]
