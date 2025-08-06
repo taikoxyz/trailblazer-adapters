@@ -75,14 +75,16 @@ func (indexer *LockIndexer) Index(ctx context.Context, logs ...types.Log) ([]ada
 		}
 
 		lock := &adapters.Lock{
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
 			User:          depositWithDurationEvent.To,
 			TokenAmount:   depositWithDurationEvent.Amount,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			Duration:      depositWithDurationEvent.Duration.Uint64(),
-			BlockTime:     block.Time(),
-			BlockNumber:   block.NumberU64(),
-			TxHash:        l.TxHash,
 		}
 
 		locks = append(locks, *lock)

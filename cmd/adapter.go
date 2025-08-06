@@ -27,6 +27,7 @@ const (
 	AvalonClaim              adapter = "AvalonClaim"
 	PfpRegister              adapter = "PfpRegister"
 	LoopringDeposit          adapter = "LoopringDeposit"
+	OkidoriNftSold           adapter = "OkidoriNftSold"
 )
 
 func adapterz() []adapter {
@@ -50,5 +51,7 @@ func adapterz() []adapter {
 		DoraHacksVoting,
 		AvalonClaim,
 		PfpRegister,
+		LoopringDeposit,
+		OkidoriNftSold,
 	}
 }

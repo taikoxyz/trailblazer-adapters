@@ -62,10 +62,12 @@ func (indexer *Indexer) Index(ctx context.Context, logs ...types.Log) ([]adapter
 		}
 
 		w := &adapters.Whitelist{
-			User:        to,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: to,
 		}
 
 		whitelist = append(whitelist, *w)

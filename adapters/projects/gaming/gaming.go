@@ -199,10 +199,12 @@ func (indexer *GamingProcessor) Process(ctx context.Context, blocks ...*types.Bl
 
 			if _, exists := indexer.ValidRecipients[to.Hex()]; exists {
 				whitelist = append(whitelist, adapters.Whitelist{
-					User:        sender,
-					BlockNumber: b.NumberU64(),
-					Time:        b.Time(),
-					TxHash:      tx.Hash(),
+					Metadata: adapters.Metadata{
+						BlockTime:   b.Time(),
+						BlockNumber: b.NumberU64(),
+						TxHash:      tx.Hash(),
+					},
+					User: sender,
 				})
 			}
 		}

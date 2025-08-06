@@ -74,10 +74,12 @@ func (indexer *TokenSoldIndexer) Index(ctx context.Context, logs ...types.Log) (
 		}
 
 		w := &adapters.Whitelist{
-			User:        tokenSoldEvent.Buyer,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: tokenSoldEvent.Buyer,
 		}
 
 		whitelist = append(whitelist, *w)

@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/symmetric"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestLockIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(667176)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := symmetric.NewLockIndexer(client, []common.Address{common.HexToAddress(symmetric.LockAddress)})
@@ -36,24 +36,28 @@ func TestLockIndexer(t *testing.T) {
 	duration := 8407669
 	expectedLocks := []adapters.Lock{
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(time),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			User:          user,
 			TokenAmount:   big.NewInt(413346247810476),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.WETHAddress),
 			Duration:      uint64(duration),
-			BlockTime:     uint64(time),
-			BlockNumber:   uint64(blocknumber),
-			TxHash:        txHash,
 		},
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(time),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			User:          user,
 			TokenAmount:   big.NewInt(2926854880867952131),
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			Duration:      uint64(duration),
-			BlockTime:     uint64(time),
-			BlockNumber:   uint64(blocknumber),
-			TxHash:        txHash,
 		},
 	}
 

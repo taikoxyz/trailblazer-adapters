@@ -57,10 +57,12 @@ func (indexer *DotTaikoIndexer) Index(ctx context.Context, logs ...types.Log) ([
 		}
 
 		w := &adapters.Whitelist{
-			User:        owner,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: owner,
 		}
 
 		whitelist = append(whitelist, *w)

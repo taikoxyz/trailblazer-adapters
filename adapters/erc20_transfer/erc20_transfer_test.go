@@ -10,15 +10,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	erc20transfer "github.com/taikoxyz/trailblazer-adapters/adapters/erc20_transfer"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(447659)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := erc20transfer.New(client)

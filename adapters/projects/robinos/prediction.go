@@ -172,14 +172,16 @@ func (indexer *PredictionIndexer) Index(ctx context.Context, logs ...types.Log) 
 
 			// Create a Prediction struct
 			prediction := adapters.Prediction{
+				Metadata: adapters.Metadata{
+					BlockTime:   block.Time(),
+					BlockNumber: block.NumberU64(),
+					TxHash:      l.TxHash,
+				},
 				User:          user,
 				TokenAmount:   reward,
 				TokenDecimals: adapters.TaikoTokenDecimals,
 				Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 				EventCode:     event.EventCode,
-				BlockTime:     block.Time(),
-				BlockNumber:   block.Number().Uint64(),
-				TxHash:        l.TxHash,
 			}
 
 			predictions = append(predictions, prediction)

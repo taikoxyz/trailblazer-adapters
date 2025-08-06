@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/robinos"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestPredictionIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(442090)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := robinos.NewPredictionIndexer(client, []common.Address{common.HexToAddress(robinos.RobinosAddress)}, robinos.SelectedMultiplierEvents)
@@ -46,34 +46,40 @@ func TestPredictionIndexer(t *testing.T) {
 	}
 	expectedPredictions := []adapters.Prediction{
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(1728292775),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			User:          common.HexToAddress("0x7e00AcD60C9d9D3339B53ec9d4b691df81ae32bf"),
 			TokenAmount:   tokenAmount1,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			EventCode:     event,
-			BlockTime:     uint64(1728292775),
-			BlockNumber:   uint64(blocknumber),
-			TxHash:        txHash,
 		},
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(1728292775),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			User:          common.HexToAddress("0xB0A4Ce05285ED7614AA88BA9F1C1741b34971a15"),
 			TokenAmount:   tokenAmount2,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			EventCode:     event,
-			BlockTime:     uint64(1728292775),
-			BlockNumber:   uint64(blocknumber),
-			TxHash:        txHash,
 		},
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(1728292775),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			User:          common.HexToAddress("0x3255f62BbD1317ed1590228f287be8D602d78443"),
 			TokenAmount:   tokenAmount3,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         common.HexToAddress(adapters.TaikoTokenAddress),
 			EventCode:     event,
-			BlockTime:     uint64(1728292775),
-			BlockNumber:   uint64(blocknumber),
-			TxHash:        txHash,
 		},
 	}
 

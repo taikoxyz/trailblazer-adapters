@@ -24,6 +24,7 @@ import (
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/loopex"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/loopring"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/nfts2me"
+	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okidori"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okx"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/omnihub"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/polaris"
@@ -226,6 +227,12 @@ func executeCommand(p prompt) error {
 		indexer := loopring.NewDepositRequestedIndexer(
 			client,
 			[]common.Address{common.HexToAddress(loopring.DepositRequestedAddress)},
+		)
+		return processLog(ctx, client, indexer, p.Blocknumber)
+	case OkidoriNftSold:
+		indexer := okidori.NewNftSoldIndexer(
+			client,
+			[]common.Address{common.HexToAddress(okidori.MarketplaceAddress)},
 		)
 		return processLog(ctx, client, indexer, p.Blocknumber)
 	default:

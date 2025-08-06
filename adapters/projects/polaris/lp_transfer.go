@@ -98,6 +98,11 @@ func (indexer *LPTransferIndexer) processPoolBalanceChangedLog(ctx context.Conte
 	vaultAddress := common.HexToAddress(VaultAddress)
 
 	transfer := adapters.LPTransfer{
+		Metadata: adapters.Metadata{
+			BlockTime:   block.Time(),
+			BlockNumber: block.NumberU64(),
+			TxHash:      l.TxHash,
+		},
 		From:           event.LiquidityProvider,
 		To:             vaultAddress,
 		Token0Amount:   event.Deltas[0],
@@ -106,9 +111,6 @@ func (indexer *LPTransferIndexer) processPoolBalanceChangedLog(ctx context.Conte
 		Token1Amount:   event.Deltas[1],
 		Token1Decimals: token1Decimals,
 		Token1:         event.Tokens[1],
-		Time:           block.Time(),
-		BlockNumber:    block.NumberU64(),
-		TxHash:         l.TxHash,
 	}
 
 	return &transfer, nil

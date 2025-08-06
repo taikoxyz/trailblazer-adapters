@@ -71,10 +71,12 @@ func (indexer *DepositRequestedIndexer) Index(ctx context.Context, logs ...types
 		}
 
 		w := &adapters.Whitelist{
-			User:        depositRequestedEvent.From,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: depositRequestedEvent.From,
 		}
 
 		ws = append(ws, *w)
