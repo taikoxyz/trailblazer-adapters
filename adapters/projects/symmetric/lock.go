@@ -166,14 +166,16 @@ func (indexer *LockIndexer) createLocks(user common.Address, duration, depositVa
 		userAmount.Div(userAmount, totalSupply)
 
 		lock := adapters.Lock{
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      txHash,
+			},
 			User:          user,
 			TokenAmount:   userAmount,
 			TokenDecimals: adapters.TaikoTokenDecimals,
 			Token:         token,
 			Duration:      duration.Uint64(),
-			BlockTime:     block.Time(),
-			BlockNumber:   block.NumberU64(),
-			TxHash:        txHash,
 		}
 		locks = append(locks, lock)
 	}

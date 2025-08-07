@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/avalon"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestClaimIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(983938)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := avalon.NewClaimIndexer(client, []common.Address{common.HexToAddress(avalon.ClaimAddress)})

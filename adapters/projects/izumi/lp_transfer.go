@@ -133,6 +133,11 @@ func (indexer *LPTransferIndexer) Index(ctx context.Context, logs ...types.Log) 
 
 		// Return the LPTransfer struct with calculated values
 		lpTransfer := &adapters.LPTransfer{
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
 			From:           from,
 			To:             to,
 			Token0Amount:   token0Amount,
@@ -141,9 +146,6 @@ func (indexer *LPTransferIndexer) Index(ctx context.Context, logs ...types.Log) 
 			Token1Amount:   token1Amount,
 			Token1Decimals: token1Decimals,
 			Token1:         token1Address,
-			Time:           block.Time(),
-			BlockNumber:    block.NumberU64(),
-			TxHash:         l.TxHash,
 		}
 
 		lpTransfers = append(lpTransfers, *lpTransfer)

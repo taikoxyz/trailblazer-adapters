@@ -10,15 +10,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/loopring"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestDepositRequestedIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(1116640)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := loopring.NewDepositRequestedIndexer(client, []common.Address{common.HexToAddress(loopring.DepositRequestedAddress)})
@@ -30,7 +30,7 @@ func TestDepositRequestedIndexer(t *testing.T) {
 	require.NoError(t, err)
 	require.Len(t, ws, 1)
 	assert.Equal(t, common.HexToAddress("0x4e79125DDebA405d82326e85C80603e15B3a3f80"), ws[0].User)
-	assert.Equal(t, uint64(1745954111), ws[0].Time)
+	assert.Equal(t, uint64(1745954111), ws[0].BlockTime)
 	assert.Equal(t, uint64(blocknumber), ws[0].BlockNumber)
 	assert.Equal(t, common.HexToHash("0x87cfc6f982c745bf400bb5dd824ae24e2440d6796237b213782ed20eca5cd34d"), ws[0].TxHash)
 }

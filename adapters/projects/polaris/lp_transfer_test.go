@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/polaris"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestLPTransferIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(408155)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := polaris.NewLPTransferIndexer(client, []common.Address{common.HexToAddress(polaris.VaultAddress)})
@@ -34,6 +34,11 @@ func TestLPTransferIndexer(t *testing.T) {
 	time := 1727179415
 	expectedTransfers := []adapters.LPTransfer{
 		{
+			Metadata: adapters.Metadata{
+				BlockTime:   uint64(time),
+				BlockNumber: uint64(blocknumber),
+				TxHash:      txHash,
+			},
 			From:           user,
 			To:             common.HexToAddress(polaris.VaultAddress),
 			Token0Amount:   big.NewInt(223714285714285710),
@@ -42,9 +47,6 @@ func TestLPTransferIndexer(t *testing.T) {
 			Token1Amount:   big.NewInt(300000000000000000),
 			Token1Decimals: uint8(18),
 			Token1:         common.HexToAddress("0xA9d23408b9bA935c230493c40C73824Df71A0975"),
-			Time:           uint64(time),
-			BlockNumber:    uint64(blocknumber),
-			TxHash:         txHash,
 		},
 	}
 
@@ -57,7 +59,7 @@ func TestLPTransferIndexer(t *testing.T) {
 		assert.Equal(t, expectedTransfers[i].Token1Amount, transfer.Token1Amount)
 		assert.Equal(t, expectedTransfers[i].Token1Decimals, transfer.Token1Decimals)
 		assert.Equal(t, expectedTransfers[i].Token1, transfer.Token1)
-		assert.Equal(t, expectedTransfers[i].Time, transfer.Time)
+		assert.Equal(t, expectedTransfers[i].BlockTime, transfer.BlockTime)
 		assert.Equal(t, expectedTransfers[i].BlockNumber, transfer.BlockNumber)
 		assert.Equal(t, expectedTransfers[i].TxHash, transfer.TxHash)
 	}

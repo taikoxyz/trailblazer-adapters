@@ -22,17 +22,22 @@ func ZeroAddress() common.Address {
 	return common.HexToAddress("0x0000000000000000000000000000000000000000")
 }
 
-// Whitelist contains information for general whitelisted protocols
-type Whitelist struct {
-	User        common.Address
-	Time        uint64
+type Metadata struct {
+	BlockTime   uint64
 	BlockNumber uint64
 	TxHash      common.Hash
+}
+
+// Whitelist contains information for general whitelisted protocols
+type Whitelist struct {
+	Metadata
+	User common.Address
 }
 
 // LPTransfer is used for LP transfers.
 // For examples, see Izumi and Ritsu.
 type LPTransfer struct {
+	Metadata
 	From           common.Address
 	To             common.Address
 	Token0Amount   *big.Int
@@ -41,47 +46,54 @@ type LPTransfer struct {
 	Token1Amount   *big.Int
 	Token1Decimals uint8
 	Token1         common.Address
-	Time           uint64
-	BlockNumber    uint64
-	TxHash         common.Hash
 }
 
 // Lock is used for token locking campaign.
 // For examples, see Drips and Symmetric.
 type Lock struct {
+	Metadata
 	User          common.Address
 	TokenAmount   *big.Int
 	TokenDecimals uint8
 	Token         common.Address
 	Duration      uint64
-	BlockTime     uint64
-	BlockNumber   uint64
-	TxHash        common.Hash
 }
 
 // Position is used for airdrop or trading campaign.
 // For examples, see Avalon.
 type Position struct {
+	Metadata
 	User          common.Address
 	TokenAmount   *big.Int
 	TokenDecimals uint8
 	Token         common.Address
-	BlockTime     uint64
-	BlockNumber   uint64
-	TxHash        common.Hash
 }
 
 // Prediction is used for prediction campaign.
 // For examples, see Robinos.
 type Prediction struct {
+	Metadata
 	User          common.Address
 	TokenAmount   *big.Int
 	TokenDecimals uint8
 	Token         common.Address
 	EventCode     string
-	BlockTime     uint64
-	BlockNumber   uint64
-	TxHash        common.Hash
+}
+
+type Nft struct {
+	Collection common.Address
+	TokenId    *big.Int
+}
+
+// NftSold is used for NFT sold events.
+// For examples, see Okidori marketplace.
+type NftSold struct {
+	Metadata
+	Nft
+	Seller   common.Address
+	Buyer    common.Address
+	Price    *big.Int
+	Currency common.Address
 }
 
 // LogIndexer is the generic interface for indexing logs into types above.

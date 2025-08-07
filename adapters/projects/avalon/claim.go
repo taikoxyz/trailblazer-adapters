@@ -74,13 +74,15 @@ func (indexer *ClaimIndexer) Index(ctx context.Context, logs ...types.Log) ([]ad
 		}
 
 		claim := &adapters.Position{
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
 			User:          user,
 			TokenAmount:   claimedEvent.AvlAmount,
 			TokenDecimals: AvlTokenDecimal,
 			Token:         common.HexToAddress(AvlTokenAddress),
-			BlockTime:     block.Time(),
-			BlockNumber:   block.NumberU64(),
-			TxHash:        l.TxHash,
 		}
 
 		claims = append(claims, *claim)

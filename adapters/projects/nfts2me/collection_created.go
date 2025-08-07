@@ -52,32 +52,18 @@ func (indexer *CollectionCreatedIndexer) Index(ctx context.Context, logs ...type
 		}
 
 		w := &adapters.Whitelist{
-			User:        to,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: to,
 		}
 
 		whitelist = append(whitelist, *w)
 	}
 
 	return whitelist, nil
-}
-
-// processLog processes a single ERC20 transfer log.
-func (indexer *CollectionCreatedIndexer) ProcessLog(ctx context.Context, chainID *big.Int, client *ethclient.Client, vLog types.Log) (*adapters.Whitelist, error) {
-	to := common.BytesToAddress(vLog.Topics[2].Bytes()[12:])
-
-	block, err := client.BlockByNumber(ctx, big.NewInt(int64(vLog.BlockNumber)))
-	if err != nil {
-		return nil, err
-	}
-
-	return &adapters.Whitelist{
-		User:        to,
-		Time:        block.Time(),
-		BlockNumber: block.Number().Uint64(),
-	}, nil
 }
 
 func (indexer *CollectionCreatedIndexer) isERC721Transfer(l types.Log) bool {

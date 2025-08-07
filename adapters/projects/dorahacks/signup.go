@@ -71,10 +71,12 @@ func (indexer *SignupIndexer) Index(ctx context.Context, logs ...types.Log) ([]a
 		}
 
 		w := &adapters.Whitelist{
-			User:        sender, // msg.sender equals signup for DoraHacks MACI
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      txHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: sender, // msg.sender equals signup for DoraHacks MACI
 		}
 
 		ws = append(ws, *w)

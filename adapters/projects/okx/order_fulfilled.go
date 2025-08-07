@@ -88,10 +88,12 @@ func (indexer *OrderFulfilledIndexer) Index(ctx context.Context, logs ...types.L
 		}
 
 		w := &adapters.Whitelist{
-			User:        orderFulfilledEvent.Recipient,
-			Time:        block.Time(),
-			BlockNumber: block.NumberU64(),
-			TxHash:      l.TxHash,
+			Metadata: adapters.Metadata{
+				BlockTime:   block.Time(),
+				BlockNumber: block.NumberU64(),
+				TxHash:      l.TxHash,
+			},
+			User: orderFulfilledEvent.Recipient,
 		}
 
 		whitelist = append(whitelist, *w)

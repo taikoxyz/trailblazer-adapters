@@ -10,15 +10,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/taikoxyz/trailblazer-adapters/adapters"
 	"github.com/taikoxyz/trailblazer-adapters/adapters/projects/okx"
+	"github.com/taikoxyz/trailblazer-adapters/testutils"
 )
 
 func TestTokenSoldIndexer(t *testing.T) {
-	taikoRPC := "https://rpc.taiko.xyz"
 	blocknumber := int64(448072)
 
 	ctx := context.Background()
 
-	client, err := ethclient.Dial(taikoRPC)
+	client, err := ethclient.Dial(testutils.TaikoRPC)
 	require.NoError(t, err)
 
 	indexer := okx.NewOrderFulfilledIndexer(client, []common.Address{common.HexToAddress(okx.OrderFulfilledAddress)})
