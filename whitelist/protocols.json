@@ -1014,6 +1014,16 @@
     ]
   },
   {
+    "name": "BarKrypto",
+    "slug": "BarKrypto",
+    "twitter": "@BarKrypto",
+    "logo": "barkrypto.png",
+    "contracts": [
+      "0x72e5599798f36045c9549a11f2674d28c2209c30",
+      "0xbDFC6FaFB0b510d10854B644e4cf5EADd2547012"
+    ]
+  },
+  {
     "name": "IceCreamSwap",
     "slug": "icecreamswap",
     "logo": "icecream.png",
