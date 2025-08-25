@@ -117,6 +117,12 @@ var SelectedMultiplierEvents = []string{
 	"UEFA Champions League 24/25 - Bayer Leverkusen v. Bayern Munich",
 	"UEFA Champions League 24/25 - Barcelona v. Benfica",
 	"Prediction - $TAIKO to go under $0.50 before Mar 17",
+	"Prediction - $TAIKO to go over $0.90 before April 1",
+	"Prediction - $BTC to go over $90,000 before April 1",
+	"Prediction - $ETH to go over $2,100 before April 1",
+	"Prediction - $TAIKO to go under $0.60 before April 1",
+	"Prediction - $BTC to go under $80,000 before April 1",
+	"Prediction - $ETH to go under $1,800 before April 1",
 }
 
 type PredictionIndexer struct {
